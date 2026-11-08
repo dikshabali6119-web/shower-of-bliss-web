@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { 
   Sparkles, 
@@ -113,11 +113,7 @@ interface NirmalaHeritageSectionProps {
 
 export default function NirmalaHeritageSection({ onSelectVideo }: NirmalaHeritageSectionProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [touchStartX, setTouchStartX] = useState<number | null>(null);
-  const [touchEndX, setTouchEndX] = useState<number | null>(null);
-  const [isMouseDown, setIsMouseDown] = useState(false);
-  const [mouseStartX, setMouseStartX] = useState(0);
-  const [mouseCurrentX, setMouseCurrentX] = useState(0);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
   const totalVideos = SIKH_DHARMIK_VIDEOS.length;
 
@@ -129,54 +125,14 @@ export default function NirmalaHeritageSection({ onSelectVideo }: NirmalaHeritag
     setCurrentIndex((prev) => (prev === 0 ? totalVideos - 1 : prev - 1));
   };
 
-  // Touch Swipe Handlers for Mobile & Tablet
-  const handleTouchStart = (e: React.TouchEvent) => {
-    setTouchStartX(e.targetTouches[0].clientX);
-    setTouchEndX(null);
-  };
-
-  const handleTouchMove = (e: React.TouchEvent) => {
-    setTouchEndX(e.targetTouches[0].clientX);
-  };
-
-  const handleTouchEnd = () => {
-    if (!touchStartX || !touchEndX) return;
-    const distance = touchStartX - touchEndX;
-    const minSwipeDistance = 45;
-
-    if (distance > minSwipeDistance) {
-      nextSlide(); // Swiped Left -> Next
-    } else if (distance < -minSwipeDistance) {
-      prevSlide(); // Swiped Right -> Prev
-    }
-    setTouchStartX(null);
-    setTouchEndX(null);
-  };
-
-  // Mouse Drag Handlers for Desktop Swipe
-  const handleMouseDown = (e: React.MouseEvent) => {
-    setIsMouseDown(true);
-    setMouseStartX(e.clientX);
-    setMouseCurrentX(e.clientX);
-  };
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (!isMouseDown) return;
-    setMouseCurrentX(e.clientX);
-  };
-
-  const handleMouseUp = () => {
-    if (!isMouseDown) return;
-    const distance = mouseStartX - mouseCurrentX;
-    const minDragDistance = 50;
-
-    if (distance > minDragDistance) {
+  // Automatic Smooth Sliding (User Requested: Automatic swipe hona chahiye)
+  useEffect(() => {
+    if (!isAutoPlaying) return;
+    const interval = setInterval(() => {
       nextSlide();
-    } else if (distance < -minDragDistance) {
-      prevSlide();
-    }
-    setIsMouseDown(false);
-  };
+    }, 4500); // changes every 4.5 seconds automatically
+    return () => clearInterval(interval);
+  }, [isAutoPlaying, currentIndex]);
 
   const handleCardClick = (video: VideoItem) => {
     if (onSelectVideo) {
@@ -190,96 +146,96 @@ export default function NirmalaHeritageSection({ onSelectVideo }: NirmalaHeritag
     <section id="about-swamiji" className="scroll-mt-28 py-12 md:py-20 relative">
       
       {/* Background Soft Sky Blue Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-80 bg-[#38bdf8]/15 dark:bg-[#0284c7]/20 blur-3xl pointer-events-none -z-10" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-80 bg-[#38bdf8]/15 dark:bg-[#0284c7]/25 blur-3xl pointer-events-none -z-10" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-10">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#0284c7]/15 dark:bg-[#162540] text-[#0369a1] dark:text-[#38bdf8] border border-[#0284c7]/30 text-xs font-bold mb-3 shadow-xs">
-            <Shield className="w-3.5 h-3.5 text-[#eab308]" />
-            <span>Sacred Sikh Lineage • निर्मला संप्रदाय व सिख गुरु परंपरा</span>
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#0284c7]/15 dark:bg-[#162540] text-[#0284c7] dark:text-[#38bdf8] border-2 border-[#0284c7]/40 dark:border-[#38bdf8]/50 text-xs font-bold mb-3 shadow-sm">
+            <Shield className="w-3.5 h-3.5 text-[#eab308] dark:text-[#facc15]" />
+            <span className="dark:text-[#facc15]">Sacred Sikh Lineage • निर्मला संप्रदाय व सिख गुरु परंपरा</span>
           </div>
 
-          <h2 className="font-serif-bliss text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 dark:text-white tracking-tight leading-tight">
+          <h2 className="font-serif-bliss text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight">
             The Guru-Shishya Heritage:{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0284c7] via-[#0ea5e9] to-[#eab308] dark:from-[#38bdf8] dark:via-[#facc15] dark:to-[#fde047]">
               Sant Nikka Singh Ji
             </span>
           </h2>
 
-          <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 mt-3 leading-relaxed">
-            Discover the sacred Sikh Gurus tradition behind Shower of Bliss. Swipe through the YouTube discourses below on Sri Guru Nanak Dev Ji, Sri Guru Gobind Singh Ji, Sant Nikka Singh Ji, and Guruvani meditation.
+          <p className="text-sm sm:text-base text-slate-700 dark:text-slate-100 font-medium mt-3 leading-relaxed">
+            Discover the sacred Sikh Gurus tradition behind Shower of Bliss through authentic YouTube discourses on Sri Guru Nanak Dev Ji, Sri Guru Gobind Singh Ji, Sant Nikka Singh Ji, and Guruvani meditation.
           </p>
         </div>
 
-        {/* SWIPEABLE DHARMIK SIKH GURU YOUTUBE VIDEO SLIDER */}
-        <div className="relative mb-16">
+        {/* AUTOMATIC SIKH GURU YOUTUBE VIDEO CAROUSEL */}
+        <div 
+          className="relative mb-16"
+          onMouseEnter={() => setIsAutoPlaying(false)}
+          onMouseLeave={() => setIsAutoPlaying(true)}
+        >
           
-          {/* Slider Controls Bar */}
-          <div className="flex items-center justify-between pb-4 mb-4 border-b border-[#0284c7]/20 dark:border-[#eab308]/20">
-            <div className="flex items-center gap-2">
-              <span className="p-1.5 rounded-xl bg-[#0284c7] text-[#fef08a] font-serif font-bold text-sm">
+          {/* Header Bar with Next / Prev Controls */}
+          <div className="flex items-center justify-between pb-4 mb-4 border-b border-[#0284c7]/20 dark:border-[#eab308]/30">
+            <div className="flex items-center gap-2.5">
+              <span className="p-1.5 rounded-xl bg-[#0284c7] text-[#fef08a] font-serif font-extrabold text-sm shadow-xs border border-[#eab308]/50">
                 ੴ
               </span>
               <span className="text-xs sm:text-sm font-bold text-[#0284c7] dark:text-[#facc15] uppercase tracking-wide">
-                सिख गुरु व निर्मला परंपरा वीडियो संग्रह (Swipeable Carousel)
+                सिख गुरु व निर्मला परंपरा पावन प्रवचन (Sikh Sacred Discourses)
               </span>
             </div>
 
             {/* Prev / Next Buttons */}
             <div className="flex items-center gap-2">
               <button
-                onClick={prevSlide}
+                onClick={() => {
+                  setIsAutoPlaying(false);
+                  prevSlide();
+                }}
                 aria-label="Previous Sikh video"
-                className="w-9 h-9 rounded-full bg-white dark:bg-[#162540] hover:bg-[#0284c7] hover:text-white text-[#0284c7] dark:text-[#38bdf8] flex items-center justify-center border-2 border-[#eab308]/60 transition-all hover:scale-105 active:scale-95 shadow-sm"
+                className="w-10 h-10 rounded-full bg-white dark:bg-[#162540] hover:bg-[#0284c7] hover:text-white text-[#0284c7] dark:text-[#facc15] flex items-center justify-center border-2 border-[#eab308]/60 transition-all hover:scale-105 active:scale-95 shadow-md"
               >
-                <ChevronLeft className="w-5 h-5 text-[#eab308] group-hover:text-white" />
+                <ChevronLeft className="w-5 h-5 text-[#eab308] dark:text-[#facc15]" />
               </button>
 
-              <span className="text-xs font-mono font-bold text-[#0284c7] dark:text-[#facc15] px-2.5 py-1 rounded-full bg-[#e0f2fe] dark:bg-[#1e293b]">
+              <span className="text-xs font-mono font-bold text-[#0284c7] dark:text-[#facc15] px-3 py-1 rounded-full bg-[#e0f2fe] dark:bg-[#1e293b] border border-[#0284c7]/30 dark:border-[#facc15]/40">
                 {currentIndex + 1} / {totalVideos}
               </span>
 
               <button
-                onClick={nextSlide}
+                onClick={() => {
+                  setIsAutoPlaying(false);
+                  nextSlide();
+                }}
                 aria-label="Next Sikh video"
-                className="w-9 h-9 rounded-full bg-white dark:bg-[#162540] hover:bg-[#0284c7] hover:text-white text-[#0284c7] dark:text-[#38bdf8] flex items-center justify-center border-2 border-[#eab308]/60 transition-all hover:scale-105 active:scale-95 shadow-sm"
+                className="w-10 h-10 rounded-full bg-white dark:bg-[#162540] hover:bg-[#0284c7] hover:text-white text-[#0284c7] dark:text-[#facc15] flex items-center justify-center border-2 border-[#eab308]/60 transition-all hover:scale-105 active:scale-95 shadow-md"
               >
-                <ChevronRight className="w-5 h-5 text-[#eab308] group-hover:text-white" />
+                <ChevronRight className="w-5 h-5 text-[#eab308] dark:text-[#facc15]" />
               </button>
             </div>
           </div>
 
-          {/* Swipeable Track Area (Touch & Mouse Drag Supported) */}
-          <div 
-            className="overflow-hidden select-none cursor-grab active:cursor-grabbing rounded-3xl"
-            onTouchStart={handleTouchStart}
-            onTouchMove={handleTouchMove}
-            onTouchEnd={handleTouchEnd}
-            onMouseDown={handleMouseDown}
-            onMouseMove={handleMouseMove}
-            onMouseUp={handleMouseUp}
-            onMouseLeave={handleMouseUp}
-          >
-            {/* Desktop & Mobile Multi-Card Display with Smooth Slide Offset */}
+          {/* Automatic Sliding Track */}
+          <div className="overflow-hidden rounded-3xl">
             <div 
-              className="flex transition-transform duration-500 ease-out gap-6"
+              className="flex transition-transform duration-700 ease-in-out gap-6"
               style={{
                 transform: `translateX(-${currentIndex * 100}%)`,
               }}
             >
-              {SIKH_DHARMIK_VIDEOS.map((video, idx) => (
+              {SIKH_DHARMIK_VIDEOS.map((video) => (
                 <div
                   key={video.id}
                   className="w-full shrink-0"
                 >
-                  <div className="glass-panel rounded-3xl p-6 sm:p-8 border-2 border-[#eab308]/50 shadow-2xl bg-white/95 dark:bg-[#111d33]/95 gold-glow-card">
+                  <div className="glass-panel rounded-3xl p-6 sm:p-8 border-2 border-[#eab308]/60 dark:border-[#facc15]/60 shadow-2xl bg-white/95 dark:bg-[#111d33]/95 gold-glow-card">
                     <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-center">
                       
                       {/* Video Thumbnail with Hover Play Button (5 cols on lg) */}
                       <div 
-                        className="relative lg:col-span-5 w-full h-56 sm:h-64 rounded-2xl overflow-hidden cursor-pointer bg-slate-900 border-2 border-[#eab308]/50 group/thumb shadow-lg"
+                        className="relative lg:col-span-5 w-full h-56 sm:h-64 rounded-2xl overflow-hidden cursor-pointer bg-slate-900 border-2 border-[#eab308]/60 dark:border-[#facc15]/60 group/thumb shadow-lg"
                         onClick={() => handleCardClick(video)}
                       >
                         <Image
@@ -288,23 +244,23 @@ export default function NirmalaHeritageSection({ onSelectVideo }: NirmalaHeritag
                           fill
                           className="object-cover transition-transform duration-500 group-hover/thumb:scale-105"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent" />
                         
                         {/* Play Center Button */}
                         <div className="absolute inset-0 flex items-center justify-center">
-                          <div className="w-14 h-14 rounded-full bg-[#0284c7] text-[#fef08a] border-2 border-[#facc15] shadow-[0_0_25px_rgba(250,204,21,0.6)] flex items-center justify-center group-hover/thumb:scale-115 transition-transform duration-300">
-                            <Play className="w-5 h-5 fill-current ml-0.5" />
+                          <div className="w-16 h-16 rounded-full bg-[#0284c7] text-[#fef08a] border-2 border-[#facc15] shadow-[0_0_25px_rgba(250,204,21,0.6)] flex items-center justify-center group-hover/thumb:scale-115 transition-transform duration-300">
+                            <Play className="w-6 h-6 fill-current ml-0.5" />
                           </div>
                         </div>
 
                         {/* Top Sikh Sacred Emblem */}
-                        <div className="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-black/75 backdrop-blur-md text-[#facc15] text-xs font-bold border border-[#eab308]/40 flex items-center gap-1.5">
-                          <span className="font-serif">ੴ</span>
+                        <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-black/85 backdrop-blur-md text-[#facc15] text-xs font-bold border border-[#eab308]/50 flex items-center gap-1.5 shadow-md">
+                          <span className="font-serif font-extrabold text-sm">ੴ</span>
                           <span>सिख धर्म साधना</span>
                         </div>
 
                         {/* Duration Pill */}
-                        <div className="absolute bottom-3 left-3 px-3 py-1 rounded-full bg-black/80 backdrop-blur-md text-white text-xs font-mono font-bold flex items-center gap-1.5 border border-white/20">
+                        <div className="absolute bottom-3 left-3 px-3 py-1 rounded-full bg-black/85 backdrop-blur-md text-white text-xs font-mono font-bold flex items-center gap-1.5 border border-white/20">
                           <Clock className="w-3.5 h-3.5 text-[#facc15]" />
                           <span>{video.duration}</span>
                         </div>
@@ -316,20 +272,20 @@ export default function NirmalaHeritageSection({ onSelectVideo }: NirmalaHeritag
                           
                           {/* Badges */}
                           <div className="flex flex-wrap items-center gap-2 mb-3">
-                            <span className="px-3 py-1 rounded-full text-xs font-bold bg-[#e0f2fe] dark:bg-[#162540] text-[#0284c7] dark:text-[#38bdf8] border border-[#0284c7]/30">
+                            <span className="px-3 py-1 rounded-full text-xs font-bold bg-[#e0f2fe] dark:bg-[#162540] text-[#0284c7] dark:text-[#38bdf8] border border-[#0284c7]/30 dark:border-[#38bdf8]/40">
                               {video.categoryLabel}
                             </span>
-                            <span className="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-[#fef08a] dark:bg-[#1e293b] text-[#854d0e] dark:text-[#fde047] border border-[#eab308]/40 flex items-center gap-1">
-                              <Sparkles className="w-3 h-3 text-[#eab308]" />
+                            <span className="px-2.5 py-0.5 rounded-full text-xs font-bold bg-[#fef08a] dark:bg-[#1e293b] text-[#854d0e] dark:text-[#fde047] border border-[#eab308]/50 flex items-center gap-1">
+                              <Sparkles className="w-3.5 h-3.5 text-[#eab308] dark:text-[#facc15]" />
                               {video.frequency}
                             </span>
                           </div>
 
-                          <h3 className="font-serif-bliss text-xl sm:text-2xl md:text-3xl font-bold text-slate-900 dark:text-white leading-snug mb-3">
+                          <h3 className="font-serif-bliss text-xl sm:text-2xl md:text-3xl font-extrabold text-slate-900 dark:text-white leading-snug mb-3 drop-shadow-xs">
                             {video.title}
                           </h3>
 
-                          <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-6">
+                          <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-100 font-medium leading-relaxed mb-6">
                             {video.description}
                           </p>
 
@@ -338,7 +294,7 @@ export default function NirmalaHeritageSection({ onSelectVideo }: NirmalaHeritag
                             {video.tags.map((tag, tIdx) => (
                               <span 
                                 key={tIdx} 
-                                className="text-[11px] font-semibold text-slate-600 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 px-2.5 py-0.5 rounded-full border border-slate-200 dark:border-slate-700"
+                                className="text-[11px] font-bold text-[#0284c7] dark:text-[#7dd3fc] bg-[#e0f2fe]/80 dark:bg-[#162540] px-3 py-0.5 rounded-full border border-[#0284c7]/20 dark:border-[#38bdf8]/30"
                               >
                                 #{tag}
                               </span>
@@ -347,10 +303,10 @@ export default function NirmalaHeritageSection({ onSelectVideo }: NirmalaHeritag
                         </div>
 
                         {/* Actions */}
-                        <div className="pt-4 border-t border-[#0284c7]/20 dark:border-[#eab308]/20 flex flex-wrap items-center justify-between gap-3">
+                        <div className="pt-4 border-t border-[#0284c7]/20 dark:border-[#eab308]/30 flex flex-wrap items-center justify-between gap-3">
                           <button
                             onClick={() => handleCardClick(video)}
-                            className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-gradient-to-r from-[#0284c7] to-[#0369a1] hover:from-[#0369a1] text-white text-xs sm:text-sm font-bold shadow-md hover:scale-105 active:scale-95 transition-all border border-[#eab308]/50"
+                            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-[#0284c7] to-[#0369a1] hover:from-[#0369a1] text-white text-xs sm:text-sm font-extrabold shadow-lg hover:scale-105 active:scale-95 transition-all border-2 border-[#facc15]"
                           >
                             <Play className="w-4 h-4 fill-current text-[#fef08a]" />
                             <span>सत्संग वीडियो देखें (Play Video)</span>
@@ -360,7 +316,7 @@ export default function NirmalaHeritageSection({ onSelectVideo }: NirmalaHeritag
                             href={`https://www.youtube.com/@amarjit311/videos`}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-red-600 hover:bg-red-700 text-white text-xs font-bold transition-all shadow-sm"
+                            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-red-600 hover:bg-red-700 text-white text-xs font-bold transition-all shadow-md border border-white/20 hover:scale-105"
                           >
                             <YoutubeIcon className="w-3.5 h-3.5" />
                             <span>YouTube @amarjit311</span>
@@ -377,26 +333,23 @@ export default function NirmalaHeritageSection({ onSelectVideo }: NirmalaHeritag
             </div>
           </div>
 
-          {/* Pagination Indicators & Swipe Tip */}
-          <div className="flex items-center justify-between mt-4">
-            <span className="text-[11px] text-slate-500 dark:text-slate-400 font-medium">
-              💡 मोबाइल या माउस से बाईं/दाईं ओर स्वाइप (Swipe) करके अन्य वीडियो देखें
-            </span>
-
-            <div className="flex items-center gap-1.5">
-              {SIKH_DHARMIK_VIDEOS.map((_, dotIdx) => (
-                <button
-                  key={dotIdx}
-                  onClick={() => setCurrentIndex(dotIdx)}
-                  aria-label={`Go to slide ${dotIdx + 1}`}
-                  className={`h-2 rounded-full transition-all duration-300 ${
-                    currentIndex === dotIdx
-                      ? 'w-7 bg-[#0284c7] dark:bg-[#facc15]'
-                      : 'w-2 bg-slate-300 dark:bg-slate-700 hover:bg-slate-400'
-                  }`}
-                />
-              ))}
-            </div>
+          {/* Dots Indicator */}
+          <div className="flex items-center justify-center gap-2 mt-5">
+            {SIKH_DHARMIK_VIDEOS.map((_, dotIdx) => (
+              <button
+                key={dotIdx}
+                onClick={() => {
+                  setIsAutoPlaying(false);
+                  setCurrentIndex(dotIdx);
+                }}
+                aria-label={`Slide ${dotIdx + 1}`}
+                className={`h-2.5 rounded-full transition-all duration-300 ${
+                  currentIndex === dotIdx
+                    ? 'w-8 bg-[#0284c7] dark:bg-[#facc15] shadow-xs'
+                    : 'w-2.5 bg-slate-300 dark:bg-slate-700 hover:bg-slate-400'
+                }`}
+              />
+            ))}
           </div>
 
         </div>
@@ -407,13 +360,13 @@ export default function NirmalaHeritageSection({ onSelectVideo }: NirmalaHeritag
             
             <div className="lg:col-span-5 flex flex-col gap-4">
               <span className="text-xs font-bold uppercase tracking-wider text-[#0284c7] dark:text-[#38bdf8] flex items-center gap-1.5">
-                <Sparkles className="w-4 h-4 text-[#eab308]" />
+                <Sparkles className="w-4 h-4 text-[#eab308] dark:text-[#facc15]" />
                 Core Curriculum of Awakening
               </span>
-              <h3 className="font-serif-bliss text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white leading-tight">
+              <h3 className="font-serif-bliss text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white leading-tight">
                 The 4 Pillars Taught by Swami Amarjit Singh
               </h3>
-              <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+              <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-100 font-medium leading-relaxed">
                 Every video, discourse, and guided session on the YouTube channel <strong>@amarjit311</strong> is rooted in these four timeless pillars:
               </p>
               
@@ -428,38 +381,38 @@ export default function NirmalaHeritageSection({ onSelectVideo }: NirmalaHeritag
 
             <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
               
-              <div className="p-4 rounded-2xl bg-white/90 dark:bg-[#15233c] border-2 border-[#eab308]/40 shadow-sm">
+              <div className="p-4 rounded-2xl bg-white/95 dark:bg-[#15233c] border-2 border-[#eab308]/40 shadow-sm">
                 <h4 className="font-serif-bliss text-base font-bold text-[#0284c7] dark:text-[#38bdf8] mb-1">
                   1. Upadesa Saram (महर्षि रमण)
                 </h4>
-                <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                <p className="text-xs text-slate-700 dark:text-slate-200 leading-relaxed">
                   Direct Self-Inquiry ("Who Am I?"). Dissolving the mind in the heart cave to abide in natural Samadhi.
                 </p>
               </div>
 
-              <div className="p-4 rounded-2xl bg-white/90 dark:bg-[#15233c] border-2 border-[#eab308]/40 shadow-sm">
+              <div className="p-4 rounded-2xl bg-white/95 dark:bg-[#15233c] border-2 border-[#eab308]/40 shadow-sm">
                 <h4 className="font-serif-bliss text-base font-bold text-[#0284c7] dark:text-[#38bdf8] mb-1">
                   2. Bhagavad Gita (श्रीमद्भगवद्गीता)
                 </h4>
-                <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                <p className="text-xs text-slate-700 dark:text-slate-200 leading-relaxed">
                   Chapter 4 Shloka 34, Nishkam Karma, and Guru-Seva to awaken the light of supreme wisdom.
                 </p>
               </div>
 
-              <div className="p-4 rounded-2xl bg-white/90 dark:bg-[#15233c] border-2 border-[#eab308]/40 shadow-sm">
+              <div className="p-4 rounded-2xl bg-white/95 dark:bg-[#15233c] border-2 border-[#eab308]/40 shadow-sm">
                 <h4 className="font-serif-bliss text-base font-bold text-[#0284c7] dark:text-[#38bdf8] mb-1">
                   3. Vedic Wisdom &amp; Katha (वेद कथा)
                 </h4>
-                <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                <p className="text-xs text-slate-700 dark:text-slate-200 leading-relaxed">
                   Ancient Upanishadic allegories explaining the non-dual Truth of Atman, Maya, and Mukti.
                 </p>
               </div>
 
-              <div className="p-4 rounded-2xl bg-white/90 dark:bg-[#15233c] border-2 border-[#eab308]/40 shadow-sm">
+              <div className="p-4 rounded-2xl bg-white/95 dark:bg-[#15233c] border-2 border-[#eab308]/40 shadow-sm">
                 <h4 className="font-serif-bliss text-base font-bold text-[#0284c7] dark:text-[#38bdf8] mb-1">
                   4. Poetry of Sultan Bahu (सूफी वाणी)
                 </h4>
-                <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                <p className="text-xs text-slate-700 dark:text-slate-200 leading-relaxed">
                   Cultivating divine ecstatic love ("Ishq-e-Haqeeqi") and rooting the plant of God's Name in the heart.
                 </p>
               </div>

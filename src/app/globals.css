@@ -1,11 +1,13 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
   /* CELESTIAL SKY BLUE & GOLDEN YELLOW PALETTE */
   --bg-primary: #f0f7ff;              /* Serene Sky Blue tinted crystalline canvas */
   --bg-secondary: #e0f2fe;            /* Soft Sky Blue mist */
-  --bg-surface: rgba(255, 255, 255, 0.92);
-  --bg-card: rgba(255, 255, 255, 0.88);
+  --bg-surface: rgba(255, 255, 255, 0.95);
+  --bg-card: rgba(255, 255, 255, 0.92);
   --bg-card-hover: rgba(255, 255, 255, 0.98);
   --text-primary: #0f172a;            /* Deep crystalline slate / navy - ultra readable */
   --text-secondary: #334155;          /* Sophisticated slate */
@@ -22,26 +24,54 @@
   --glow-sky: rgba(14, 165, 233, 0.25);
 }
 
-/* Night / Evening Mode in Rich Dusk Sky Blue & Golden Amber (Not Pitch Black!) */
+/* HIGH-CONTRAST VIBRANT NIGHT MODE (Bright Glowing White & Golden Yellow on Deep Navy - NOT Pitch Black!) */
 .dark {
-  --bg-primary: #0c1524;              /* Deep peaceful twilight sky-slate */
-  --bg-secondary: #111d33;            /* Dusk sky blue */
-  --bg-surface: rgba(17, 29, 51, 0.92);
-  --bg-card: rgba(21, 35, 60, 0.85);
-  --bg-card-hover: rgba(26, 45, 78, 0.95);
-  --text-primary: #f8fafc;            /* Crisp luminous white */
-  --text-secondary: #cbd5e1;          /* Soft silver sky */
-  --text-muted: #94a3b8;
-  --accent-sky: #38bdf8;              /* Radiant dusk sky blue */
+  --bg-primary: #08101e;              /* Deep peaceful midnight navy */
+  --bg-secondary: #0d1a30;            /* Dusk sky blue */
+  --bg-surface: rgba(13, 26, 48, 0.96);
+  --bg-card: rgba(16, 31, 58, 0.92);
+  --bg-card-hover: rgba(22, 43, 80, 0.98);
+  --text-primary: #ffffff;            /* Pure Crystal Luminous White */
+  --text-secondary: #f1f5f9;          /* Radiant Crisp Snow */
+  --text-muted: #cbd5e1;              /* Highly legible soft silver */
+  --accent-sky: #38bdf8;              /* Radiant sky blue */
   --accent-sky-bright: #7dd3fc;
   --accent-sky-light: #162a45;
-  --accent-yellow: #facc15;           /* Bright celestial yellow */
+  --accent-yellow: #facc15;           /* Luminous celestial yellow */
   --accent-yellow-bright: #fde047;
   --accent-yellow-soft: #423613;
-  --border-yellow: rgba(250, 204, 21, 0.45);
-  --border-sky: rgba(56, 189, 248, 0.35);
-  --glow-yellow: rgba(250, 204, 21, 0.45);
-  --glow-sky: rgba(56, 189, 248, 0.3);
+  --border-yellow: rgba(250, 204, 21, 0.65);
+  --border-sky: rgba(56, 189, 248, 0.5);
+  --glow-yellow: rgba(250, 204, 21, 0.6);
+  --glow-sky: rgba(56, 189, 248, 0.4);
+}
+
+/* Ensure Dark Mode text ALWAYS pops out vividly with 100% crystal contrast */
+.dark h1, 
+.dark h2, 
+.dark h3, 
+.dark h4, 
+.dark h5, 
+.dark h6 {
+  color: #ffffff;
+}
+
+.dark p {
+  color: #f1f5f9;
+}
+
+.dark .text-slate-900,
+.dark .text-slate-800 {
+  color: #ffffff !important;
+}
+
+.dark .text-slate-700,
+.dark .text-slate-600 {
+  color: #e2e8f0 !important;
+}
+
+.dark .text-slate-500 {
+  color: #cbd5e1 !important;
 }
 
 html {
@@ -52,7 +82,7 @@ html {
 body {
   background-color: var(--bg-primary);
   color: var(--text-primary);
-  transition: background-color 0.4s ease, color 0.4s ease;
+  transition: background-color 0.35s ease, color 0.35s ease;
   overflow-x: hidden;
 }
 
@@ -68,7 +98,7 @@ body {
   background: var(--bg-surface);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1.5px solid var(--border-yellow);
+  border-bottom: 2px solid var(--border-yellow);
 }
 
 .gold-glow-card {
@@ -78,7 +108,7 @@ body {
 
 .gold-glow-card:hover {
   border-color: var(--accent-yellow-bright);
-  box-shadow: 0 12px 30px -10px var(--glow-yellow), 0 0 20px -3px var(--glow-sky);
+  box-shadow: 0 12px 30px -10px var(--glow-yellow), 0 0 24px -3px var(--glow-sky);
   transform: translateY(-3px);
 }
 
@@ -95,7 +125,7 @@ body {
   background: #f0f7ff;
 }
 .dark ::-webkit-scrollbar-track {
-  background: #0c1524;
+  background: #08101e;
 }
 ::-webkit-scrollbar-thumb {
   background: #0284c7;
@@ -104,10 +134,10 @@ body {
 }
 .dark ::-webkit-scrollbar-thumb {
   background: #38bdf8;
-  border: 2px solid #0c1524;
+  border: 2px solid #08101e;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #eab308;
+  background: #facc15;
 }
 
 /* Keyframe Animations */

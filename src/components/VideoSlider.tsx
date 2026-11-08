@@ -35,7 +35,7 @@ export default function VideoSlider({ onSelectVideo }: VideoSliderProps) {
     if (!isAutoPlaying) return;
     const interval = setInterval(() => {
       nextSlide();
-    }, 6000);
+    }, 4500);
     return () => clearInterval(interval);
   }, [isAutoPlaying, currentIndex]);
 
@@ -181,7 +181,7 @@ export default function VideoSlider({ onSelectVideo }: VideoSliderProps) {
         </div>
 
         {/* Bottom Pagination Dots */}
-        <div className="bg-[#f0f9ff] dark:bg-[#080d1a] py-3 px-6 flex items-center justify-center gap-2 border-t border-[#eab308]/20">
+        <div className="bg-[#f0f9ff] dark:bg-[#0d1a30] py-3 px-6 flex items-center justify-center gap-2 border-t border-[#eab308]/20">
           {MEDITATIONS_DATA.map((item, idx) => (
             <button
               key={item.id}

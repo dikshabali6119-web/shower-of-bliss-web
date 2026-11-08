@@ -116,7 +116,7 @@ export default function Navbar({ onOpenBreathing }: NavbarProps) {
               <a
                 key={link.name}
                 href={link.href}
-                className="px-3 py-1.5 rounded-full text-xs xl:text-sm font-semibold text-slate-700 dark:text-slate-200 hover:text-[#0284c7] dark:hover:text-[#facc15] hover:bg-[#e0f2fe] dark:hover:bg-[#1e293b] transition-all border border-transparent hover:border-[#0284c7]/30"
+                className="px-3.5 py-1.5 rounded-full text-xs xl:text-sm font-bold text-slate-800 dark:text-white hover:text-[#0284c7] dark:hover:text-[#facc15] hover:bg-[#e0f2fe] dark:hover:bg-[#162540] transition-all border border-transparent hover:border-[#0284c7]/30 dark:hover:border-[#facc15]/40"
               >
                 {link.name}
               </a>
@@ -163,8 +163,12 @@ export default function Navbar({ onOpenBreathing }: NavbarProps) {
             <button
               onClick={toggleTheme}
               aria-label="Toggle theme mode"
-              title={isDark ? "Switch to Celestial Day Mode" : "Switch to Evening Mode"}
-              className="p-2 rounded-full text-[#0284c7] dark:text-[#facc15] hover:bg-[#e0f2fe] dark:hover:bg-[#1e293b] border border-[#0284c7]/30 transition-colors"
+              title={isDark ? "Switch to Day Mode" : "Switch to Evening Mode"}
+              className={`p-2 rounded-full border transition-all ${
+                isDark 
+                  ? "bg-[#162540] text-[#facc15] border-[#facc15]/80 shadow-[0_0_15px_rgba(250,204,21,0.5)]" 
+                  : "bg-white/90 text-[#0284c7] border-[#0284c7]/30 hover:border-[#eab308]"
+              }`}
             >
               {isDark ? <Sun className="w-4 h-4 text-[#facc15]" /> : <Moon className="w-4 h-4 text-[#0284c7]" />}
             </button>
