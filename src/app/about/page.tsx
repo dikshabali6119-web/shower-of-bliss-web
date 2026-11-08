@@ -4,13 +4,16 @@ import React, { useState } from 'react';
 import Navbar from '@/components/Navbar';
 import DynamicFooter from '@/components/DynamicFooter';
 import BreathingModal from '@/components/BreathingModal';
+import VideoModal from '@/components/VideoModal';
 import NirmalaHeritageSection from '@/components/NirmalaHeritageSection';
 import Image from 'next/image';
 import { CenteredRotatingIkOnkar } from '@/components/SikhSymbols';
 import { Sparkles } from 'lucide-react';
+import { VideoItem } from '@/types';
 
 export default function AboutPage() {
   const [isBreathingOpen, setIsBreathingOpen] = useState(false);
+  const [selectedVideo, setSelectedVideo] = useState<VideoItem | null>(null);
 
   return (
     <div className="min-h-screen flex flex-col bg-[var(--bg-primary)] text-[var(--text-primary)] transition-colors duration-300">
@@ -81,12 +84,13 @@ export default function AboutPage() {
           </div>
         </div>
 
-        {/* Detailed Nirmala Heritage Component */}
-        <NirmalaHeritageSection />
+        {/* Detailed Nirmala Heritage Component with Sikh Guru Video Slider */}
+        <NirmalaHeritageSection onSelectVideo={(video) => setSelectedVideo(video)} />
 
       </main>
 
       <DynamicFooter />
+      <VideoModal video={selectedVideo} onClose={() => setSelectedVideo(null)} />
       <BreathingModal isOpen={isBreathingOpen} onClose={() => setIsBreathingOpen(false)} />
     </div>
   );

@@ -5,7 +5,7 @@ export interface VideoItem {
   description: string;
   duration: string;
   views: string;
-  category: 'beginner' | 'mindful' | 'spiritual' | 'sound-healing' | 'sleep';
+  category: 'beginner' | 'mindful' | 'spiritual' | 'sound-healing' | 'sleep' | 'sikh-heritage';
   categoryLabel: string;
   thumbnailUrl: string;
   featured?: boolean;

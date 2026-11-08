@@ -56,8 +56,8 @@ export default function Home() {
           <VideoSlider onSelectVideo={(video) => setSelectedVideo(video)} />
         </div>
 
-        {/* The Guru-Shishya Tradition & Nirmala Heritage Section */}
-        <NirmalaHeritageSection />
+        {/* The Guru-Shishya Tradition & Nirmala Heritage Section with Sikh Video Slider */}
+        <NirmalaHeritageSection onSelectVideo={(video) => setSelectedVideo(video)} />
 
         {/* Discourses & Topic Explorer Section */}
         <section id="discourses" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-16">
