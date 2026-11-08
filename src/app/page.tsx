@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Navbar from '@/components/Navbar';
 import HeroSection from '@/components/HeroSection';
 import VideoSlider from '@/components/VideoSlider';
+import SikhGurusAutoCarousel from '@/components/SikhGurusAutoCarousel';
 import NirmalaHeritageSection from '@/components/NirmalaHeritageSection';
 import FloatingSidebar from '@/components/FloatingSidebar';
 import VideoGallery from '@/components/VideoGallery';
@@ -50,6 +51,9 @@ export default function Home() {
           onOpenBreathing={() => setIsBreathingOpen(true)}
           onExploreClick={handleExploreClick}
         />
+
+        {/* Sikh Gurus & Sant Nikka Singh Ji 2-Second Automatic Carousel */}
+        <SikhGurusAutoCarousel onSelectVideo={(video) => setSelectedVideo(video)} />
 
         {/* Featured Video Slider / Carousel (User Requested) */}
         <div id="featured-slider" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
