@@ -43,7 +43,7 @@ export default function ContentColumns({
                   Upcoming Live Events
                 </h3>
                 <p className="text-xs text-[#5f7d72] dark:text-[#97b8aa]">
-                  Global Satsangs & Chanting with Amarjit
+                  Global Satsangs &amp; Discourse with Swami Amarjit Singh
                 </p>
               </div>
             </div>
@@ -131,16 +131,16 @@ export default function ContentColumns({
               </div>
               <div>
                 <h3 className="font-serif-bliss text-xl sm:text-2xl font-bold text-[#1c3b31] dark:text-[#f4fbf7]">
-                  Must-Read Articles
+                  Must-Read Reflections
                 </h3>
                 <p className="text-xs text-[#5f7d72] dark:text-[#97b8aa]">
-                  Spiritual Essays, Neuroscience of Sound, & Vedic Wisdom
+                  Essays on Vedanta, Guruvani, and the Path to Mukti
                 </p>
               </div>
             </div>
 
             <span className="text-xs text-[#8b6e16] dark:text-[#d4af37] font-semibold hidden sm:inline">
-              Written by Amarjit
+              By Swami Amarjit Singh
             </span>
           </div>
 

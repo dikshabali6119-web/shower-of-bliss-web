@@ -54,7 +54,7 @@ export default function VideoModal({ video, onClose }: VideoModalProps) {
                 Shower of Bliss Video Sanctuary
               </span>
               <span className="text-xs text-[#5f7d72] dark:text-[#97b8aa]">
-                Guiding Host: Amarjit (@amarjit311)
+                Spiritual Guide: Swami Amarjit Singh (@amarjit311) • Nirmala Lineage
               </span>
             </div>
           </div>

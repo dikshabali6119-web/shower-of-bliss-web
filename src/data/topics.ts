@@ -3,56 +3,56 @@ import { TopicItem } from '@/types';
 export const TOPIC_ITEMS: TopicItem[] = [
   {
     id: 'all',
-    title: 'All Meditations',
-    subtitle: 'Full sacred catalog',
+    title: 'All Teachings & Simran',
+    subtitle: 'Vedanta, Guruvani & Meditation',
     iconName: 'Sparkles',
     count: 8,
     categoryKey: 'all'
   },
   {
-    id: 'beginner-guides',
-    title: 'Beginner Guides',
-    subtitle: 'Gentle foundation practices',
-    iconName: 'Compass',
-    count: 2,
-    categoryKey: 'beginner'
-  },
-  {
-    id: 'mindful-living',
-    title: 'Mindful Living',
-    subtitle: 'Daily calm & presence',
-    iconName: 'HeartHandshake',
-    count: 2,
-    categoryKey: 'mindful'
-  },
-  {
-    id: 'spiritual-wisdom',
-    title: 'Spiritual Wisdom',
-    subtitle: 'Vedic truths & inquiry',
+    id: 'vedanta-nirmala',
+    title: 'Vedanta & Nirmala Wisdom',
+    subtitle: 'Teachings of Sant Nikka Singh Ji',
     iconName: 'Flame',
     count: 2,
     categoryKey: 'spiritual'
   },
   {
-    id: 'sound-healing',
-    title: 'Sound Healing & 432Hz',
-    subtitle: 'Singing bowls & delta frequencies',
+    id: 'guruvani-anand',
+    title: 'Guruvani & Shabad Reflection',
+    subtitle: 'Anand Sahib & Mool Mantar',
+    iconName: 'HeartHandshake',
+    count: 2,
+    categoryKey: 'mindful'
+  },
+  {
+    id: 'naam-simran',
+    title: 'Naam Simran & 432Hz',
+    subtitle: 'Waheguru dhyana & sonic calm',
     iconName: 'Music',
     count: 2,
     categoryKey: 'sound-healing'
   },
   {
+    id: 'beginner-guides',
+    title: 'Beginner Guides to Stillness',
+    subtitle: 'Soham pranayama & postures',
+    iconName: 'Compass',
+    count: 1,
+    categoryKey: 'beginner'
+  },
+  {
     id: 'deep-sleep',
-    title: 'Deep Sleep Journeys',
-    subtitle: 'Restful delta rejuvenation',
+    title: 'Deep Sleep & Surat Dhyan',
+    subtitle: 'Peaceful surrender of thoughts',
     iconName: 'Moon',
     count: 1,
     categoryKey: 'sleep'
   },
   {
     id: 'upcoming-events',
-    title: 'Upcoming Events',
-    subtitle: 'Live Satsangs & workshops',
+    title: 'Upcoming Satsangs & Events',
+    subtitle: 'Live global congregations',
     iconName: 'Calendar',
     count: 4
   }

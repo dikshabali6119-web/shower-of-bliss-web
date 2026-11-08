@@ -122,15 +122,15 @@ export default function ArticleModal({ article, onClose }: ArticleModalProps) {
 
           {/* Author Box */}
           <div className="pt-6 mt-6 border-t border-[#2d5a4c]/10 dark:border-[#d4af37]/20 flex items-center gap-4">
-            <div className="w-12 h-12 rounded-full bg-[#2d5a4c] text-[#f4e297] flex items-center justify-center font-serif-bliss text-xl font-bold border border-[#d4af37]">
-              A
+            <div className="w-12 h-12 rounded-full bg-[#2d5a4c] text-[#f4e297] flex items-center justify-center font-serif text-2xl font-bold border border-[#d4af37]">
+              ੴ
             </div>
             <div>
               <h5 className="font-serif-bliss text-base font-bold text-[#1c3b31] dark:text-[#f4fbf7]">
-                Curated by Amarjit
+                Swami Amarjit Singh
               </h5>
               <p className="text-xs text-[#5f7d72] dark:text-[#97b8aa]">
-                Spiritual Guide & Creator at Shower of Bliss (@amarjit311)
+                Disciple of Sant Nikka Singh Ji (Nirmala Lineage) • Shower of Bliss (@amarjit311)
               </p>
             </div>
           </div>

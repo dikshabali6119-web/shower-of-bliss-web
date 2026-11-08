@@ -2,83 +2,84 @@ import { Article } from '@/types';
 
 export const MUST_READ_ARTICLES: Article[] = [
   {
-    id: 'science-of-432hz',
-    title: 'The Science of 432Hz: Why Natural Harmonics Calm the Nervous System',
-    excerpt: 'Explore why standard 440Hz tuning creates subtle tension, while sacred 432Hz mathematical harmonics resonate harmoniously with human brainwaves and water molecules.',
-    readingTime: '5 min read',
-    category: 'Sound Therapy',
-    publishDate: 'Nov 02, 2026',
-    author: 'Amarjit (@amarjit311)',
+    id: 'nirmala-lineage-vedanta-guruvani',
+    title: 'The Nirmala Lineage: How Sant Nikka Singh Ji Bridged Vedanta & Guruvani',
+    excerpt: 'Trace the sacred history of the Nirmala order from Guru Gobind Singh Ji to Sant Nikka Singh Ji, and discover how Advaita Vedanta illuminates the oceanic depth of Sri Guru Granth Sahib.',
+    readingTime: '6 min read',
+    category: 'Nirmala Tradition',
+    publishDate: 'Nov 04, 2026',
+    author: 'Swami Amarjit Singh (@amarjit311)',
     coverGradient: 'from-emerald-900/60 to-amber-900/40',
     keyTakeaways: [
-      '432Hz correlates with the Fibonacci golden ratio and Earth’s Schumann resonance (8Hz octave).',
-      'Clinical studies observe reduced systolic blood pressure and lowered cortisol during 432Hz acoustic sessions.',
-      'How to identify authentic uncompressed harmonic frequencies in your daily listening.'
+      'The Nirmala tradition originated when Guru Gobind Singh Ji sent five disciples to Kashi to master Vedanta.',
+      'Sant Nikka Singh Ji embodied the supreme union of intellectual Vedantic precision and heartfelt Guruvani devotion.',
+      'Non-dual realization (Advaita) is not theoretical debate; it is living in the unconditioned truth of Ik Onkar (ੴ).'
     ],
     content: [
-      'For centuries before standardized Western concert pitch was fixed at A=440Hz in the mid-20th century, ancient musicians, Vedic chanters, and Stradivarius instrument makers tuned to the cosmic proportion of A=432Hz.',
-      'When sound waves at 432Hz travel through water—which makes up roughly 70% of the human physical body—they form symmetrical, geometrically pristine cymatic patterns. In contrast, disharmonious frequencies create chaotic vibrational dispersion that our autonomic nervous system perceives as background friction.',
-      'In our YouTube sessions at Shower of Bliss, each drone, bowl strike, and melodic flute layer is tuned specifically to 432Hz and Solfeggio frequencies. Seekers frequently report experiencing deeper theta state access within just 4 to 6 minutes of passive listening.'
+      'The Nirmala ("the pure ones") spiritual lineage holds a unique, revered place in Sikh history. Traced back to Sri Guru Gobind Singh Ji Maharaj, the tenth Sikh Guru, who sent five devoted scholars to Varanasi to study ancient Sanskrit scriptures, the Upanishads, and Vedanta.',
+      'My revered Guru, Sant Nikka Singh Ji, was an enlightened luminary from this noble Nirmala line. Living as an embodiment of renunciation, compassion, and divine scholarship, he showed seekers that there is zero contradiction between the supreme Upanishadic declaration "Aham Brahmasmi" (I am the Infinite) and Guru Nanak Dev Ji’s "Sabh Mah Jot Jot Hai So-e" (In all hearts radiates that one identical light).',
+      'Through Shower of Bliss, my sacred vow is to transmit this unadulterated knowledge of Vedanta, Guruvani, and continuous meditative remembrance so that modern seekers can step out of mental bondage and walk the direct highway towards liberation.'
     ]
   },
   {
-    id: 'mastering-monkey-mind',
-    title: 'Mastering the Monkey Mind: Ancient Pranayama for Modern Overthinking',
-    excerpt: 'When compulsive thoughts feel uncontrollable, wrestling them with logic fails. Discover the Vedic principle of Prana-Chitta union to quiet the storm.',
+    id: 'guruvani-and-non-dual-vedanta',
+    title: 'Guruvani & Vedanta: The Non-Dual Truth of Ik Onkar (ੴ)',
+    excerpt: 'Why Guru Nanak Dev Ji chose the numeral "1" (Ik) before Onkar, and how contemplating this sacred symbol dissolves the illusion of separation.',
     readingTime: '7 min read',
-    category: 'Vedic Psychology',
-    publishDate: 'Oct 28, 2026',
-    author: 'Amarjit (@amarjit311)',
+    category: 'Guruvani & Advaita',
+    publishDate: 'Oct 30, 2026',
+    author: 'Swami Amarjit Singh (@amarjit311)',
     coverGradient: 'from-teal-900/60 to-emerald-800/40',
     keyTakeaways: [
-      'Mind and breath are two wings of the same bird: calm the breath, and the mind cannot run.',
-      'The 4-7-8 and Nadi Shodhana rhythms create immediate vagus nerve stimulation.',
-      'Stop trying to "stop thinking"—learn instead to be the quiet observer of the parade.'
+      'Ik Onkar (ੴ) establishes that Reality is Non-Dual (Advaita): One without a second.',
+      'Guruvani is Shabad-Brahman: celestial sound vibration that purifies the subtle body (Antahkarana).',
+      'How chanting and meditating upon Gurbani dissolves the root suffering of ego (Haumai).'
     ],
     content: [
-      'In the Yoga Sutras of Patanjali, the mind is compared to a restless monkey stung by a scorpion and possessed by spirits. Modern life—with constant push notifications, infinite algorithmic feeds, and relentless comparison—keeps this monkey in perpetual hyper-vigilance.',
-      'The ancient rishis understood a profound neuro-spiritual truth: you cannot calm thought with another thought. Attempting to think your way out of anxiety is like trying to smooth choppy lake water with an iron paddle.',
-      'The breath, however, is the direct physical steering wheel of your autonomic nervous system. By consciously lengthening the exhalation so that it is twice the duration of inhalation (Visama Vritti Pranayama), you force the heart rate variability to enter coherence, signaling to the brain that there is no imminent predator.'
+      'When Guru Nanak Dev Ji revealed the Mool Mantar, the very first character was not an alphabet, but the mathematical numeral "1" (ੴ - Ik Onkar). This was a deliberate, cosmic proclamation: God is not an external ruler residing in the clouds, but the singular, indivisible Consciousness that pervades every atom.',
+      'In classical Vedanta, this is termed Brahman or Atman. In Guruvani, it is called Nirankar (the Formless), Karta Purakh (the Creative Being), and Satnaam (whose Name is Truth).',
+      'When you meditate upon the sacred Shabad with single-pointed devotion, the psychological illusion of being a separated, fearful ego melts away like a drop falling into the ocean.'
     ]
   },
   {
-    id: 'morning-spiritual-routine',
-    title: 'How to Build a Non-Negotiable 15-Minute Morning Spiritual Routine',
-    excerpt: 'You do not need two hours in a cave to transform your inner state. Here is a realistic, step-by-step 15-minute protocol that grounds your entire day.',
-    readingTime: '4 min read',
-    category: 'Mindful Living',
-    publishDate: 'Oct 15, 2026',
-    author: 'Amarjit (@amarjit311)',
+    id: 'naam-simran-meditation-liberation',
+    title: 'Naam Simran: The Meditative Vehicle to Mukti (Liberation)',
+    excerpt: 'Meditation is not mental strain; it is returning home to the quiet center of your own soul through loving remembrance of the Divine Name.',
+    readingTime: '5 min read',
+    category: 'Meditation & Mukti',
+    publishDate: 'Oct 18, 2026',
+    author: 'Swami Amarjit Singh (@amarjit311)',
     coverGradient: 'from-amber-900/60 to-emerald-900/40',
     keyTakeaways: [
-      'Brahma Muhurta (pre-dawn hour) carries the highest concentration of serene atmospheric prana.',
-      'The 5-5-5 Rule: 5 minutes breath, 5 minutes silent witness meditation, 5 minutes gratitude affirmation.',
-      'Protect the sacred first 30 minutes after waking: no social media, no email, no news.'
+      'Naam Simran harmonizes the breath with divine remembrance, anchoring the mind in the present.',
+      'The four stages of Simran: Vaikhari (spoken), Madhyama (throat/whisper), Pashyanti (heart), and Para (silent absorption).',
+      'Liberation (Jeevan Mukti) happens while living in this world, untainted like a lotus in water.'
     ],
     content: [
-      'Most people start their day in reactive survival mode: the alarm blares, hand instinctively reaches for the smartphone, and within three seconds the subconscious is flooded with other people’s emergencies, market volatility, and social anxiety.',
-      'By contrast, dedicating merely 15 minutes before touching any device transforms your subconscious operating system for the next 16 waking hours.',
-      'Spend the first 5 minutes sipping warm water and doing gentle belly breathing. Spend the next 5 minutes sitting upright, listening to one of our 5-minute Morning Mindfulness sessions on Shower of Bliss, observing the breath without judgment. Finish with 5 minutes placing a hand upon your heart, mentally voicing three things you are profoundly grateful for.'
+      'Sant Nikka Singh Ji always stressed that theoretical philosophy without daily meditation is like a hungry person reading a menu without eating the feast. Meditation (Simran and Dhyana) is the actual digestion of divine wisdom.',
+      'As you sit in still posture during Amrit Vela, align the incoming breath with the remembrance of the Divine Presence and the outgoing breath with complete surrender of personal anxiety. Slowly, the spoken chant becomes an inward silent thrumming in the heart chakra.',
+      'In this state of Anhad Shabad, the mind realizes its true nature as Sat-Chit-Ananda (Truth, Consciousness, Bliss). This is Mukti: absolute freedom from fear, rebirth, and sorrow.'
     ]
   },
   {
-    id: 'silence-as-medicine',
-    title: 'Silence as Medicine: The Profound Gifts of Daily Introspection (Mouna)',
-    excerpt: 'In an era of relentless external noise, intentional silence is not the absence of sound—it is the presence of your unconditioned True Self.',
-    readingTime: '6 min read',
-    category: 'Spiritual Wisdom',
-    publishDate: 'Sep 30, 2026',
-    author: 'Amarjit (@amarjit311)',
+    id: 'practical-steps-for-seekers',
+    title: 'The Seeker’s Blueprint: 4 Daily Practices for Inner Liberation',
+    excerpt: 'Practical guidelines distilled by Swami Amarjit Singh from his years under the lotus feet of Sant Nikka Singh Ji.',
+    readingTime: '5 min read',
+    category: 'Spiritual Discipline',
+    publishDate: 'Oct 02, 2026',
+    author: 'Swami Amarjit Singh (@amarjit311)',
     coverGradient: 'from-slate-900/60 to-emerald-900/40',
     keyTakeaways: [
-      'Mouna (spiritual silence) conserves up to 40% of subtle psychic vital energy (Ojas).',
-      'Neurogenesis in the hippocampus increases significantly following periods of complete acoustic quietude.',
-      'How to practice "Micro-Mouna" during lunch breaks or evening commutes.'
+      '1. Amrit Vela Contemplation: 20 minutes before dawn in quiet meditation.',
+      '2. Shabad Shravan: Daily listening to Guruvani with an open, receptive heart.',
+      '3. Manan & Nididhyasan: Contemplating the non-dual truth during routine daily duties.',
+      '4. Nishkam Seva: Selfless kindness seeing the Divine light (Ik Onkar) in everyone.'
     ],
     content: [
-      'Speech is one of our primary sensory organs of action (Karmendriyas). We talk to others, we talk to ourselves, and we consume endless talking through podcasts, videos, and music. Every spoken word expends vital psychic energy.',
-      'When you practice voluntary silence for just 30 to 60 minutes each evening, something extraordinary occurs. The outer noise dissolves, and after an initial burst of mental resistance, a crystalline interior reservoir opens.',
-      'In this sanctuary, clarity arises effortlessly. Solutions to creative dilemmas present themselves without strain. You realize that peace was never something to manufacture—it was simply what remained when the noise stopped.'
+      'Liberation does not demand running away to remote Himalayan peaks or abandoning familial responsibilities. Guru Nanak Dev Ji taught the path of "Anjan Mahi Niranjan Rahi-ai"—remaining untainted by worldly mud like the pristine lotus flower.',
+      'Begin each morning with 15 to 20 minutes of silent meditation and Mool Mantar contemplation. When working or communicating with others, remember that the same Consciousness looking out through your eyes is looking out through theirs.',
+      'By anchoring your day in Guruvani, Vedantic understanding, and heartfelt meditation, your life becomes a continuous, joyful Shower of Bliss.'
     ]
   }
 ];

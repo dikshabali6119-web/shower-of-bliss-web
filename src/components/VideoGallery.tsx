@@ -58,14 +58,14 @@ export default function VideoGallery({
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
           <div>
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-[#2d5a4c]/10 dark:bg-[#3d7866]/25 text-[#2d5a4c] dark:text-[#d4af37] border border-[#2d5a4c]/20 mb-2">
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>Official Video Sanctuary</span>
+              <span className="font-serif font-bold text-xs text-[#d4af37]">ੴ</span>
+              <span>Vedanta &amp; Guruvani Video Sanctuary</span>
             </div>
             <h2 className="font-serif-bliss text-2xl sm:text-3xl md:text-4xl font-bold text-[#1c3b31] dark:text-[#f4fbf7]">
-              Guided Meditations by Amarjit
+              Guided Simran &amp; Discourses by Swami Amarjit Singh
             </h2>
             <p className="text-xs sm:text-sm text-[#5f7d72] dark:text-[#97b8aa] mt-1">
-              Curated for YouTube channel <span className="font-semibold text-[#1c3b31] dark:text-[#e2f0e8]">@amarjit311</span> • Tuned to natural 432Hz harmonics
+              Curated for YouTube channel <span className="font-semibold text-[#1c3b31] dark:text-[#e2f0e8]">@amarjit311</span> • In line with Sant Nikka Singh Ji&apos;s teachings
             </p>
           </div>
 
@@ -201,11 +201,11 @@ export default function VideoGallery({
                 {/* Tags & Action Footer */}
                 <div className="pt-3 border-t border-[#2d5a4c]/10 dark:border-[#d4af37]/15 flex items-center justify-between">
                   <span className="text-[11px] text-[#5f7d72] dark:text-[#97b8aa] font-medium">
-                    by Amarjit (@amarjit311)
+                    by Swami Amarjit Singh (@amarjit311)
                   </span>
 
                   <span className="text-xs font-semibold text-[#2d5a4c] dark:text-[#d4af37] group-hover:underline flex items-center gap-1">
-                    Play Session →
+                    Watch Session →
                   </span>
                 </div>
               </div>

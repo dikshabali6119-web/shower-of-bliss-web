@@ -146,10 +146,10 @@ export default function FloatingSidebar({
         {/* Ambient Channel Note */}
         <div className="mt-5 p-3.5 rounded-2xl bg-gradient-to-br from-[#2d5a4c]/10 to-[#d4af37]/10 dark:from-[#2d5a4c]/20 dark:to-[#d4af37]/20 border border-[#d4af37]/30 text-center">
           <p className="text-[11px] font-medium text-[#2d5a4c] dark:text-[#cde4d8] leading-relaxed">
-            🌿 "Your peace is not dependent on circumstances; it lives within your conscious breath."
+            ੴ &ldquo;Vedanta, Guruvani, and Meditation dissolve the illusion of duality and lead us towards true liberation.&rdquo;
           </p>
           <span className="block mt-1 text-[10px] font-semibold text-[#8b6e16] dark:text-[#d4af37]">
-            — Amarjit
+            — Swami Amarjit Singh (Sant Nikka Singh Ji Lineage)
           </span>
         </div>
 

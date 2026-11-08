@@ -2,8 +2,8 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { 
-  Sparkles, 
   Sun, 
   Moon, 
   Menu, 
@@ -11,9 +11,9 @@ import {
   Volume2, 
   VolumeX, 
   Wind,
-  Compass
 } from 'lucide-react';
 import { YoutubeIcon } from '@/components/SocialIcons';
+import { IkOnkarSymbol } from '@/components/SikhSymbols';
 import { soundSynth } from '@/utils/soundSynth';
 
 interface NavbarProps {
@@ -26,7 +26,6 @@ export default function Navbar({ onOpenBreathing }: NavbarProps) {
   const [isAmbientPlaying, setIsAmbientPlaying] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  // Initialize theme from system or localStorage
   useEffect(() => {
     const savedTheme = localStorage.getItem('bliss-theme');
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -64,9 +63,10 @@ export default function Navbar({ onOpenBreathing }: NavbarProps) {
 
   const navLinks = [
     { name: 'Home', href: '#hero' },
+    { name: 'About Swami Ji', href: '#about-swamiji' },
     { name: 'Meditations', href: '#meditations' },
     { name: 'Topics', href: '#topics' },
-    { name: 'Events', href: '#events' },
+    { name: 'Satsangs', href: '#events' },
     { name: 'Articles', href: '#articles' },
   ];
 
@@ -74,40 +74,59 @@ export default function Navbar({ onOpenBreathing }: NavbarProps) {
     <header 
       className={`sticky top-0 z-50 transition-all duration-300 ${
         scrolled 
-          ? 'glass-nav shadow-sm py-3' 
-          : 'bg-transparent py-4 border-b border-transparent'
+          ? 'glass-nav shadow-sm py-2.5' 
+          : 'bg-transparent py-3.5 border-b border-transparent'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           
-          {/* Logo & Channel Tagline */}
+          {/* Logo & Sikh Dharma Symbol + Channel Branding */}
           <Link href="#hero" className="flex items-center gap-3 group">
-            <div className="relative flex items-center justify-center w-10 h-10 rounded-full bg-gradient-to-tr from-[#2d5a4c] to-[#437a67] text-[#d4af37] shadow-sm transition-transform duration-300 group-hover:scale-105 border border-[#d4af37]/40">
-              <Sparkles className="w-5 h-5 text-[#f6d860]" />
-              <span className="absolute -top-0.5 -right-0.5 flex h-2.5 w-2.5">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#d4af37] opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#d4af37]"></span>
+            
+            {/* Official Channel Lotus Emblem */}
+            <div className="relative w-11 h-11 rounded-2xl overflow-hidden border-2 border-[#d4af37] shadow-sm transition-transform duration-300 group-hover:scale-105 bg-stone-900 shrink-0">
+              <Image
+                src="/logo.jpg"
+                alt="Shower of Bliss Channel Emblem"
+                fill
+                className="object-cover"
+                priority
+              />
+            </div>
+
+            {/* Sacred Sikh Dharma Ik Onkar (ੴ) Emblem in Header */}
+            <div 
+              className="flex items-center justify-center w-10 h-10 rounded-2xl bg-gradient-to-tr from-[#2d5a4c] to-[#1c382f] text-[#d4af37] border border-[#d4af37]/60 shadow-xs shrink-0 transition-transform group-hover:scale-105"
+              title="Sacred Sikh Dharma Ik Onkar (ੴ)"
+            >
+              <span className="font-serif text-2xl font-bold leading-none select-none drop-shadow-[0_1px_3px_rgba(212,175,55,0.6)]">
+                ੴ
               </span>
             </div>
 
             <div className="flex flex-col">
-              <span className="font-serif-bliss text-xl md:text-2xl font-bold tracking-tight text-[#1c3b31] dark:text-[#f0f7f3] transition-colors group-hover:text-[#2d5a4c] dark:group-hover:text-[#d4af37]">
-                Shower of Bliss
-              </span>
-              <span className="text-[11px] font-medium tracking-wider uppercase text-[#5f7d72] dark:text-[#a1c2b3]">
-                by Amarjit <span className="text-[#d4af37] font-semibold">@amarjit311</span>
+              <div className="flex items-center gap-2">
+                <span className="font-serif-bliss text-xl md:text-2xl font-bold tracking-tight text-[#1c3b31] dark:text-[#f0f7f3] transition-colors group-hover:text-[#2d5a4c] dark:group-hover:text-[#d4af37]">
+                  Shower of Bliss
+                </span>
+                <span className="hidden lg:inline-flex text-[10px] font-bold px-2 py-0.5 rounded-full bg-[#d4af37]/20 text-[#8b6e16] dark:text-[#f4db89] border border-[#d4af37]/40">
+                  Nirmala Lineage
+                </span>
+              </div>
+              <span className="text-[11px] font-medium tracking-wide text-[#5f7d72] dark:text-[#a1c2b3]">
+                Swami Amarjit Singh <span className="text-[#d4af37] font-semibold">@amarjit311</span>
               </span>
             </div>
           </Link>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden md:flex items-center gap-1 lg:gap-2">
+          <nav className="hidden md:flex items-center gap-1 lg:gap-1.5">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="px-3 py-1.5 rounded-full text-sm font-medium text-[#2d5a4c] dark:text-[#d3e6dc] hover:text-[#1c3b31] hover:bg-[#e4ede7] dark:hover:bg-[#183327] dark:hover:text-[#f0f7f3] transition-colors"
+                className="px-3 py-1.5 rounded-full text-xs lg:text-sm font-medium text-[#2d5a4c] dark:text-[#d3e6dc] hover:text-[#1c3b31] hover:bg-[#e4ede7] dark:hover:bg-[#183327] dark:hover:text-[#f0f7f3] transition-colors"
               >
                 {link.name}
               </a>
@@ -115,7 +134,7 @@ export default function Navbar({ onOpenBreathing }: NavbarProps) {
           </nav>
 
           {/* Action Tools & Buttons */}
-          <div className="flex items-center gap-2 sm:gap-3">
+          <div className="flex items-center gap-2 sm:gap-2.5">
             
             {/* Ambient Sound Drone Toggle */}
             <button
@@ -129,7 +148,7 @@ export default function Navbar({ onOpenBreathing }: NavbarProps) {
             >
               {isAmbientPlaying ? (
                 <>
-                  <Volume2 className="w-3.5 h-3.5 animate-pulse" />
+                  <Volume2 className="w-3.5 h-3.5 animate-pulse text-[#d4af37]" />
                   <span className="hidden sm:inline">432Hz Playing</span>
                 </>
               ) : (
@@ -147,7 +166,7 @@ export default function Navbar({ onOpenBreathing }: NavbarProps) {
               title="Quick 1-minute calming breathwork"
             >
               <Wind className="w-3.5 h-3.5 text-[#2d5a4c] dark:text-[#d4af37]" />
-              <span>Breathe</span>
+              <span>Simran Breath</span>
             </button>
 
             {/* Dark / Light Mode Toggle */}
@@ -203,7 +222,7 @@ export default function Navbar({ onOpenBreathing }: NavbarProps) {
                 className="flex items-center justify-center gap-2 w-full px-4 py-2 rounded-lg text-sm font-medium bg-[#2d5a4c]/10 dark:bg-[#3d7866]/20 text-[#2d5a4c] dark:text-[#e4f2ea] border border-[#2d5a4c]/20"
               >
                 <Wind className="w-4 h-4 text-[#d4af37]" />
-                <span>Quick 1-Min Guided Breathing</span>
+                <span>Quick Guided Simran Breath</span>
               </button>
               
               <a
