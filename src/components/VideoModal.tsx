@@ -40,21 +40,21 @@ export default function VideoModal({ video, onClose }: VideoModalProps) {
       onClick={onClose}
     >
       <div 
-        className="relative w-full max-w-4xl max-h-[92vh] overflow-y-auto glass-panel rounded-3xl border border-[#d4af37]/60 shadow-2xl bg-[#f4f8f5]/95 dark:bg-[#0d1a14]/95 text-[#1c3b31] dark:text-[#f2f8f5] flex flex-col"
+        className="relative w-full max-w-4xl max-h-[92vh] overflow-y-auto glass-panel rounded-3xl border border-[#d97706]/60 shadow-2xl bg-[#fcf9f2]/98 dark:bg-[#141722]/98 text-[#1f1b16] dark:text-[#faf6ed] flex flex-col"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Top Header */}
-        <div className="flex items-center justify-between p-4 sm:p-5 border-b border-[#2d5a4c]/10 dark:border-[#d4af37]/20">
+        <div className="flex items-center justify-between p-4 sm:p-5 border-b border-[#d97706]/20">
           <div className="flex items-center gap-2">
-            <span className="p-1.5 rounded-lg bg-[#2d5a4c]/10 dark:bg-[#3d7866]/30 text-[#2d5a4c] dark:text-[#d4af37]">
+            <span className="p-1.5 rounded-lg bg-[#fef3e2] dark:bg-[#28211b] text-[#c25e00] dark:text-[#fbbf24]">
               <Sparkles className="w-4 h-4" />
             </span>
             <div className="flex flex-col">
-              <span className="text-xs uppercase tracking-wider font-semibold text-[#8b6e16] dark:text-[#d4af37]">
+              <span className="text-xs uppercase tracking-wider font-semibold text-[#b45309] dark:text-[#fbbf24]">
                 Shower of Bliss Video Sanctuary
               </span>
-              <span className="text-xs text-[#5f7d72] dark:text-[#97b8aa]">
-                Spiritual Guide: Swami Amarjit Singh (@amarjit311) • Nirmala Lineage
+              <span className="text-xs text-[#857865] dark:text-[#d3c9b7]">
+                Swami Amarjit Singh (@amarjit311) • निर्मला परंपरा
               </span>
             </div>
           </div>
@@ -85,17 +85,17 @@ export default function VideoModal({ video, onClose }: VideoModalProps) {
           <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
             <div>
               <div className="flex flex-wrap items-center gap-2 mb-2">
-                <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-[#2d5a4c] text-white">
+                <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-[#c25e00] text-white">
                   {video.categoryLabel}
                 </span>
                 {video.frequency && (
-                  <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-[#d4af37]/20 text-[#8b6e16] dark:text-[#f4db89] border border-[#d4af37]/40 flex items-center gap-1">
-                    <Volume2 className="w-3 h-3" />
+                  <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-[#fef3e2] dark:bg-[#28211b] text-[#b45309] dark:text-[#fcd34d] border border-[#d97706]/40 flex items-center gap-1">
+                    <Volume2 className="w-3 h-3 text-[#d97706]" />
                     {video.frequency}
                   </span>
                 )}
               </div>
-              <h2 className="font-serif-bliss text-xl sm:text-2xl font-bold text-[#1c3b31] dark:text-[#f4fbf7] leading-snug">
+              <h2 className="font-serif-bliss text-xl sm:text-2xl font-bold text-[#1f1b16] dark:text-[#faf6ed] leading-snug">
                 {video.title}
               </h2>
             </div>
@@ -112,33 +112,33 @@ export default function VideoModal({ video, onClose }: VideoModalProps) {
             </a>
           </div>
 
-          <div className="flex items-center gap-4 text-xs text-[#5f7d72] dark:text-[#97b8aa] border-y border-[#2d5a4c]/10 dark:border-[#d4af37]/15 py-3">
+          <div className="flex items-center gap-4 text-xs text-[#857865] dark:text-[#d3c9b7] border-y border-[#d97706]/15 py-3">
             <span className="flex items-center gap-1.5 font-medium">
-              <Clock className="w-3.5 h-3.5 text-[#2d5a4c] dark:text-[#d4af37]" />
-              Duration: {video.duration}
+              <Clock className="w-3.5 h-3.5 text-[#c25e00] dark:text-[#fbbf24]" />
+              अवधि: {video.duration}
             </span>
             <span className="flex items-center gap-1.5 font-medium">
-              <Eye className="w-3.5 h-3.5 text-[#2d5a4c] dark:text-[#d4af37]" />
-              {video.views} Meditators
+              <Eye className="w-3.5 h-3.5 text-[#c25e00] dark:text-[#fbbf24]" />
+              {video.views} दर्शन
             </span>
             <span className="hidden sm:inline font-medium">
-              Channel: @amarjit311
+              चैनल: @amarjit311
             </span>
           </div>
 
-          <p className="text-sm text-[#3d6355] dark:text-[#b4d2c4] leading-relaxed">
+          <p className="text-sm text-[#574d3f] dark:text-[#d3c9b7] leading-relaxed">
             {video.description}
           </p>
 
           {/* Timestamps & Guided Phases */}
-          <div className="rounded-2xl p-4 bg-white/50 dark:bg-[#142820]/50 border border-[#2d5a4c]/10 dark:border-[#d4af37]/20">
-            <h4 className="text-xs font-semibold uppercase tracking-wider text-[#2d5a4c] dark:text-[#d4af37] mb-2.5">
-              Practice Flow & Chapters
+          <div className="rounded-2xl p-4 bg-[#fef3e2]/60 dark:bg-[#28211b]/60 border border-[#d97706]/20">
+            <h4 className="text-xs font-semibold uppercase tracking-wider text-[#c25e00] dark:text-[#fbbf24] mb-2.5">
+              प्रवचन के मुख्य अंग व अध्याय
             </h4>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
               {timestamps.map((stamp) => (
-                <div key={stamp.time} className="flex items-center gap-2 text-[#3d6355] dark:text-[#a9c9bc]">
-                  <span className="font-mono font-semibold text-[#8b6e16] dark:text-[#f4db89] bg-[#d4af37]/15 px-1.5 py-0.5 rounded">
+                <div key={stamp.time} className="flex items-center gap-2 text-[#574d3f] dark:text-[#d3c9b7]">
+                  <span className="font-mono font-semibold text-[#b45309] dark:text-[#fcd34d] bg-[#d97706]/15 px-1.5 py-0.5 rounded">
                     {stamp.time}
                   </span>
                   <span>{stamp.label}</span>
@@ -152,7 +152,7 @@ export default function VideoModal({ video, onClose }: VideoModalProps) {
             {video.tags.map((tag) => (
               <span 
                 key={tag}
-                className="text-[11px] font-medium px-2.5 py-1 rounded-full bg-[#e3ece6] dark:bg-[#183327] text-[#2d5a4c] dark:text-[#cde4d8]"
+                className="text-[11px] font-medium px-2.5 py-1 rounded-full bg-[#fef3e2] dark:bg-[#28211b] text-[#c25e00] dark:text-[#fcd34d]"
               >
                 #{tag}
               </span>

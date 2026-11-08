@@ -83,7 +83,7 @@ export function RotatingIkOnkarMandala({ className = 'w-72 h-72' }: { className?
 
       {/* Gentle Counter-Rotating Inner Ring */}
       <div className="absolute inset-4 animate-[spin_45s_linear_infinite_reverse]">
-        <svg viewBox="0 0 160 160" fill="none" className="w-full h-full text-[#2d5a4c] dark:text-[#d4af37]">
+        <svg viewBox="0 0 160 160" fill="none" className="w-full h-full text-[#c25e00] dark:text-[#fbbf24]">
           <circle cx="80" cy="80" r="72" stroke="currentColor" strokeWidth="0.7" strokeDasharray="3 5" opacity="0.35" />
           {Array.from({ length: 8 }).map((_, i) => {
             const angle = (i * 360) / 8;
@@ -104,9 +104,9 @@ export function RotatingIkOnkarMandala({ className = 'w-72 h-72' }: { className?
 
       {/* Central Radiant Ik Onkar (Stationary or gently floating so the sacred sign remains upright and dignified) */}
       <div className="absolute inset-0 flex items-center justify-center">
-        <div className="w-32 h-32 rounded-full bg-gradient-to-tr from-[#2d5a4c]/20 via-[#d4af37]/25 to-transparent backdrop-blur-xs flex items-center justify-center border border-[#d4af37]/40 shadow-[0_0_30px_rgba(212,175,55,0.35)] animate-gold-pulse">
+        <div className="w-32 h-32 rounded-full bg-gradient-to-tr from-[#c25e00]/20 via-[#d97706]/30 to-transparent backdrop-blur-xs flex items-center justify-center border border-[#fbbf24]/50 shadow-[0_0_35px_rgba(245,158,11,0.45)] animate-gold-pulse">
           <span 
-            className="font-serif text-5xl md:text-6xl font-bold text-[#d4af37] select-none drop-shadow-[0_2px_8px_rgba(212,175,55,0.7)]"
+            className="font-serif text-5xl md:text-6xl font-bold text-[#d97706] dark:text-[#fbbf24] select-none drop-shadow-[0_2px_10px_rgba(217,119,6,0.8)]"
             style={{ fontFamily: "'Noto Sans Gurmukhi', 'Mukti Narrow', serif, system-ui" }}
           >
             ੴ

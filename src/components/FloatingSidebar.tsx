@@ -7,7 +7,6 @@ import {
   HeartHandshake, 
   Flame, 
   Music, 
-  Moon, 
   Calendar,
   Layers,
   ChevronRight
@@ -29,8 +28,8 @@ export default function FloatingSidebar({
   const getIcon = (iconName: string, isSelected: boolean) => {
     const iconClass = `w-4 h-4 transition-colors ${
       isSelected 
-        ? 'text-[#d4af37]' 
-        : 'text-[#2d5a4c] dark:text-[#9bc4b3] group-hover:text-[#d4af37]'
+        ? 'text-white' 
+        : 'text-[#c25e00] dark:text-[#fbbf24] group-hover:text-[#c25e00]'
     }`;
 
     switch (iconName) {
@@ -42,8 +41,6 @@ export default function FloatingSidebar({
         return <Flame className={iconClass} />;
       case 'Music':
         return <Music className={iconClass} />;
-      case 'Moon':
-        return <Moon className={iconClass} />;
       case 'Calendar':
         return <Calendar className={iconClass} />;
       case 'Sparkles':
@@ -55,25 +52,25 @@ export default function FloatingSidebar({
   return (
     <aside className="w-full">
       {/* Desktop Sticky Sidebar Card */}
-      <div className="glass-panel rounded-3xl p-5 border border-[#d4af37]/35 shadow-sm sticky top-24">
+      <div className="glass-panel rounded-3xl p-5 border border-[#d97706]/35 shadow-sm sticky top-24">
         
         {/* Header */}
-        <div className="flex items-center justify-between pb-4 mb-4 border-b border-[#2d5a4c]/10 dark:border-[#d4af37]/15">
+        <div className="flex items-center justify-between pb-4 mb-4 border-b border-[#d97706]/15">
           <div className="flex items-center gap-2.5">
-            <div className="p-2 rounded-xl bg-[#2d5a4c]/10 dark:bg-[#3d7866]/20 text-[#2d5a4c] dark:text-[#d4af37]">
+            <div className="p-2 rounded-xl bg-[#fef3e2] dark:bg-[#28211b] text-[#c25e00] dark:text-[#fbbf24]">
               <Layers className="w-4 h-4" />
             </div>
             <div>
-              <h3 className="font-serif-bliss text-base font-bold text-[#1c3b31] dark:text-[#f4fbf7]">
-                Explore by Topic
+              <h3 className="font-serif-bliss text-base font-bold text-[#1f1b16] dark:text-[#faf6ed]">
+                विषय अनुसार सत्संग
               </h3>
-              <p className="text-[11px] text-[#5f7d72] dark:text-[#9bbcb0]">
-                Vedic disciplines & practices
+              <p className="text-[11px] text-[#857865] dark:text-[#d3c9b7]">
+                वेदांत, गीता, सूफी व कुदरत
               </p>
             </div>
           </div>
-          <span className="text-[10px] uppercase tracking-wider font-semibold px-2 py-0.5 rounded-full bg-[#d4af37]/15 text-[#917117] dark:text-[#e8c65f]">
-            Curated
+          <span className="text-[10px] uppercase tracking-wider font-semibold px-2 py-0.5 rounded-full bg-[#fef3e2] dark:bg-[#28211b] text-[#c25e00] dark:text-[#fbbf24] border border-[#d97706]/30">
+            चयन
           </span>
         </div>
 
@@ -95,16 +92,16 @@ export default function FloatingSidebar({
                 }}
                 className={`group flex items-center justify-between w-full p-2.5 rounded-2xl text-left transition-all duration-200 border ${
                   isSelected
-                    ? 'bg-[#2d5a4c] text-white border-[#d4af37] shadow-sm'
-                    : 'bg-white/40 dark:bg-[#163026]/40 text-[#1c3b31] dark:text-[#d4e8de] border-transparent hover:bg-white/80 dark:hover:bg-[#1d3d31]/80 hover:border-[#d4af37]/40'
+                    ? 'bg-[#c25e00] text-white border-[#d97706] shadow-sm'
+                    : 'bg-white/60 dark:bg-[#1c2334]/60 text-[#1f1b16] dark:text-[#faf6ed] border-transparent hover:bg-white dark:hover:bg-[#28211b] hover:border-[#d97706]/40'
                 }`}
               >
                 <div className="flex items-center gap-3 min-w-0">
                   <div
                     className={`p-1.5 rounded-xl transition-colors ${
                       isSelected
-                        ? 'bg-[#1b382f] text-[#d4af37]'
-                        : 'bg-[#e7f0eb] dark:bg-[#10241c] text-[#2d5a4c]'
+                        ? 'bg-[#8c4200] text-white'
+                        : 'bg-[#fef3e2] dark:bg-[#28211b] text-[#c25e00]'
                     }`}
                   >
                     {getIcon(topic.iconName, isSelected)}
@@ -112,12 +109,12 @@ export default function FloatingSidebar({
 
                   <div className="flex flex-col min-w-0">
                     <span className={`text-xs font-semibold truncate ${
-                      isSelected ? 'text-white' : 'text-[#1c3b31] dark:text-[#e4f3ea]'
+                      isSelected ? 'text-white' : 'text-[#1f1b16] dark:text-[#faf6ed]'
                     }`}>
                       {topic.title}
                     </span>
                     <span className={`text-[10px] truncate ${
-                      isSelected ? 'text-emerald-100' : 'text-[#5f7d72] dark:text-[#8ea99d]'
+                      isSelected ? 'text-amber-100' : 'text-[#857865] dark:text-[#d3c9b7]'
                     }`}>
                       {topic.subtitle}
                     </span>
@@ -128,14 +125,14 @@ export default function FloatingSidebar({
                   <span
                     className={`text-[10px] font-medium px-2 py-0.5 rounded-full ${
                       isSelected
-                        ? 'bg-[#1b382f] text-[#d4af37]'
-                        : 'bg-[#e2ede6] dark:bg-[#12281f] text-[#3d6355] dark:text-[#a1c2b5]'
+                        ? 'bg-[#8c4200] text-white'
+                        : 'bg-[#fef3e2] dark:bg-[#28211b] text-[#c25e00] dark:text-[#fbbf24]'
                     }`}
                   >
                     {topic.count}
                   </span>
                   <ChevronRight className={`w-3.5 h-3.5 transition-transform ${
-                    isSelected ? 'translate-x-0.5 text-[#d4af37]' : 'text-stone-400 group-hover:translate-x-0.5'
+                    isSelected ? 'translate-x-0.5 text-white' : 'text-stone-400 group-hover:translate-x-0.5'
                   }`} />
                 </div>
               </button>
@@ -143,13 +140,13 @@ export default function FloatingSidebar({
           })}
         </nav>
 
-        {/* Ambient Channel Note */}
-        <div className="mt-5 p-3.5 rounded-2xl bg-gradient-to-br from-[#2d5a4c]/10 to-[#d4af37]/10 dark:from-[#2d5a4c]/20 dark:to-[#d4af37]/20 border border-[#d4af37]/30 text-center">
-          <p className="text-[11px] font-medium text-[#2d5a4c] dark:text-[#cde4d8] leading-relaxed">
-            ੴ &ldquo;Vedanta, Guruvani, and Meditation dissolve the illusion of duality and lead us towards true liberation.&rdquo;
+        {/* Channel Spiritual Note */}
+        <div className="mt-5 p-3.5 rounded-2xl bg-gradient-to-br from-[#fef3e2] to-[#fff7ed] dark:from-[#28211b] dark:to-[#1c2334] border border-[#d97706]/30 text-center">
+          <p className="text-[11px] font-medium text-[#1f1b16] dark:text-[#faf6ed] leading-relaxed">
+            ੴ &ldquo;वेदांत का ज्ञान और गुरुवाणी का सिमरन जीव को समस्त भ्रांतियों से मुक्त कर अमर आनंद में स्थापित करता है।&rdquo;
           </p>
-          <span className="block mt-1 text-[10px] font-semibold text-[#8b6e16] dark:text-[#d4af37]">
-            — Swami Amarjit Singh (Sant Nikka Singh Ji Lineage)
+          <span className="block mt-1 text-[10px] font-semibold text-[#c25e00] dark:text-[#fbbf24]">
+            — स्वामी अमरजीत सिंह (संत निक्का सिंह जी परंपरा)
           </span>
         </div>
 

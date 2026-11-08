@@ -3,56 +3,48 @@ import { TopicItem } from '@/types';
 export const TOPIC_ITEMS: TopicItem[] = [
   {
     id: 'all',
-    title: 'All Teachings & Simran',
-    subtitle: 'Vedanta, Guruvani & Meditation',
+    title: 'सभी सत्संग व वीडियो',
+    subtitle: 'चैनल के समस्त पावन उपदेश',
     iconName: 'Sparkles',
     count: 8,
     categoryKey: 'all'
   },
   {
-    id: 'vedanta-nirmala',
-    title: 'Vedanta & Nirmala Wisdom',
-    subtitle: 'Teachings of Sant Nikka Singh Ji',
+    id: 'upadesa-saram',
+    title: 'उपदेश सारम् (महर्षि रमण)',
+    subtitle: 'आत्म-विचार व समाधि',
     iconName: 'Flame',
-    count: 2,
+    count: 3,
     categoryKey: 'spiritual'
   },
   {
-    id: 'guruvani-anand',
-    title: 'Guruvani & Shabad Reflection',
-    subtitle: 'Anand Sahib & Mool Mantar',
-    iconName: 'HeartHandshake',
+    id: 'bhagavad-gita',
+    title: 'श्रीमद्भगवद्गीता ज्ञान',
+    subtitle: 'अध्याय ४ व ज्ञान योग',
+    iconName: 'Compass',
     count: 2,
     categoryKey: 'mindful'
   },
   {
-    id: 'naam-simran',
-    title: 'Naam Simran & 432Hz',
-    subtitle: 'Waheguru dhyana & sonic calm',
+    id: 'sultan-bahu',
+    title: 'सुलतान बाहू व सूफी वाणी',
+    subtitle: 'रूहानी प्रेम व समर्पण',
     iconName: 'Music',
-    count: 2,
+    count: 1,
     categoryKey: 'sound-healing'
   },
   {
-    id: 'beginner-guides',
-    title: 'Beginner Guides to Stillness',
-    subtitle: 'Soham pranayama & postures',
-    iconName: 'Compass',
+    id: 'nature-fields',
+    title: 'भारत के खेत व सादगी',
+    subtitle: 'प्रकृति, मिट्टी व सहज जीवन',
+    iconName: 'HeartHandshake',
     count: 1,
     categoryKey: 'beginner'
   },
   {
-    id: 'deep-sleep',
-    title: 'Deep Sleep & Surat Dhyan',
-    subtitle: 'Peaceful surrender of thoughts',
-    iconName: 'Moon',
-    count: 1,
-    categoryKey: 'sleep'
-  },
-  {
     id: 'upcoming-events',
-    title: 'Upcoming Satsangs & Events',
-    subtitle: 'Live global congregations',
+    title: 'आगामी सत्संग व आयोजन',
+    subtitle: 'स्वामी अमरजीत सिंह जी के साथ',
     iconName: 'Calendar',
     count: 4
   }
