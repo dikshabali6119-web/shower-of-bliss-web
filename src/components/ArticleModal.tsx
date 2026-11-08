@@ -40,16 +40,16 @@ export default function ArticleModal({ article, onClose }: ArticleModalProps) {
       onClick={onClose}
     >
       <div 
-        className="relative w-full max-w-3xl max-h-[90vh] overflow-y-auto glass-panel rounded-3xl border border-[#d97706]/60 shadow-2xl bg-[#fcf9f2]/98 dark:bg-[#141722]/98 text-[#1f1b16] dark:text-[#faf6ed] flex flex-col"
+        className="relative w-full max-w-3xl max-h-[90vh] overflow-y-auto glass-panel rounded-3xl border-2 border-[#eab308]/60 shadow-2xl bg-white/95 dark:bg-[#111d33]/98 text-slate-900 dark:text-white flex flex-col"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
-        <div className="sticky top-0 z-10 glass-nav px-6 py-4 flex items-center justify-between border-b border-[#d97706]/20">
-          <div className="flex items-center gap-2">
-            <span className="p-1.5 rounded-lg bg-[#fef3e2] dark:bg-[#28211b] text-[#c25e00] dark:text-[#fbbf24]">
-              <BookOpen className="w-4 h-4" />
+        <div className="sticky top-0 z-10 glass-nav px-6 py-4 flex items-center justify-between border-b border-[#0284c7]/20 dark:border-[#eab308]/20 bg-white/95 dark:bg-[#111d33]/95">
+          <div className="flex items-center gap-2.5">
+            <span className="p-2 rounded-xl bg-[#e0f2fe] dark:bg-[#162540] text-[#0284c7] dark:text-[#38bdf8] border border-[#0284c7]/30">
+              <BookOpen className="w-4 h-4 text-[#0284c7] dark:text-[#38bdf8]" />
             </span>
-            <span className="text-xs uppercase tracking-wider font-semibold text-[#b45309] dark:text-[#fbbf24]">
+            <span className="text-xs uppercase tracking-wider font-bold text-[#0284c7] dark:text-[#facc15]">
               आध्यात्मिक विचार • Shower of Bliss
             </span>
           </div>
@@ -57,14 +57,14 @@ export default function ArticleModal({ article, onClose }: ArticleModalProps) {
           <div className="flex items-center gap-2">
             <button
               onClick={handleShare}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium hover:bg-black/5 dark:hover:bg-white/10 text-[#c25e00] dark:text-[#fbbf24] border border-[#d97706]/20"
+              className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-bold hover:bg-slate-100 dark:hover:bg-slate-800 text-[#0284c7] dark:text-[#facc15] border border-[#0284c7]/30 transition-all"
             >
               {copied ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Share2 className="w-3.5 h-3.5" />}
               <span>{copied ? 'कॉपी हुआ' : 'साझा करें'}</span>
             </button>
             <button
               onClick={onClose}
-              className="p-1.5 rounded-full hover:bg-black/10 dark:hover:bg-white/10 text-stone-500 hover:text-stone-900 dark:hover:text-white"
+              className="p-1.5 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-500 hover:text-slate-900 dark:hover:text-white transition-colors"
             >
               <X className="w-5 h-5" />
             </button>
@@ -74,39 +74,39 @@ export default function ArticleModal({ article, onClose }: ArticleModalProps) {
         {/* Article Body */}
         <div className="p-6 sm:p-10 flex flex-col gap-6">
           <div>
-            <div className="flex flex-wrap items-center gap-3 text-xs text-[#857865] dark:text-[#d3c9b7] mb-3">
-              <span className="px-2.5 py-0.5 rounded-full font-semibold bg-[#c25e00] text-white">
+            <div className="flex flex-wrap items-center gap-3 text-xs text-slate-600 dark:text-slate-300 mb-3">
+              <span className="px-3 py-0.5 rounded-full font-bold bg-[#0284c7] text-white">
                 {article.category}
               </span>
-              <span className="flex items-center gap-1">
-                <Clock className="w-3 h-3 text-[#d97706]" />
+              <span className="flex items-center gap-1 font-semibold">
+                <Clock className="w-3.5 h-3.5 text-[#eab308]" />
                 {article.readingTime}
               </span>
-              <span className="flex items-center gap-1">
-                <Calendar className="w-3 h-3 text-[#d97706]" />
+              <span className="flex items-center gap-1 font-semibold">
+                <Calendar className="w-3.5 h-3.5 text-[#eab308]" />
                 {article.publishDate}
               </span>
             </div>
 
-            <h1 className="font-serif-bliss text-2xl sm:text-3xl md:text-4xl font-bold text-[#1f1b16] dark:text-[#faf6ed] leading-tight mb-4">
+            <h1 className="font-serif-bliss text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 dark:text-white leading-tight mb-4">
               {article.title}
             </h1>
 
-            <p className="text-base text-[#574d3f] dark:text-[#d3c9b7] italic leading-relaxed border-l-2 border-[#d97706] pl-4 py-1">
+            <p className="text-base text-slate-700 dark:text-slate-200 italic leading-relaxed border-l-4 border-[#eab308] pl-4 py-1.5 bg-[#f0f9ff] dark:bg-[#162540]/60 rounded-r-2xl">
               {article.excerpt}
             </p>
           </div>
 
           {/* Key Takeaways Box */}
-          <div className="rounded-2xl p-5 bg-[#fef3e2] dark:bg-[#28211b] border border-[#d97706]/35">
-            <h4 className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#c25e00] dark:text-[#fbbf24] mb-3">
-              <Sparkles className="w-4 h-4 text-[#d97706]" />
+          <div className="rounded-2xl p-5 bg-[#e0f2fe]/60 dark:bg-[#162540]/60 border-2 border-[#eab308]/40">
+            <h4 className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#0284c7] dark:text-[#facc15] mb-3">
+              <Sparkles className="w-4 h-4 text-[#eab308]" />
               मुख्य आध्यात्मिक बिंदु (Core Insights)
             </h4>
-            <ul className="flex flex-col gap-2 text-xs sm:text-sm text-[#1f1b16] dark:text-[#faf6ed]">
+            <ul className="flex flex-col gap-2.5 text-xs sm:text-sm text-slate-800 dark:text-slate-200">
               {article.keyTakeaways.map((takeaway, idx) => (
                 <li key={idx} className="flex items-start gap-2">
-                  <span className="text-[#d97706] font-bold mt-0.5">•</span>
+                  <span className="text-[#eab308] font-bold mt-0.5">•</span>
                   <span>{takeaway}</span>
                 </li>
               ))}
@@ -114,22 +114,22 @@ export default function ArticleModal({ article, onClose }: ArticleModalProps) {
           </div>
 
           {/* Paragraphs */}
-          <div className="flex flex-col gap-4 text-sm sm:text-base text-[#1f1b16] dark:text-[#faf6ed] leading-relaxed">
+          <div className="flex flex-col gap-4 text-sm sm:text-base text-slate-800 dark:text-slate-200 leading-relaxed">
             {article.content.map((paragraph, index) => (
               <p key={index}>{paragraph}</p>
             ))}
           </div>
 
           {/* Author Box */}
-          <div className="pt-6 mt-6 border-t border-[#2d5a4c]/10 dark:border-[#d4af37]/20 flex items-center gap-4">
-            <div className="w-12 h-12 rounded-full bg-[#2d5a4c] text-[#f4e297] flex items-center justify-center font-serif text-2xl font-bold border border-[#d4af37]">
+          <div className="pt-6 mt-6 border-t border-[#0284c7]/20 dark:border-[#eab308]/20 flex items-center gap-4">
+            <div className="w-12 h-12 rounded-full bg-[#0284c7] text-[#facc15] flex items-center justify-center font-serif text-2xl font-bold border-2 border-[#eab308] shadow-md">
               ੴ
             </div>
             <div>
-              <h5 className="font-serif-bliss text-base font-bold text-[#1c3b31] dark:text-[#f4fbf7]">
+              <h5 className="font-serif-bliss text-base font-bold text-slate-900 dark:text-white">
                 Swami Amarjit Singh
               </h5>
-              <p className="text-xs text-[#5f7d72] dark:text-[#97b8aa]">
+              <p className="text-xs text-slate-600 dark:text-slate-300">
                 Disciple of Sant Nikka Singh Ji (Nirmala Lineage) • Shower of Bliss (@amarjit311)
               </p>
             </div>

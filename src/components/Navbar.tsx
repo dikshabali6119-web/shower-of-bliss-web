@@ -26,9 +26,8 @@ export default function Navbar({ onOpenBreathing }: NavbarProps) {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const savedTheme = localStorage.getItem('bliss-theme');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+    const savedTheme = localStorage.getItem('bliss-sky-theme');
+    if (savedTheme === 'dark') {
       setIsDark(true);
       document.documentElement.classList.add('dark');
     } else {
@@ -43,14 +42,14 @@ export default function Navbar({ onOpenBreathing }: NavbarProps) {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const toggleDarkMode = () => {
+  const toggleTheme = () => {
     if (isDark) {
       document.documentElement.classList.remove('dark');
-      localStorage.setItem('bliss-theme', 'light');
+      localStorage.setItem('bliss-sky-theme', 'light');
       setIsDark(false);
     } else {
       document.documentElement.classList.add('dark');
-      localStorage.setItem('bliss-theme', 'dark');
+      localStorage.setItem('bliss-sky-theme', 'dark');
       setIsDark(true);
     }
   };
@@ -60,30 +59,33 @@ export default function Navbar({ onOpenBreathing }: NavbarProps) {
     setIsAmbientPlaying(state);
   };
 
+  // Nav Items in Clean English as requested by user
   const navLinks = [
-    { name: 'मुख्य पृष्ठ', en: 'Home', href: '#hero' },
-    { name: 'स्वामी जी', en: 'About Swami Ji', href: '#about-swamiji' },
-    { name: 'सत्संग व वीडियो', en: 'Discourses', href: '#meditations' },
-    { name: 'आध्यात्मिक विषय', en: 'Topics', href: '#topics' },
-    { name: 'विचार व लेख', en: 'Articles', href: '#articles' },
+    { name: 'Home', href: '/#hero' },
+    { name: 'About Swami Ji', href: '/#about-swamiji' },
+    { name: 'Video Carousel', href: '/#featured-slider' },
+    { name: 'Discourses', href: '/#discourses' },
+    { name: 'Pillars of Wisdom', href: '/#pillars' },
+    { name: 'Live Satsangs', href: '/#events' },
+    { name: 'Articles', href: '/#articles' },
   ];
 
   return (
     <header 
       className={`sticky top-0 z-50 transition-all duration-300 ${
         scrolled 
-          ? 'glass-nav shadow-sm py-2.5' 
-          : 'bg-transparent py-3.5 border-b border-transparent'
+          ? 'glass-nav shadow-lg py-2.5 bg-white/95 dark:bg-[#0c1524]/95 border-b-2 border-[#eab308]/40' 
+          : 'bg-transparent py-4 border-b border-transparent'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           
-          {/* Logo & Channel Branding (Header mein se Ekumkar hta diya hai user ki demand ke according) */}
-          <Link href="#hero" className="flex items-center gap-3 group">
+          {/* Logo & Channel Branding (Header has NO Ik Onkar icon as user requested) */}
+          <Link href="/#hero" className="flex items-center gap-3 group">
             
             {/* Official Channel Lotus Emblem */}
-            <div className="relative w-11 h-11 rounded-2xl overflow-hidden border-2 border-[#d97706] shadow-sm transition-transform duration-300 group-hover:scale-105 bg-stone-900 shrink-0">
+            <div className="relative w-11 h-11 rounded-2xl overflow-hidden border-2 border-[#eab308] shadow-[0_0_15px_rgba(234,179,8,0.35)] transition-transform duration-300 group-hover:scale-105 bg-slate-900 shrink-0">
               <Image
                 src="/logo.jpg"
                 alt="Shower of Bliss Channel Emblem"
@@ -95,54 +97,54 @@ export default function Navbar({ onOpenBreathing }: NavbarProps) {
 
             <div className="flex flex-col">
               <div className="flex items-center gap-2">
-                <span className="font-serif-bliss text-xl md:text-2xl font-bold tracking-tight text-[#1f1b16] dark:text-[#faf6ed] transition-colors group-hover:text-[#c25e00] dark:group-hover:text-[#fbbf24]">
+                <span className="font-serif-bliss text-xl md:text-2xl font-bold tracking-tight text-[#0284c7] dark:text-[#38bdf8] transition-colors group-hover:text-[#0369a1] dark:group-hover:text-[#facc15]">
                   Shower of Bliss
                 </span>
-                <span className="hidden sm:inline-flex text-[10px] font-bold px-2 py-0.5 rounded-full bg-[#fef3e2] dark:bg-[#362719] text-[#c25e00] dark:text-[#fcd34d] border border-[#d97706]/40">
-                  निर्मला परंपरा
+                <span className="hidden sm:inline-flex text-[10px] font-bold px-2 py-0.5 rounded-full bg-[#fef08a] dark:bg-[#1e293b] text-[#854d0e] dark:text-[#fde047] border border-[#eab308]/50">
+                  Nirmala Lineage
                 </span>
               </div>
-              <span className="text-[11px] font-medium tracking-wide text-[#857865] dark:text-[#d3c9b7]">
-                Swami Amarjit Singh <span className="text-[#d97706] font-semibold">@amarjit311</span>
+              <span className="text-[11px] font-medium tracking-wide text-slate-600 dark:text-slate-300">
+                Swami Amarjit Singh <span className="text-[#0284c7] dark:text-[#38bdf8] font-bold">@amarjit311</span>
               </span>
             </div>
           </Link>
 
-          {/* Desktop Navigation Links (Spiritual Indian style with Devanagari) */}
-          <nav className="hidden md:flex items-center gap-1 lg:gap-2">
+          {/* Desktop Navigation Links in Clean English */}
+          <nav className="hidden lg:flex items-center gap-1.5 xl:gap-2">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="px-3 py-1.5 rounded-full text-xs lg:text-sm font-medium text-[#574d3f] dark:text-[#d3c9b7] hover:text-[#c25e00] hover:bg-[#fef3e2] dark:hover:bg-[#28211b] dark:hover:text-[#faf6ed] transition-colors"
+                className="px-3 py-1.5 rounded-full text-xs xl:text-sm font-semibold text-slate-700 dark:text-slate-200 hover:text-[#0284c7] dark:hover:text-[#facc15] hover:bg-[#e0f2fe] dark:hover:bg-[#1e293b] transition-all border border-transparent hover:border-[#0284c7]/30"
               >
-                <span>{link.name}</span>
+                {link.name}
               </a>
             ))}
           </nav>
 
-          {/* Action Tools & Buttons */}
+          {/* Action Tools & Buttons (Sky Blue & Golden Yellow Theme) */}
           <div className="flex items-center gap-2 sm:gap-2.5">
             
             {/* Ambient Sound Drone Toggle */}
             <button
               onClick={toggleAmbientSound}
-              title={isAmbientPlaying ? 'शांत 432Hz ध्वनि बंद करें' : 'शांत 432Hz ध्वनि चालू करें'}
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium border transition-all ${
+              title={isAmbientPlaying ? 'Mute 432Hz ambient soundscape' : 'Play 432Hz ambient soundscape'}
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold border transition-all ${
                 isAmbientPlaying
-                  ? 'bg-[#d97706]/20 border-[#d97706] text-[#b45309] dark:text-[#fbbf24] animate-gold-pulse'
-                  : 'bg-white/80 dark:bg-[#1c2334]/80 border-[#d97706]/25 text-[#574d3f] dark:text-[#d3c9b7] hover:border-[#d97706]'
+                  ? 'bg-[#eab308] text-[#0f172a] border-[#eab308] shadow-[0_0_15px_rgba(234,179,8,0.6)] font-bold animate-pulse'
+                  : 'bg-white/90 dark:bg-[#1e293b]/90 border-[#0284c7]/30 text-[#0284c7] dark:text-[#38bdf8] hover:border-[#eab308]'
               }`}
             >
               {isAmbientPlaying ? (
                 <>
-                  <Volume2 className="w-3.5 h-3.5 animate-pulse text-[#d97706]" />
-                  <span className="hidden sm:inline">432Hz चालू</span>
+                  <Volume2 className="w-3.5 h-3.5 text-[#0f172a]" />
+                  <span className="hidden sm:inline">432Hz On</span>
                 </>
               ) : (
                 <>
-                  <VolumeX className="w-3.5 h-3.5 text-[#857865]" />
-                  <span className="hidden sm:inline">शांत ध्वनि</span>
+                  <VolumeX className="w-3.5 h-3.5 text-slate-400" />
+                  <span className="hidden sm:inline">432Hz Drone</span>
                 </>
               )}
             </button>
@@ -150,21 +152,21 @@ export default function Navbar({ onOpenBreathing }: NavbarProps) {
             {/* Simran Breath Reset Trigger */}
             <button
               onClick={onOpenBreathing}
-              className="hidden lg:flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium bg-[#fef3e2] dark:bg-[#28211b] text-[#c25e00] dark:text-[#fcd34d] border border-[#d97706]/35 hover:border-[#d97706] transition-colors"
-              title="1-मिनट शांत सिमरन श्वास"
+              className="hidden sm:flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-bold bg-gradient-to-r from-[#0284c7] to-[#0ea5e9] text-white border border-[#eab308]/60 hover:border-[#eab308] shadow-sm hover:shadow-md transition-all hover:scale-105 active:scale-95"
+              title="Practice 1-Minute Guided Breathwork"
             >
-              <Wind className="w-3.5 h-3.5 text-[#c25e00] dark:text-[#fbbf24]" />
-              <span>सिमरन श्वास</span>
+              <Wind className="w-3.5 h-3.5 text-[#fef08a]" />
+              <span>Simran Breath</span>
             </button>
 
-            {/* Dark / Light Mode Toggle */}
+            {/* Theme Toggle (Gentle Dusk Mode / Clear Sky Mode) */}
             <button
-              onClick={toggleDarkMode}
-              aria-label="Toggle spiritual night mode"
-              title={isDark ? "दिन का प्रकाश" : "शांत रात्रि स्वरूप"}
-              className="p-2 rounded-full text-[#574d3f] dark:text-[#fbbf24] hover:bg-[#fef3e2] dark:hover:bg-[#28211b] border border-transparent hover:border-[#d97706]/40 transition-colors"
+              onClick={toggleTheme}
+              aria-label="Toggle theme mode"
+              title={isDark ? "Switch to Celestial Day Mode" : "Switch to Evening Mode"}
+              className="p-2 rounded-full text-[#0284c7] dark:text-[#facc15] hover:bg-[#e0f2fe] dark:hover:bg-[#1e293b] border border-[#0284c7]/30 transition-colors"
             >
-              {isDark ? <Sun className="w-4 h-4 text-[#fbbf24]" /> : <Moon className="w-4 h-4 text-[#c25e00]" />}
+              {isDark ? <Sun className="w-4 h-4 text-[#facc15]" /> : <Moon className="w-4 h-4 text-[#0284c7]" />}
             </button>
 
             {/* YouTube Channel Button */}
@@ -172,7 +174,7 @@ export default function Navbar({ onOpenBreathing }: NavbarProps) {
               href="https://www.youtube.com/@amarjit311"
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden sm:inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#cc0000] hover:bg-[#b00000] text-white text-xs font-semibold shadow-sm transition-all hover:scale-105 active:scale-95"
+              className="hidden sm:inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-red-600 hover:bg-red-700 text-white text-xs font-bold shadow-md transition-all hover:scale-105 active:scale-95"
             >
               <YoutubeIcon className="w-3.5 h-3.5" />
               <span>Subscribe</span>
@@ -181,7 +183,7 @@ export default function Navbar({ onOpenBreathing }: NavbarProps) {
             {/* Mobile Hamburger Toggle */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden p-2 rounded-lg text-[#574d3f] dark:text-[#fbbf24] hover:bg-[#fef3e2] dark:hover:bg-[#28211b]"
+              className="lg:hidden p-2 rounded-lg text-[#0284c7] dark:text-[#facc15] hover:bg-[#e0f2fe] dark:hover:bg-[#1e293b]"
               aria-label="Toggle navigation menu"
             >
               {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -191,16 +193,15 @@ export default function Navbar({ onOpenBreathing }: NavbarProps) {
 
         {/* Mobile Dropdown Menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden mt-3 pt-3 pb-4 border-t border-[#d97706]/20 dark:border-[#d97706]/30 flex flex-col gap-2 animate-in fade-in slide-in-from-top-2 duration-200">
+          <div className="lg:hidden mt-3 pt-3 pb-4 border-t-2 border-[#eab308]/30 flex flex-col gap-2 animate-in fade-in slide-in-from-top-2 duration-200 bg-white/95 dark:bg-[#0f172a]/95 rounded-2xl p-4 shadow-2xl">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="px-4 py-2 rounded-lg text-sm font-medium text-[#574d3f] dark:text-[#d3c9b7] hover:bg-[#fef3e2] dark:hover:bg-[#28211b] flex items-center justify-between"
+                className="px-4 py-2 rounded-lg text-sm font-semibold text-slate-800 dark:text-slate-200 hover:bg-[#e0f2fe] dark:hover:bg-[#1e293b] hover:text-[#0284c7]"
               >
-                <span>{link.name}</span>
-                <span className="text-xs text-[#857865]">{link.en}</span>
+                {link.name}
               </a>
             ))}
             <div className="pt-2 flex flex-col gap-2">
@@ -209,20 +210,20 @@ export default function Navbar({ onOpenBreathing }: NavbarProps) {
                   onOpenBreathing();
                   setIsMobileMenuOpen(false);
                 }}
-                className="flex items-center justify-center gap-2 w-full px-4 py-2 rounded-lg text-sm font-medium bg-[#fef3e2] dark:bg-[#28211b] text-[#c25e00] dark:text-[#fcd34d] border border-[#d97706]/30"
+                className="flex items-center justify-center gap-2 w-full px-4 py-2.5 rounded-xl text-sm font-bold bg-[#0284c7] text-white border border-[#eab308]/40 shadow-sm"
               >
-                <Wind className="w-4 h-4 text-[#d97706]" />
-                <span>1-मिनट शांत सिमरन श्वास (Simran Breath)</span>
+                <Wind className="w-4 h-4 text-[#fef08a]" />
+                <span>Simran Breathing Reset</span>
               </button>
               
               <a
                 href="https://www.youtube.com/@amarjit311"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 w-full px-4 py-2 rounded-lg bg-[#cc0000] text-white text-sm font-medium shadow-sm"
+                className="flex items-center justify-center gap-2 w-full px-4 py-2.5 rounded-xl bg-red-600 text-white text-sm font-bold shadow-sm"
               >
                 <YoutubeIcon className="w-4 h-4" />
-                <span>YouTube चैनल देखें (@amarjit311)</span>
+                <span>Visit YouTube Channel (@amarjit311)</span>
               </a>
             </div>
           </div>

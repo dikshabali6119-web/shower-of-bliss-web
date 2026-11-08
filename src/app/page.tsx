@@ -3,6 +3,8 @@
 import React, { useState } from 'react';
 import Navbar from '@/components/Navbar';
 import HeroSection from '@/components/HeroSection';
+import VideoSlider from '@/components/VideoSlider';
+import NirmalaHeritageSection from '@/components/NirmalaHeritageSection';
 import FloatingSidebar from '@/components/FloatingSidebar';
 import VideoGallery from '@/components/VideoGallery';
 import ContentColumns from '@/components/ContentColumns';
@@ -28,33 +30,41 @@ export default function Home() {
   };
 
   const handleExploreClick = () => {
-    const medElement = document.getElementById('meditations');
-    if (medElement) {
-      medElement.scrollIntoView({ behavior: 'smooth' });
+    const discoursesElement = document.getElementById('discourses');
+    if (discoursesElement) {
+      discoursesElement.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
   return (
-    <div className="min-h-screen flex flex-col relative selection:bg-[#d4af37]/30 selection:text-[#1c3b31] dark:selection:text-[#f4e297]">
+    <div className="min-h-screen flex flex-col relative selection:bg-[#facc15]/30 selection:text-[#0284c7] bg-[var(--bg-primary)] text-[var(--text-primary)] transition-colors duration-300">
       
-      {/* Glassmorphic Navbar */}
+      {/* Glassmorphic Top Navbar with English Links */}
       <Navbar onOpenBreathing={() => setIsBreathingOpen(true)} />
 
       {/* Main Page Body */}
       <main className="flex-1">
         
-        {/* Hero Section */}
+        {/* Hero Section with CENTERED Rotating Ik Onkar */}
         <HeroSection
           onOpenBreathing={() => setIsBreathingOpen(true)}
           onExploreClick={handleExploreClick}
         />
 
-        {/* Content Container: Floating Sidebar + Video Gallery Grid */}
-        <section id="topics" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+        {/* Featured Video Slider / Carousel (User Requested) */}
+        <div id="featured-slider" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <VideoSlider onSelectVideo={(video) => setSelectedVideo(video)} />
+        </div>
+
+        {/* The Guru-Shishya Tradition & Nirmala Heritage Section */}
+        <NirmalaHeritageSection />
+
+        {/* Discourses & Topic Explorer Section */}
+        <section id="discourses" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-16">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             
-            {/* Floating Left Sidebar (4 cols on lg screens, sticky) */}
-            <div className="lg:col-span-4 xl:col-span-3">
+            {/* Left Floating Topic Explorer (4 cols on lg screens, sticky) */}
+            <div id="topics" className="lg:col-span-4 xl:col-span-3">
               <FloatingSidebar
                 activeCategory={activeCategory}
                 onSelectCategory={(cat) => {
@@ -68,7 +78,7 @@ export default function Home() {
               />
             </div>
 
-            {/* Interactive Video Gallery (8 cols on lg, 9 on xl) */}
+            {/* Interactive Video Gallery Grid (8 cols on lg, 9 on xl) */}
             <div className="lg:col-span-8 xl:col-span-9">
               <VideoGallery
                 activeCategory={activeCategory}
@@ -80,7 +90,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Content Columns: Live Events (Left) & Must-Read Articles (Right) */}
+        {/* Content Columns: Live Satsangs (Left) & Must-Read Articles (Right) */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ContentColumns
             onSelectEvent={(event) => setSelectedEvent(event)}
@@ -90,7 +100,7 @@ export default function Home() {
 
       </main>
 
-      {/* Dynamic Footer with Daily Sages Quote & Community Links */}
+      {/* Dynamic Footer with Daily Sages Quote & Social Links */}
       <DynamicFooter />
 
       {/* Interactive Modals */}
