@@ -195,7 +195,7 @@ export const SIKH_GURU_CARDS: GuruBioData[] = [
     gurmukhiName: 'ਸਵਾਮੀ ਅਮਰਜੀਤ ਸਿੰਘ ਜੀ',
     title: 'निर्मला शिष्य • "Shower of Bliss" के प्रणेता',
     period: 'समकालीन ब्रह्मज्ञानी साधक',
-    image: '/swami-amarjit.jpg',
+    image: '/swami-amarjit-portrait.jpg',
     badge: 'निर्मला शिष्य • @amarjit311',
     motto: 'ज्ञान, भक्ति और गुरुवाणी सिमरन ही जीव की परम मुक्ति का सीधा मार्ग है',
     lifeStory: [

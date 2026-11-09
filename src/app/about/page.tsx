@@ -49,7 +49,7 @@ export default function AboutPage() {
             <div className="lg:col-span-4 flex flex-col items-center text-center">
               <div className="relative w-44 h-44 rounded-3xl overflow-hidden border-4 border-[#eab308] shadow-[0_0_30px_rgba(234,179,8,0.4)] mb-4 bg-slate-900">
                 <Image
-                  src="/swami-amarjit.jpg"
+                  src="/swami-amarjit-portrait.jpg"
                   alt="Swami Amarjit Singh"
                   fill
                   className="object-cover object-top"

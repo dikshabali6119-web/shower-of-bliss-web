@@ -97,7 +97,7 @@ export const SIKH_DHARMIK_VIDEOS: VideoItem[] = [
     views: '2.9K',
     category: 'sikh-heritage',
     categoryLabel: 'स्वामी अमरजीत सिंह • @amarjit311',
-    thumbnailUrl: '/swami-amarjit.jpg',
+    thumbnailUrl: '/swami-amarjit-portrait.jpg',
     instructor: 'Swami Amarjit Singh',
     frequency: '528Hz Transformation',
     tags: ['Swami Amarjit Singh', 'Meditation', 'Simran']

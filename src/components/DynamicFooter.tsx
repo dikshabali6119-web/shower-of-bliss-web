@@ -19,6 +19,7 @@ import {
   InstagramIcon, 
   SpotifyIcon 
 } from '@/components/SocialIcons';
+import { SacredKhandaMandala } from '@/components/SikhSymbols';
 import { SAGE_QUOTES } from '@/data/quotes';
 
 export default function DynamicFooter() {
@@ -47,21 +48,36 @@ export default function DynamicFooter() {
   };
 
   return (
-    <footer className="relative mt-20 pt-16 pb-12 border-t-2 border-[#eab308]/40 dark:border-[#eab308]/30 bg-gradient-to-b from-[#e0f2fe]/90 via-[#f0f7ff] to-white dark:from-[#0c1524] dark:via-[#111d33] dark:to-[#080d1a] text-slate-800 dark:text-white transition-colors duration-300">
+    <footer className="relative mt-20 pt-16 pb-12 border-t-2 border-[#eab308]/40 dark:border-[#eab308]/30 bg-gradient-to-b from-[#e0f2fe]/90 via-[#f0f7ff] to-white dark:from-[#0c1524] dark:via-[#111d33] dark:to-[#080d1a] text-slate-800 dark:text-white transition-colors duration-300 overflow-hidden">
       
-      {/* Ambient background glow in Sky Blue & Golden Yellow */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-3/4 h-64 bg-gradient-to-t from-[#38bdf8]/20 via-[#facc15]/15 to-transparent blur-3xl pointer-events-none -z-10" />
+      {/* SIKH DHARMA ANIMATED BACKGROUND: Sacred Khanda Mandalas & Simran Embers */}
+      <div className="absolute inset-0 pointer-events-none -z-10 overflow-hidden">
+        {/* Right Sacred Rotating Khanda Mandala */}
+        <div className="absolute -bottom-16 -right-12 md:right-6 lg:right-16 opacity-25 dark:opacity-30 transition-opacity">
+          <SacredKhandaMandala className="w-80 h-80 sm:w-96 sm:h-96" />
+        </div>
+
+        {/* Left Ethereal Counter-Rotating Sacred Mandala */}
+        <div className="absolute -top-16 -left-16 md:left-4 opacity-15 dark:opacity-20 transition-opacity">
+          <SacredKhandaMandala className="w-64 h-64 sm:w-80 sm:h-80" />
+        </div>
+
+        {/* Floating Golden Simran Light Embers */}
+        <span className="absolute bottom-12 left-1/4 w-3 h-3 rounded-full bg-[#facc15] blur-xs animate-simran-spark-1" />
+        <span className="absolute bottom-8 left-1/3 w-2 h-2 rounded-full bg-[#38bdf8] blur-xs animate-simran-spark-2" />
+        <span className="absolute bottom-16 left-1/2 w-3.5 h-3.5 rounded-full bg-[#eab308] blur-xs animate-simran-spark-3" />
+        <span className="absolute bottom-10 right-1/3 w-2.5 h-2.5 rounded-full bg-[#fde047] blur-xs animate-simran-spark-4" />
+        <span className="absolute bottom-20 right-1/4 w-3 h-3 rounded-full bg-[#0ea5e9] blur-xs animate-simran-spark-5" />
+
+        {/* Ambient celestial mist */}
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-3/4 h-72 bg-gradient-to-t from-[#38bdf8]/15 via-[#facc15]/10 to-transparent blur-3xl" />
+      </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* TOP SECTION: Daily Quote from Sages & Gurus Card */}
+        {/* TOP SECTION: Daily Quote from Sages & Gurus Card (Watermark removed as requested) */}
         <div className="max-w-4xl mx-auto mb-16">
           <div className="glass-panel rounded-3xl p-6 sm:p-8 border-2 border-[#eab308]/50 shadow-2xl relative overflow-hidden gold-glow-card bg-white/95 dark:bg-[#111d33]/95">
-            
-            {/* Watermark Sikh Ik Onkar */}
-            <span className="absolute right-6 -bottom-6 font-serif text-9xl text-[#eab308]/15 dark:text-[#facc15]/10 pointer-events-none select-none font-bold">
-              ੴ
-            </span>
 
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 mb-4 border-b border-[#0284c7]/20 dark:border-[#eab308]/20">
               <div className="flex items-center gap-2 flex-wrap">

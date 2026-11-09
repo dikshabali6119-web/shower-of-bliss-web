@@ -132,12 +132,12 @@ export default function HeroSection({
               <div className="flex flex-col sm:flex-row items-center sm:items-start gap-5 mb-5">
 
                 {/* Swami photo */}
-                <div className="relative w-24 h-28 sm:w-28 sm:h-34 rounded-2xl overflow-hidden border-2 border-amber-400 shrink-0 bg-white shadow-[0_0_25px_rgba(234,179,8,0.3)]">
+                <div className="relative w-28 h-36 sm:w-32 sm:h-40 rounded-2xl overflow-hidden border-2 border-amber-400 shrink-0 bg-white shadow-[0_0_25px_rgba(234,179,8,0.35)]">
                   <Image
-                    src="/swami-amarjit.jpg"
+                    src="/swami-amarjit-portrait.jpg"
                     alt="Swami Amarjit Singh"
                     fill
-                    sizes="112px"
+                    sizes="(max-width: 640px) 112px, 128px"
                     className="object-cover object-top"
                     priority
                   />
