@@ -6,7 +6,6 @@ import { Play, Wind, Bell, Sparkles } from 'lucide-react';
 
 import { CenteredRotatingIkOnkar } from '@/components/SikhSymbols';
 import { soundSynth } from '@/utils/soundSynth';
-import SlotReveal from '@/components/SlotReveal';
 
 interface HeroSectionProps {
   onOpenBreathing: () => void;
@@ -122,85 +121,83 @@ export default function HeroSection({
             The Integrated Path to Inner Liberation (Mukti) through the divine synthesis of Non-Dual Vedanta, Gurbani Hymns, and Contemplative Meditation.
           </p>
 
-          {/* Swami Ji bio card (3D Slot Animation on Scroll) */}
-          <SlotReveal direction="up" delay={100} className="w-full max-w-4xl">
-            <div className="w-full my-3 p-5 sm:p-8 rounded-3xl glass-panel border border-amber-400/50 shadow-[0_15px_60px_rgba(15,23,42,0.08)] text-left relative overflow-hidden bg-white/85 dark:bg-[#111d33]/90 backdrop-blur-xl gold-glow-card">
+          {/* Swami Ji bio card */}
+          <div className="w-full max-w-4xl my-3 p-5 sm:p-8 rounded-3xl glass-panel border border-amber-400/50 shadow-[0_15px_60px_rgba(15,23,42,0.08)] text-left relative overflow-hidden bg-white/85 dark:bg-[#111d33]/90 backdrop-blur-xl gold-glow-card">
 
-              <div className="absolute -top-20 -right-20 w-48 h-48 bg-amber-300/10 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute -top-20 -right-20 w-48 h-48 bg-amber-300/10 rounded-full blur-3xl pointer-events-none" />
 
-              <div className="absolute -bottom-20 -left-20 w-48 h-48 bg-sky-300/10 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute -bottom-20 -left-20 w-48 h-48 bg-sky-300/10 rounded-full blur-3xl pointer-events-none" />
 
-              <div className="relative z-10">
-                <div className="flex flex-col sm:flex-row items-center sm:items-start gap-5 mb-5">
+            <div className="relative z-10">
+              <div className="flex flex-col sm:flex-row items-center sm:items-start gap-5 mb-5">
 
-                  {/* Swami photo */}
-                  <div className="relative w-28 h-36 sm:w-32 sm:h-40 rounded-2xl overflow-hidden border-2 border-amber-400 shrink-0 bg-white shadow-[0_0_25px_rgba(234,179,8,0.35)]">
-                    <Image
-                      src="/swami-amarjit-portrait.jpg"
-                      alt="Swami Amarjit Singh"
-                      fill
-                      sizes="(max-width: 640px) 112px, 128px"
-                      className="object-cover object-top"
-                      priority
-                    />
-                  </div>
-
-                  {/* Bio */}
-                  <div className="text-center sm:text-left">
-                    <div className="flex items-center justify-center sm:justify-start gap-2 flex-wrap">
-                      <h3 className="font-serif-bliss text-xl sm:text-2xl font-bold text-[#0f172a] dark:text-white">
-                        Swami Amarjit Singh
-                      </h3>
-
-                      <span className="text-xs font-bold px-3 py-1 rounded-full bg-sky-600 text-white border border-amber-400/50">
-                        निर्मला परंपरा
-                      </span>
-                    </div>
-
-                    <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 font-medium mt-2">
-                      YouTube Creator at &quot;Shower of Bliss&quot; (
-                      <span className="text-sky-600 dark:text-sky-400 font-bold">
-                        @amarjit311
-                      </span>
-                      )
-                    </p>
-
-                    <p className="text-xs sm:text-sm text-amber-700 dark:text-amber-400 font-bold mt-2">
-                      Revered Master: Sant Nikka Singh Ji &apos;Virakt&apos; (Nirmala Lineage)
-                    </p>
-                  </div>
+                {/* Swami photo */}
+                <div className="relative w-28 h-36 sm:w-32 sm:h-40 rounded-2xl overflow-hidden border-2 border-amber-400 shrink-0 bg-white shadow-[0_0_25px_rgba(234,179,8,0.35)]">
+                  <Image
+                    src="/swami-amarjit-portrait.jpg"
+                    alt="Swami Amarjit Singh"
+                    fill
+                    sizes="(max-width: 640px) 112px, 128px"
+                    className="object-cover object-top"
+                    priority
+                  />
                 </div>
 
-                {/* Quote */}
-                <blockquote className="font-serif-bliss text-sm sm:text-base text-slate-800 dark:text-slate-100 leading-relaxed italic border-l-4 border-amber-400 pl-4 py-4 my-5 bg-sky-50/80 dark:bg-[#172554]/60 rounded-r-2xl">
-                  &ldquo;Hi! My name is <strong>Swami Amarjit Singh</strong>. My Guru&apos;s name is <strong>Sant Nikka Singh Ji</strong>. He was an enlightened saint from the Nirmalas line. So what I learned from him about knowledge of <strong>Vedanta, Guruvani, and Meditation</strong>, that I want to share with people, because it can lead us towards liberation.&rdquo;
-                </blockquote>
+                {/* Bio */}
+                <div className="text-center sm:text-left">
+                  <div className="flex items-center justify-center sm:justify-start gap-2 flex-wrap">
+                    <h3 className="font-serif-bliss text-xl sm:text-2xl font-bold text-[#0f172a] dark:text-white">
+                      Swami Amarjit Singh
+                    </h3>
 
-                {/* Channel topics */}
-                <div className="flex flex-wrap items-center gap-2 pt-2 text-xs font-bold">
-                  <span className="bg-sky-100 dark:bg-slate-800 text-sky-800 dark:text-sky-300 border border-sky-300/50 px-3 py-2 rounded-full">
-                    📖 Upadesa Saram
-                  </span>
+                    <span className="text-xs font-bold px-3 py-1 rounded-full bg-sky-600 text-white border border-amber-400/50">
+                      निर्मला परंपरा
+                    </span>
+                  </div>
 
-                  <span className="bg-amber-100 dark:bg-slate-800 text-amber-800 dark:text-amber-300 border border-amber-300/50 px-3 py-2 rounded-full">
-                    🕉️ Bhagavad Gita
-                  </span>
+                  <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 font-medium mt-2">
+                    YouTube Creator at &quot;Shower of Bliss&quot; (
+                    <span className="text-sky-600 dark:text-sky-400 font-bold">
+                      @amarjit311
+                    </span>
+                    )
+                  </p>
 
-                  <span className="bg-sky-100 dark:bg-slate-800 text-sky-800 dark:text-sky-300 border border-sky-300/50 px-3 py-2 rounded-full">
-                    📜 Vedic Stories &amp; Katha
-                  </span>
-
-                  <span className="bg-amber-100 dark:bg-slate-800 text-amber-800 dark:text-amber-300 border border-amber-300/50 px-3 py-2 rounded-full">
-                    🌹 Poetry of Sultan Bahu
-                  </span>
-
-                  <span className="bg-sky-100 dark:bg-slate-800 text-sky-800 dark:text-sky-300 border border-sky-300/50 px-3 py-2 rounded-full">
-                    🌾 Sacred Fields of India
-                  </span>
+                  <p className="text-xs sm:text-sm text-amber-700 dark:text-amber-400 font-bold mt-2">
+                    Revered Master: Sant Nikka Singh Ji &apos;Virakt&apos; (Nirmala Lineage)
+                  </p>
                 </div>
               </div>
+
+              {/* Quote */}
+              <blockquote className="font-serif-bliss text-sm sm:text-base text-slate-800 dark:text-slate-100 leading-relaxed italic border-l-4 border-amber-400 pl-4 py-4 my-5 bg-sky-50/80 dark:bg-[#172554]/60 rounded-r-2xl">
+                &ldquo;Hi! My name is <strong>Swami Amarjit Singh</strong>. My Guru&apos;s name is <strong>Sant Nikka Singh Ji</strong>. He was an enlightened saint from the Nirmalas line. So what I learned from him about knowledge of <strong>Vedanta, Guruvani, and Meditation</strong>, that I want to share with people, because it can lead us towards liberation.&rdquo;
+              </blockquote>
+
+              {/* Channel topics */}
+              <div className="flex flex-wrap items-center gap-2 pt-2 text-xs font-bold">
+                <span className="bg-sky-100 dark:bg-slate-800 text-sky-800 dark:text-sky-300 border border-sky-300/50 px-3 py-2 rounded-full">
+                  📖 Upadesa Saram
+                </span>
+
+                <span className="bg-amber-100 dark:bg-slate-800 text-amber-800 dark:text-amber-300 border border-amber-300/50 px-3 py-2 rounded-full">
+                  🕉️ Bhagavad Gita
+                </span>
+
+                <span className="bg-sky-100 dark:bg-slate-800 text-sky-800 dark:text-sky-300 border border-sky-300/50 px-3 py-2 rounded-full">
+                  📜 Vedic Stories &amp; Katha
+                </span>
+
+                <span className="bg-amber-100 dark:bg-slate-800 text-amber-800 dark:text-amber-300 border border-amber-300/50 px-3 py-2 rounded-full">
+                  🌹 Poetry of Sultan Bahu
+                </span>
+
+                <span className="bg-sky-100 dark:bg-slate-800 text-sky-800 dark:text-sky-300 border border-sky-300/50 px-3 py-2 rounded-full">
+                  🌾 Sacred Fields of India
+                </span>
+              </div>
             </div>
-          </SlotReveal>
+          </div>
 
           {/* Action buttons */}
           <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 my-9 w-full">
