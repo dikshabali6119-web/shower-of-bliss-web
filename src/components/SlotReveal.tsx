@@ -6,7 +6,7 @@ interface SlotRevealProps {
   children: React.ReactNode;
   className?: string;
   delay?: number;
-  direction?: 'up' | 'down' | 'left' | 'right' | 'scale';
+  direction?: 'up' | 'down' | 'scale';
   threshold?: number;
 }
 
@@ -15,7 +15,7 @@ export default function SlotReveal({
   className = '',
   delay = 0,
   direction = 'up',
-  threshold = 0.12,
+  threshold = 0.08,
 }: SlotRevealProps) {
   const [isVisible, setIsVisible] = useState(false);
   const domRef = useRef<HTMLDivElement>(null);
@@ -24,18 +24,22 @@ export default function SlotReveal({
     const node = domRef.current;
     if (!node) return;
 
+    // IntersectionObserver triggers in BOTH directions:
+    // When scrolling down AND when scrolling up ("chaye uppr se scroll kre chaye niches se")
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             setIsVisible(true);
-            observer.unobserve(entry.target);
+          } else {
+            // Reset when element exits viewport so it re-slots every time
+            setIsVisible(false);
           }
         });
       },
       {
         threshold,
-        rootMargin: '0px 0px -40px 0px',
+        rootMargin: '0px 0px -15px 0px',
       }
     );
 
@@ -46,35 +50,39 @@ export default function SlotReveal({
     };
   }, [threshold]);
 
-  const getInitialTransform = () => {
+  const getSlotTransform = () => {
+    if (isVisible) {
+      return 'perspective(1200px) rotateX(0deg) translate3d(0, 0, 0) scale(1)';
+    }
     switch (direction) {
       case 'up':
-        return 'translate3d(0, 48px, 0) scale(0.96)';
+        // Crisp 3D Slot reel roll up
+        return 'perspective(1200px) rotateX(-15deg) translate3d(0, 75px, 0) scale(0.92)';
       case 'down':
-        return 'translate3d(0, -48px, 0) scale(0.96)';
-      case 'left':
-        return 'translate3d(-48px, 0, 0) scale(0.96)';
-      case 'right':
-        return 'translate3d(48px, 0, 0) scale(0.96)';
+        // 3D Slot roll down
+        return 'perspective(1200px) rotateX(15deg) translate3d(0, -75px, 0) scale(0.92)';
       case 'scale':
-        return 'translate3d(0, 0, 0) scale(0.90)';
+        // 3D Slot zoom pop
+        return 'perspective(1200px) rotateX(0deg) translate3d(0, 50px, 0) scale(0.88)';
       default:
-        return 'translate3d(0, 48px, 0) scale(0.96)';
+        return 'perspective(1200px) rotateX(-15deg) translate3d(0, 75px, 0) scale(0.92)';
     }
   };
 
   return (
     <div
       ref={domRef}
-      className={`transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${className}`}
+      className={`transition-all duration-750 ease-[cubic-bezier(0.2,1,0.3,1.15)] transform-gpu ${className}`}
       style={{
         opacity: isVisible ? 1 : 0,
-        transform: isVisible ? 'translate3d(0, 0, 0) scale(1)' : getInitialTransform(),
+        transform: getSlotTransform(),
+        filter: isVisible ? 'blur(0px)' : 'blur(4px)',
         transitionDelay: `${delay}ms`,
-        willChange: 'opacity, transform',
+        willChange: 'opacity, transform, filter',
       }}
     >
       {children}
     </div>
   );
 }
+
