@@ -21,6 +21,7 @@ import {
 } from '@/components/SocialIcons';
 import { SacredKhandaMandala } from '@/components/SikhSymbols';
 import { SAGE_QUOTES } from '@/data/quotes';
+import SlotItem from '@/components/SlotItem';
 
 interface DynamicFooterProps {
   className?: string;
@@ -125,7 +126,7 @@ export default function DynamicFooter() {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* TOP SECTION: Daily Quote from Sages & Gurus Card */}
-          <div className="max-w-4xl mx-auto mb-16">
+          <SlotItem delay={30} className="max-w-4xl mx-auto mb-16">
             <div className="glass-panel rounded-3xl p-6 sm:p-8 border-2 border-[#eab308]/50 shadow-2xl relative overflow-hidden gold-glow-card bg-white/95 dark:bg-[#111d33]/95">
 
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 mb-4 border-b border-[#0284c7]/20 dark:border-[#eab308]/20">
@@ -186,10 +187,11 @@ export default function DynamicFooter() {
               </div>
 
             </div>
-          </div>
+          </SlotItem>
 
           {/* MIDDLE SECTION: 4-Column Footer Navigation & Newsletter */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-6 border-b border-[#0284c7]/20 dark:border-[#eab308]/20">
+          <SlotItem delay={60} className="w-full">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-6 border-b border-[#0284c7]/20 dark:border-[#eab308]/20">
             
             {/* Brand Info (lg:col-span-4) */}
             <div className="lg:col-span-4 flex flex-col gap-4">
@@ -326,6 +328,7 @@ export default function DynamicFooter() {
             </div>
 
           </div>
+        </SlotItem>
 
           {/* NORMAL FOOTER BOTTOM: In-flow copyright for users at the very end */}
           <div className="pt-6 pb-2 text-center text-xs text-slate-400 dark:text-slate-500">

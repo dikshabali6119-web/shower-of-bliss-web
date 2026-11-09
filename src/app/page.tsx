@@ -16,6 +16,7 @@ import BreathingModal from '@/components/BreathingModal';
 import EventModal from '@/components/EventModal';
 import ArticleModal from '@/components/ArticleModal';
 import GuruBioModal, { GuruBioData } from '@/components/GuruBioModal';
+import SlotItem from '@/components/SlotItem';
 import { VideoItem, LiveEvent, Article } from '@/types';
 
 export default function Home() {
@@ -59,15 +60,21 @@ export default function Home() {
         />
 
         {/* Sikh Gurus & Sant Nikka Singh Ji 2-Second Automatic Carousel */}
-        <SikhGurusAutoCarousel onOpenBio={(guru) => setSelectedGuru(guru)} />
+        <SlotItem delay={30}>
+          <SikhGurusAutoCarousel onOpenBio={(guru) => setSelectedGuru(guru)} />
+        </SlotItem>
 
         {/* Featured Video Slider / Carousel */}
-        <div id="featured-slider" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <VideoSlider onSelectVideo={(video) => setSelectedVideo(video)} />
-        </div>
+        <SlotItem delay={40} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div id="featured-slider">
+            <VideoSlider onSelectVideo={(video) => setSelectedVideo(video)} />
+          </div>
+        </SlotItem>
 
         {/* The Guru-Shishya Tradition & Nirmala Heritage Section with Sikh Video Slider */}
-        <NirmalaHeritageSection onSelectVideo={(video) => setSelectedVideo(video)} />
+        <SlotItem delay={40}>
+          <NirmalaHeritageSection onSelectVideo={(video) => setSelectedVideo(video)} />
+        </SlotItem>
 
         {/* Discourses & Topic Explorer Section */}
         <section id="discourses" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-16">
@@ -75,26 +82,30 @@ export default function Home() {
             
             {/* Left Floating Topic Explorer (4 cols on lg screens, sticky) */}
             <div id="topics" className="lg:col-span-4 xl:col-span-3">
-              <FloatingSidebar
-                activeCategory={activeCategory}
-                onSelectCategory={(cat) => {
-                  setActiveCategory(cat);
-                  const medElement = document.getElementById('meditations');
-                  if (medElement && window.innerWidth < 1024) {
-                    medElement.scrollIntoView({ behavior: 'smooth' });
-                  }
-                }}
-                onSelectEvents={handleSelectEvents}
-              />
+              <SlotItem delay={40}>
+                <FloatingSidebar
+                  activeCategory={activeCategory}
+                  onSelectCategory={(cat) => {
+                    setActiveCategory(cat);
+                    const medElement = document.getElementById('meditations');
+                    if (medElement && window.innerWidth < 1024) {
+                      medElement.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  }}
+                  onSelectEvents={handleSelectEvents}
+                />
+              </SlotItem>
             </div>
 
             {/* Interactive Video Gallery Grid (8 cols on lg, 9 on xl) */}
             <div className="lg:col-span-8 xl:col-span-9">
-              <VideoGallery
-                activeCategory={activeCategory}
-                onSelectVideo={(video) => setSelectedVideo(video)}
-                onCategoryChange={(cat) => setActiveCategory(cat)}
-              />
+              <SlotItem delay={80}>
+                <VideoGallery
+                  activeCategory={activeCategory}
+                  onSelectVideo={(video) => setSelectedVideo(video)}
+                  onCategoryChange={(cat) => setActiveCategory(cat)}
+                />
+              </SlotItem>
             </div>
 
           </div>

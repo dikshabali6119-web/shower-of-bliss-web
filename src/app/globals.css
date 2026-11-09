@@ -555,3 +555,59 @@ section {
 section {
   scroll-margin-top: 100px;
 }
+
+/* ==========================================================================
+   BIDIRECTIONAL SPRING-SNAP SLOT ANIMATIONS (MOBILE SAFE & HIGH PERFORMANCE)
+   Scroll down: drops into place from bottom (+52px) with spring snap
+   Scroll up: drops into place from top (-52px) with spring snap
+   Default fallback: 100% visible, never leaves blank screen on mobile!
+   ========================================================================== */
+
+@keyframes slotInFromBottom {
+  0% {
+    opacity: 0.2;
+    transform: translate3d(0, 52px, 0) scale(0.96);
+  }
+  70% {
+    opacity: 1;
+    transform: translate3d(0, -6px, 0) scale(1.012);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+@keyframes slotInFromTop {
+  0% {
+    opacity: 0.2;
+    transform: translate3d(0, -52px, 0) scale(0.96);
+  }
+  70% {
+    opacity: 1;
+    transform: translate3d(0, 6px, 0) scale(1.012);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+.slot-in-down {
+  animation: slotInFromBottom 0.65s cubic-bezier(0.16, 1, 0.3, 1.15) both;
+  will-change: transform, opacity;
+}
+
+.slot-in-up {
+  animation: slotInFromTop 0.65s cubic-bezier(0.16, 1, 0.3, 1.15) both;
+  will-change: transform, opacity;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .slot-in-down,
+  .slot-in-up {
+    animation: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}

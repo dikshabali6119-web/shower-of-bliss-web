@@ -6,6 +6,7 @@ import { Play, Wind, Bell, Sparkles } from 'lucide-react';
 
 import { CenteredRotatingIkOnkar } from '@/components/SikhSymbols';
 import { soundSynth } from '@/utils/soundSynth';
+import SlotItem from '@/components/SlotItem';
 
 interface HeroSectionProps {
   onOpenBreathing: () => void;
@@ -122,7 +123,8 @@ export default function HeroSection({
           </p>
 
           {/* Swami Ji bio card */}
-          <div className="w-full max-w-4xl my-3 p-5 sm:p-8 rounded-3xl glass-panel border border-amber-400/50 shadow-[0_15px_60px_rgba(15,23,42,0.08)] text-left relative overflow-hidden bg-white/85 dark:bg-[#111d33]/90 backdrop-blur-xl gold-glow-card">
+          <SlotItem delay={60} className="w-full max-w-4xl flex justify-center">
+            <div className="w-full my-3 p-5 sm:p-8 rounded-3xl glass-panel border border-amber-400/50 shadow-[0_15px_60px_rgba(15,23,42,0.08)] text-left relative overflow-hidden bg-white/85 dark:bg-[#111d33]/90 backdrop-blur-xl gold-glow-card">
 
             <div className="absolute -top-20 -right-20 w-48 h-48 bg-amber-300/10 rounded-full blur-3xl pointer-events-none" />
 
@@ -198,6 +200,7 @@ export default function HeroSection({
               </div>
             </div>
           </div>
+        </SlotItem>
 
           {/* Action buttons */}
           <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 my-9 w-full">
