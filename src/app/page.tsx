@@ -42,7 +42,7 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col relative pb-10 selection:bg-[#facc15]/30 selection:text-[#0284c7] bg-[var(--bg-primary)] text-[var(--text-primary)] transition-colors duration-300">
+    <div className="min-h-screen flex flex-col relative pb-16 sm:pb-12 selection:bg-[#facc15]/30 selection:text-[#0284c7] bg-[var(--bg-primary)] text-[var(--text-primary)] transition-colors duration-300">
       
       {/* Sacred Celestial Sky Blue Grid Layout (User Requested) */}
       <div className="fixed inset-0 pointer-events-none -z-10 bg-grid-blue [mask-image:radial-gradient(ellipse_at_center,black_50%,transparent_95%)] opacity-85" />
@@ -109,15 +109,11 @@ export default function Home() {
           </section>
         </SlotReveal>
 
-        {/* Dedicated Section 1: Live Global Satsangs (Slot Animated on Scroll) */}
-        <SlotReveal direction="up" delay={50}>
-          <LiveSatsangsSection onSelectEvent={(event) => setSelectedEvent(event)} />
-        </SlotReveal>
+        {/* Dedicated Section 1: Live Global Satsangs (Individual Cards Slot Animated) */}
+        <LiveSatsangsSection onSelectEvent={(event) => setSelectedEvent(event)} />
 
-        {/* Dedicated Section 2: Sacred Articles & Spiritual Essays (Slot Animated on Scroll) */}
-        <SlotReveal direction="up" delay={50}>
-          <ArticlesSection onSelectArticle={(article) => setSelectedArticle(article)} />
-        </SlotReveal>
+        {/* Dedicated Section 2: Sacred Articles & Spiritual Essays (Individual Cards Slot Animated) */}
+        <ArticlesSection onSelectArticle={(article) => setSelectedArticle(article)} />
 
       </main>
 
