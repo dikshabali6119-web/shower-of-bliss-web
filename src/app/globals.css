@@ -252,6 +252,72 @@ body {
   }
 }
 
+/* CELESTIAL BLISS BUBBLES ANIMATION FOR FOOTER */
+@keyframes floatBlissBubble {
+  0% {
+    transform: translateY(30px) scale(0.65) translateX(0);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.85;
+  }
+  50% {
+    transform: translateY(-140px) scale(1.05) translateX(22px);
+    opacity: 0.95;
+  }
+  80% {
+    opacity: 0.75;
+  }
+  100% {
+    transform: translateY(-340px) scale(1.2) translateX(-18px);
+    opacity: 0;
+  }
+}
+
+@keyframes blissLogoFloat {
+  0%, 100% {
+    transform: translateY(0) scale(1) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-16px) scale(1.06) rotate(2deg);
+  }
+}
+
+.animate-bliss-logo {
+  animation: blissLogoFloat 5.5s ease-in-out infinite;
+}
+
+.bubble-bliss {
+  position: absolute;
+  border-radius: 9999px;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.9), rgba(56, 189, 248, 0.5) 45%, rgba(250, 204, 21, 0.4) 75%, transparent 100%);
+  border: 1.5px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.55), inset 0 0 10px rgba(250, 204, 21, 0.45);
+  pointer-events: none;
+}
+
+.animate-bubble-1 {
+  animation: floatBlissBubble 6.5s ease-in-out infinite;
+}
+.animate-bubble-2 {
+  animation: floatBlissBubble 8.5s ease-in-out 1.2s infinite;
+}
+.animate-bubble-3 {
+  animation: floatBlissBubble 5.8s ease-in-out 2.5s infinite;
+}
+.animate-bubble-4 {
+  animation: floatBlissBubble 7.8s ease-in-out 0.6s infinite;
+}
+.animate-bubble-5 {
+  animation: floatBlissBubble 9.2s ease-in-out 3.2s infinite;
+}
+.animate-bubble-6 {
+  animation: floatBlissBubble 6.8s ease-in-out 1.8s infinite;
+}
+.animate-bubble-7 {
+  animation: floatBlissBubble 10s ease-in-out 4.5s infinite;
+}
+
 .animate-simran-spark-1 {
   animation: floatSimranSparks 6s ease-in-out infinite;
 }

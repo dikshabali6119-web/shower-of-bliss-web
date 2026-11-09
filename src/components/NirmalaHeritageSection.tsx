@@ -19,116 +19,116 @@ import Link from 'next/link';
 
 export const SIKH_DHARMIK_VIDEOS: VideoItem[] = [
   {
-    id: 'sikh-guru-gobind-singh-nirmala',
-    youtubeId: 'Z1BCujX3pw8',
-    title: 'श्री गुरु गोबिन्द सिंह जी - पंच निर्मला परंपरा व काशी यात्रा',
-    description: 'दशम पातशाह श्री गुरु गोबिन्द सिंह जी द्वारा पांच सिखों को काशी भेजकर संस्कृत, उपनिषद् और अद्वैत वेदांत का अध्ययन कराकर निर्मला संप्रदाय की स्थापना का पावन इतिहास।',
-    duration: '06:45',
+    id: 'sikh-sidh-gosht-70',
+    youtubeId: 'MVyitO2Bejk',
+    title: 'ਸਿੱਧ ਗੋਸਟਿ ਪਉੜੀ ੭੦ਵੀ - श्री गुरु नानक देव जी वाणी',
+    description: 'प्रथम पातशाह श्री गुरु नानक देव जी द्वारा रचित "सिद्ध गोस्टि" की 70वीं पौड़ी पर स्वामी अमरजीत सिंह जी का गहन सत्संग विचार। श्वास-श्वास में नाम का सिमरन।',
+    duration: '05:12',
     views: '1.2K',
     category: 'sikh-heritage',
-    categoryLabel: 'श्री गुरु गोबिन्द सिंह जी • काशी परंपरा',
-    thumbnailUrl: '/thumbnails/fields.jpg',
+    categoryLabel: 'श्री गुरु नानक देव जी • सिद्ध गोस्टि',
+    thumbnailUrl: '/thumbnails/MVyitO2Bejk.jpg',
     instructor: 'Swami Amarjit Singh',
     frequency: '432Hz Simran',
-    tags: ['Guru Gobind Singh Ji', 'Nirmala Lineage', 'Vedanta']
+    tags: ['Guru Nanak Dev Ji', 'Siddha Gosht', 'Vedanta', 'Gurbani']
   },
   {
-    id: 'sikh-guru-nanak-ik-onkar',
-    youtubeId: 'b9k1c0l2y3m',
-    title: 'श्री गुरु नानक देव जी - ੴ (एक ओंकार) का अद्वैत रहस्य',
-    description: 'प्रथम पातशाह श्री गुरु नानक देव जी द्वारा उद्घाटित "ੴ सतिनामु करता पुरखु" का गहन वेदांतिक अर्थ। कैसे सर्वव्यापी ब्रह्म ही समस्त सृष्टि में एकरस व्याप्त है।',
-    duration: '08:12',
-    views: '2.5K',
+    id: 'sikh-sidh-gosht-42',
+    youtubeId: 'sB4fT8psLIE',
+    title: 'ਸਿਧੱ ਗੋਸਟਿ ਪਉੜੀ ੪੨ - शब्द सुरति व संसार-सागर तरना',
+    description: 'श्री गुरु नानक देव जी और सिद्धों का संवाद — कैसे संसार रूपी भवसागर को गुरु के शब्द से बिना डूबे पार किया जाता है।',
+    duration: '04:18',
+    views: '980',
     category: 'sikh-heritage',
-    categoryLabel: 'श्री गुरु नानक देव जी • मूल मंतर',
-    thumbnailUrl: '/thumbnails/upadesa-saram.jpg',
+    categoryLabel: 'सिद्ध गोस्टि • शब्द विचार',
+    thumbnailUrl: '/thumbnails/sB4fT8psLIE.jpg',
     instructor: 'Swami Amarjit Singh',
     frequency: '528Hz Meditation',
-    tags: ['Guru Nanak Dev Ji', 'Ik Onkar', 'Mool Mantar']
+    tags: ['Siddha Gosht', 'Shabad', 'Surati', 'Mukti']
   },
   {
-    id: 'sant-nikka-singh-virakt-jeevan',
-    youtubeId: 'x7w8v9u0t1s',
-    title: 'संत निक्का सिंह जी महाराज - वैराग्य व निर्मला परंपरा',
-    description: 'निर्मला परंपरा के परम ब्रह्मज्ञानी संत पूज्य संत निक्का सिंह जी महाराज की पावन साधना, वैराग्य, गुरुवाणी चिंतन और वेदांत ज्ञान का सार।',
-    duration: '09:30',
-    views: '3.1K',
+    id: 'sikh-sidh-gosht-41',
+    youtubeId: 'JiJQSp_LmkY',
+    title: 'ਸਿੱਧ ਗੋਸਟਿ ਪਉੜੀ ੪੧ - गुरुवाणी आत्म-साक्षात्कार',
+    description: 'गुरुवाणी के गहन आध्यात्मिक अर्थों पर स्वामी अमरजीत सिंह जी का व्याख्यान। कैसे मन की चंचलता शब्द में लीन होकर स्थिर होती है।',
+    duration: '06:05',
+    views: '1.5K',
     category: 'sikh-heritage',
-    categoryLabel: 'संत निक्का सिंह जी • पूर्ण ब्रह्मज्ञानी',
-    thumbnailUrl: '/gurus/sant-nikka-singh.jpg',
+    categoryLabel: 'सिद्ध गोस्टि • आत्म-विचार',
+    thumbnailUrl: '/thumbnails/JiJQSp_LmkY.jpg',
     instructor: 'Swami Amarjit Singh',
     frequency: '432Hz Ambient',
-    tags: ['Sant Nikka Singh Ji', 'Nirmala Master', 'Guruvani']
+    tags: ['Siddha Gosht', 'Nirmala Lineage', 'Guruvani']
   },
   {
-    id: 'sri-guru-granth-sahib-jot',
-    youtubeId: 'c2d3e4f5g6h',
-    title: 'श्री गुरु ग्रन्थ साहिब जी - "सभ महि जोति जोति है सोइ"',
-    description: 'गुरुवाणी की अमर पंक्ति "सभ महि जोति जोति है सोइ तिस दै चानणि सभ महि चानणु होइ" पर स्वामी अमरजीत सिंह जी का गहन सत्संग विचार।',
-    duration: '07:18',
-    views: '1.8K',
+    id: 'sikh-sidh-gosht-34',
+    youtubeId: 'jN8kaJgrPks',
+    title: 'Siddha gosht (ਸਿਧ ਗੋਸ਼ਟ ਪਉੜੀ ੩੪ਵੀ) - निर्मल मार्ग',
+    description: 'निर्मला परंपरा के अनुसार गुरुवाणी का अद्वैत रहस्य। पंचम पातशाह और दशम पातशाह की मर्यादा में शब्द-साधना।',
+    duration: '05:40',
+    views: '1.1K',
     category: 'sikh-heritage',
-    categoryLabel: 'श्री गुरु ग्रन्थ साहिब जी • अद्वैत ज्ञान',
-    thumbnailUrl: '/thumbnails/gita.jpg',
+    categoryLabel: 'सिद्ध गोस्टि • निर्मल मार्ग',
+    thumbnailUrl: '/thumbnails/jN8kaJgrPks.jpg',
     instructor: 'Swami Amarjit Singh',
     frequency: '432Hz Sound',
-    tags: ['Guru Granth Sahib', 'Gurbani', 'Divine Light']
+    tags: ['Guru Nanak Dev Ji', 'Gurbani', 'Divine Light']
   },
   {
-    id: 'sukhmani-sahib-simran',
-    youtubeId: 'p1q2r3s4t5u',
-    title: 'सुखमनी साहिब - मन की शांति व जन्म-मरण से मुक्ति',
-    description: 'पंचम पातशाह श्री गुरु अर्जुन देव जी द्वारा रचित सुखमनी साहिब से मन की शुद्धि, मानसिक शांति और प्रभु सिमरन से जन्म-मरण के भय से मुक्ति।',
-    duration: '11:05',
-    views: '4.2K',
+    id: 'sikh-sidh-gosht-33',
+    youtubeId: 'r7g9lYQkXIA',
+    title: 'Siddha gosht (Pudi 33) - सहज समाधि विचार',
+    description: 'सिद्ध गोस्टि की 33वीं पौड़ी — मन को कैसे एकाग्र कर आत्म-तत्व में स्थिर करें। स्वामी जी द्वारा सरल हिंदी/पंजाबी में समझाई गई पद्धति।',
+    duration: '07:22',
+    views: '1.4K',
     category: 'sikh-heritage',
-    categoryLabel: 'पंचम पातशाह • सुखमनी साहिब',
-    thumbnailUrl: '/thumbnails/ved-katha.jpg',
+    categoryLabel: 'सिद्ध गोस्टि • सहज समाधि',
+    thumbnailUrl: '/thumbnails/r7g9lYQkXIA.jpg',
     instructor: 'Swami Amarjit Singh',
     frequency: '432Hz Simran',
-    tags: ['Sukhmani Sahib', 'Guru Arjan Dev Ji', 'Mind Healing']
+    tags: ['Siddha Gosht', 'Mind Healing', 'Samadhi']
   },
   {
-    id: 'swami-amarjit-gurbani-simran',
-    youtubeId: 'v8w9x0y1z2a',
-    title: 'स्वामी अमरजीत सिंह - गुरुवाणी सिमरन व ध्यान साधना',
-    description: 'श्वास-श्वास में वाहेगुरु व ੴ का सिमरन कैसे करें। मन के विकारों से मुक्त होकर अंतरात्मा के परम आनंद में लीन होने की सरल विधि।',
+    id: 'sikh-ghar-mahi-thakur',
+    youtubeId: 'FIZaW97I0h0',
+    title: 'ਘਰ ਮਹਿ ਠਾਕੁਰ ਨਦਿਰ ਨਾਂ ਆਵੇ - हृदय में प्रभु का वास',
+    description: 'गुरुवाणी का अमर उपदेश: ईश्वर बाहर मंदिरों या तीर्थों में नहीं, जीव के अपने अंतःकरण में विराजमान है। गुरु कृपा से अंतर्मुखी होने का मार्ग।',
     duration: '05:50',
-    views: '2.9K',
+    views: '1.9K',
     category: 'sikh-heritage',
-    categoryLabel: 'स्वामी अमरजीत सिंह • @amarjit311',
-    thumbnailUrl: '/swami-amarjit-portrait.jpg',
+    categoryLabel: 'श्री गुरु ग्रंथ साहिब वाणी',
+    thumbnailUrl: '/thumbnails/FIZaW97I0h0.jpg',
     instructor: 'Swami Amarjit Singh',
     frequency: '528Hz Transformation',
-    tags: ['Swami Amarjit Singh', 'Meditation', 'Simran']
+    tags: ['Gurbani', 'Meditation', 'Inner Divine', 'Shower of Bliss']
   },
   {
-    id: 'japuji-sahib-hukam',
-    youtubeId: 'm4n5o6p7q8r',
-    title: 'जपुजी साहिब विचार - हुकम व समर्पण का मार्ग',
-    description: 'प्रथम पातशाह श्री गुरु नानक देव जी द्वारा प्रकटित जपुजी साहिब की पावन पौड़ी "हुकमि रजाई चलणा" पर अद्वैत वेदांतिक सत्संग।',
+    id: 'sikh-shabad-ramanand',
+    youtubeId: '3P62yhGAbHM',
+    title: 'ਸ਼ਬਦ ਸਵਾਮੀ ਰਾਮਾਨੰਦ ਜੀ - कत जाईऐ रे घर लागो रंगु',
+    description: 'श्री गुरु ग्रंथ साहिब जी में सुशोभित स्वामी रामानंद जी का अमर शब्द। अद्वैत भाव से परमात्मा के रंग में रंगने का पावन सत्संग।',
     duration: '08:45',
-    views: '2.1K',
+    views: '2.3K',
     category: 'sikh-heritage',
-    categoryLabel: 'श्री गुरु नानक देव जी • जपुजी साहिब',
-    thumbnailUrl: '/thumbnails/upadesa-saram.jpg',
+    categoryLabel: 'भगत वाणी • गुरु ग्रंथ साहिब',
+    thumbnailUrl: '/thumbnails/3P62yhGAbHM.jpg',
     instructor: 'Swami Amarjit Singh',
     frequency: '432Hz Simran',
-    tags: ['Japuji Sahib', 'Hukam', 'Guru Nanak Dev Ji']
+    tags: ['Swami Ramanand', 'Bhagat Bani', 'Guru Granth Sahib']
   },
   {
-    id: 'anand-sahib-bliss',
-    youtubeId: 's9t0u1v2w3x',
-    title: 'आनंदु साहिब - अंतःकरण में परम आनंद की प्राप्ति',
-    description: 'तीसरे पातशाह श्री गुरु अमरदास जी द्वारा रचित आनंदु साहिब का आध्यात्मिक रहस्य — मन को पूर्ण तृप्ति और आनंदमय स्वरूप में कैसे स्थिर करें।',
-    duration: '10:20',
-    views: '3.4K',
+    id: 'sikh-sidh-gosht-sar',
+    youtubeId: '_MAFVLp05Pg',
+    title: 'ਸਿਧ ਗੋਸਟਿ - संपूर्ण जीवन में मुक्ति का सार',
+    description: 'पूज्य संत निक्का सिंह जी के आशीर्वाद से स्वामी अमरजीत सिंह जी द्वारा सिद्ध गोस्टि के गूढ़ वेदांतिक सिद्धांतों का सरल प्रतिपादन।',
+    duration: '06:30',
+    views: '1.8K',
     category: 'sikh-heritage',
-    categoryLabel: 'तीसरे पातशाह • आनंद साहिब',
-    thumbnailUrl: '/thumbnails/fields.jpg',
+    categoryLabel: 'निर्मला संप्रदाय विचार',
+    thumbnailUrl: '/thumbnails/_MAFVLp05Pg.jpg',
     instructor: 'Swami Amarjit Singh',
     frequency: '528Hz Bliss',
-    tags: ['Anand Sahib', 'Inner Peace', 'Bliss']
+    tags: ['Sant Nikka Singh Ji', 'Nirmala Heritage', 'Mukti']
   }
 ];
 
@@ -171,14 +171,13 @@ export default function NirmalaHeritageSection({ onSelectVideo }: NirmalaHeritag
     setCurrentIndex((prev) => (prev <= 0 ? maxIndex : prev - 1));
   };
 
-  // Automatic Smooth Sliding (Every 3.8s, slides 1 card at a time)
+  // Automatic Smooth Sliding (Continuous every 2.5s, slides 1 card at a time)
   useEffect(() => {
-    if (!isAutoPlaying) return;
     const interval = setInterval(() => {
-      nextSlide();
-    }, 3800);
+      setCurrentIndex((prev) => (prev >= maxIndex ? 0 : prev + 1));
+    }, 2500);
     return () => clearInterval(interval);
-  }, [isAutoPlaying, maxIndex, currentIndex]);
+  }, [maxIndex]);
 
   const handleCardClick = (video: VideoItem) => {
     if (onSelectVideo) {
@@ -215,42 +214,11 @@ export default function NirmalaHeritageSection({ onSelectVideo }: NirmalaHeritag
               Discourses on Sri Guru Nanak Dev Ji, Sri Guru Gobind Singh Ji, Sant Nikka Singh Ji, and Guruvani
             </p>
           </div>
-
-          {/* Controls: Prev / Next Buttons & Position Counter */}
-          <div className="flex items-center gap-2 shrink-0">
-            <button
-              onClick={() => {
-                setIsAutoPlaying(false);
-                prevSlide();
-              }}
-              aria-label="Previous videos"
-              className="w-9 h-9 rounded-full bg-white dark:bg-[#162540] hover:bg-[#0284c7] hover:text-white text-[#0284c7] dark:text-[#facc15] flex items-center justify-center border-2 border-[#eab308]/60 transition-all hover:scale-105 active:scale-95 shadow-md"
-            >
-              <ChevronLeft className="w-5 h-5 text-[#eab308] dark:text-[#facc15]" />
-            </button>
-
-            <span className="text-xs font-mono font-bold text-[#0284c7] dark:text-[#facc15] px-2.5 py-1 rounded-full bg-[#e0f2fe] dark:bg-[#1e293b] border border-[#0284c7]/30 dark:border-[#facc15]/40">
-              {currentIndex + 1} / {maxIndex + 1}
-            </span>
-
-            <button
-              onClick={() => {
-                setIsAutoPlaying(false);
-                nextSlide();
-              }}
-              aria-label="Next videos"
-              className="w-9 h-9 rounded-full bg-white dark:bg-[#162540] hover:bg-[#0284c7] hover:text-white text-[#0284c7] dark:text-[#facc15] flex items-center justify-center border-2 border-[#eab308]/60 transition-all hover:scale-105 active:scale-95 shadow-md"
-            >
-              <ChevronRight className="w-5 h-5 text-[#eab308] dark:text-[#facc15]" />
-            </button>
-          </div>
         </div>
 
         {/* 3-4 CARDS SLIDER TRACK (User Requested: Ek bar me 3 se 4 card dikhe aur automatic slide ho) */}
         <div 
           className="relative mb-14 overflow-hidden rounded-3xl"
-          onMouseEnter={() => setIsAutoPlaying(false)}
-          onMouseLeave={() => setIsAutoPlaying(true)}
         >
           <div 
             className="flex transition-transform duration-600 ease-in-out -mx-2.5"

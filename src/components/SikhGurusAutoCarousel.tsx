@@ -255,14 +255,13 @@ export default function SikhGurusAutoCarousel({ onOpenBio }: SikhGurusAutoCarous
     setCurrentIndex((prev) => (prev <= 0 ? maxIndex : prev - 1));
   };
 
-  // 2-SECOND AUTOMATIC SMOOTH SLIDE (User requested: automatic slide ho or 2 sec m)
+  // 2-SECOND AUTOMATIC SMOOTH SLIDE (Continuous every 2 seconds as user requested)
   useEffect(() => {
-    if (!isAutoPlaying) return;
     const interval = setInterval(() => {
-      nextSlide();
+      setCurrentIndex((prev) => (prev >= maxIndex ? 0 : prev + 1));
     }, 2000); // 2000ms = 2 seconds
     return () => clearInterval(interval);
-  }, [isAutoPlaying, maxIndex, currentIndex]);
+  }, [maxIndex]);
 
   return (
     <section className="w-full py-8 md:py-12 relative overflow-hidden">
@@ -291,43 +290,10 @@ export default function SikhGurusAutoCarousel({ onOpenBio }: SikhGurusAutoCarous
               कार्ड पर टैप करके पावन गुरुओं के जीवन, उपदेश व संत निक्का सिंह जी के संबंध के बारे में पढ़ें
             </p>
           </div>
-
-          {/* Controls: Prev / Next Buttons & Position Counter */}
-          <div className="flex items-center gap-2 shrink-0">
-            <button
-              onClick={() => {
-                setIsAutoPlaying(false);
-                prevSlide();
-              }}
-              aria-label="Previous card"
-              className="w-9 h-9 rounded-full bg-white dark:bg-[#162540] hover:bg-[#0284c7] hover:text-white text-[#0284c7] dark:text-[#facc15] flex items-center justify-center border-2 border-[#eab308]/60 transition-all hover:scale-105 active:scale-95 shadow-md"
-            >
-              <ChevronLeft className="w-5 h-5 text-[#eab308] dark:text-[#facc15]" />
-            </button>
-
-            <span className="text-xs font-mono font-bold text-[#0284c7] dark:text-[#facc15] px-2.5 py-1 rounded-full bg-[#e0f2fe] dark:bg-[#1e293b] border border-[#0284c7]/30 dark:border-[#facc15]/40">
-              {currentIndex + 1} / {maxIndex + 1}
-            </span>
-
-            <button
-              onClick={() => {
-                setIsAutoPlaying(false);
-                nextSlide();
-              }}
-              aria-label="Next card"
-              className="w-9 h-9 rounded-full bg-white dark:bg-[#162540] hover:bg-[#0284c7] hover:text-white text-[#0284c7] dark:text-[#facc15] flex items-center justify-center border-2 border-[#eab308]/60 transition-all hover:scale-105 active:scale-95 shadow-md"
-            >
-              <ChevronRight className="w-5 h-5 text-[#eab308] dark:text-[#facc15]" />
-            </button>
-          </div>
         </div>
 
         {/* 3-4 CARDS SLIDER TRACK (Slides every 2 seconds automatically) */}
-        <div 
-          className="relative overflow-hidden rounded-3xl"
-          onMouseEnter={() => setIsAutoPlaying(false)}
-          onMouseLeave={() => setIsAutoPlaying(true)}
-        >
+        <div className="relative overflow-hidden rounded-3xl">
           <div 
             className="flex transition-transform duration-500 ease-in-out -mx-2.5"
             style={{

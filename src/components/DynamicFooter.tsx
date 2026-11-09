@@ -50,10 +50,33 @@ export default function DynamicFooter() {
   return (
     <footer className="relative mt-20 pt-16 pb-12 border-t-2 border-[#eab308]/40 dark:border-[#eab308]/30 bg-gradient-to-b from-[#e0f2fe]/90 via-[#f0f7ff] to-white dark:from-[#0c1524] dark:via-[#111d33] dark:to-[#080d1a] text-slate-800 dark:text-white transition-colors duration-300 overflow-hidden">
       
-      {/* SIKH DHARMA ANIMATED BACKGROUND: Sacred Khanda Mandalas & Simran Embers */}
+      {/* SIKH DHARMA ANIMATED BACKGROUND: Sacred Khanda Mandalas, Shower of Bliss Animated Logo & Bubbles */}
       <div className="absolute inset-0 pointer-events-none -z-10 overflow-hidden">
+        {/* Sacred Animated Shower of Bliss Logo Floating in Background (User Requested) */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 md:left-auto md:right-16 md:translate-x-0 opacity-20 dark:opacity-25 pointer-events-none select-none">
+          <div className="relative w-52 h-52 sm:w-64 sm:h-64 rounded-full overflow-hidden border-4 border-[#eab308]/70 shadow-[0_0_80px_rgba(250,204,21,0.5),0_0_120px_rgba(56,189,248,0.4)] animate-bliss-logo">
+            <Image
+              src="/logo.jpg"
+              alt="Shower of Bliss background emblem"
+              fill
+              className="object-cover"
+            />
+          </div>
+        </div>
+
+        {/* Luminous Rising Bliss Bubbles (User Requested: bublesss b lgaooooo) */}
+        <span className="bubble-bliss w-6 h-6 left-[6%] bottom-10 animate-bubble-1" />
+        <span className="bubble-bliss w-10 h-10 left-[18%] bottom-16 animate-bubble-2" />
+        <span className="bubble-bliss w-5 h-5 left-[32%] bottom-8 animate-bubble-3" />
+        <span className="bubble-bliss w-8 h-8 left-[46%] bottom-12 animate-bubble-4" />
+        <span className="bubble-bliss w-4 h-4 left-[60%] bottom-6 animate-bubble-5" />
+        <span className="bubble-bliss w-9 h-9 left-[74%] bottom-14 animate-bubble-6" />
+        <span className="bubble-bliss w-11 h-11 left-[88%] bottom-10 animate-bubble-7" />
+        <span className="bubble-bliss w-5 h-5 left-[25%] bottom-20 animate-bubble-5" />
+        <span className="bubble-bliss w-7 h-7 left-[82%] bottom-24 animate-bubble-3" />
+
         {/* Right Sacred Rotating Khanda Mandala */}
-        <div className="absolute -bottom-16 -right-12 md:right-6 lg:right-16 opacity-25 dark:opacity-30 transition-opacity">
+        <div className="absolute -bottom-16 -right-12 md:right-6 lg:right-16 opacity-20 dark:opacity-25 transition-opacity">
           <SacredKhandaMandala className="w-80 h-80 sm:w-96 sm:h-96" />
         </div>
 

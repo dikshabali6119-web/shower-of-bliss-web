@@ -8,7 +8,8 @@ import SikhGurusAutoCarousel from '@/components/SikhGurusAutoCarousel';
 import NirmalaHeritageSection from '@/components/NirmalaHeritageSection';
 import FloatingSidebar from '@/components/FloatingSidebar';
 import VideoGallery from '@/components/VideoGallery';
-import ContentColumns from '@/components/ContentColumns';
+import LiveSatsangsSection from '@/components/LiveSatsangsSection';
+import ArticlesSection from '@/components/ArticlesSection';
 import DynamicFooter from '@/components/DynamicFooter';
 import VideoModal from '@/components/VideoModal';
 import BreathingModal from '@/components/BreathingModal';
@@ -99,13 +100,11 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Content Columns: Live Satsangs (Left) & Must-Read Articles (Right) */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <ContentColumns
-            onSelectEvent={(event) => setSelectedEvent(event)}
-            onSelectArticle={(article) => setSelectedArticle(article)}
-          />
-        </div>
+        {/* Dedicated Section 1: Live Global Satsangs (4 Events - User Requested Separate Section) */}
+        <LiveSatsangsSection onSelectEvent={(event) => setSelectedEvent(event)} />
+
+        {/* Dedicated Section 2: Sacred Articles & Spiritual Essays (4 Articles - User Requested Separate Section) */}
+        <ArticlesSection onSelectArticle={(article) => setSelectedArticle(article)} />
 
       </main>
 

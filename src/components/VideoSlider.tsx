@@ -44,48 +44,19 @@ export default function VideoSlider({ onSelectVideo }: VideoSliderProps) {
   return (
     <section className="w-full py-6 md:py-10">
       
-      {/* Slider Header */}
+      {/* Section Header */}
       <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6">
         <div>
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-[#0284c7]/15 text-[#0369a1] dark:text-[#38bdf8] border border-[#0284c7]/30 mb-2">
-            <Sparkles className="w-3.5 h-3.5 text-[#eab308]" />
-            <span>Featured YouTube Carousel • @amarjit311</span>
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-bold bg-[#0284c7]/15 dark:bg-[#162540] text-[#0284c7] dark:text-[#38bdf8] border border-[#0284c7]/30 mb-2">
+            <Sparkles className="w-3.5 h-3.5 text-[#eab308] dark:text-[#facc15]" />
+            <span>पावन सत्संग विचार • आत्मज्ञान वाणी</span>
           </div>
-          <h2 className="font-serif-bliss text-2xl sm:text-3xl md:text-4xl font-bold text-[#0f172a] dark:text-white tracking-tight">
-            Featured Discourses &amp; Video Carousel
+          <h2 className="font-serif-bliss text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#0f172a] dark:text-white tracking-tight">
+            Divine Discourses &amp; Spiritual Wisdom
           </h2>
-          <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-1">
-            Browse Swami Amarjit Singh&apos;s sacred teachings with smooth interactive controls
+          <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-200 mt-1 font-medium">
+            Non-Dual Vedanta, Maharishi Ramana Teachings, Bhagavad Gita &amp; Sufi Poetry by Swami Amarjit Singh
           </p>
-        </div>
-
-        {/* Carousel Navigation Buttons */}
-        <div className="flex items-center gap-2">
-          <button
-            onClick={() => {
-              setIsAutoPlaying(false);
-              prevSlide();
-            }}
-            aria-label="Previous discourse"
-            className="w-10 h-10 rounded-full bg-white dark:bg-[#15233c] hover:bg-[#0284c7] hover:text-white text-[#0284c7] dark:text-[#38bdf8] flex items-center justify-center border-2 border-[#eab308]/60 transition-all hover:scale-105 active:scale-95 shadow-md"
-          >
-            <ChevronLeft className="w-5 h-5 text-[#eab308]" />
-          </button>
-          
-          <span className="text-xs font-mono font-bold text-[#0284c7] dark:text-[#facc15] px-2.5 py-1 rounded-full bg-[#e0f2fe] dark:bg-[#1e293b]">
-            {currentIndex + 1} / {MEDITATIONS_DATA.length}
-          </span>
-
-          <button
-            onClick={() => {
-              setIsAutoPlaying(false);
-              nextSlide();
-            }}
-            aria-label="Next discourse"
-            className="w-10 h-10 rounded-full bg-white dark:bg-[#15233c] hover:bg-[#0284c7] hover:text-white text-[#0284c7] dark:text-[#38bdf8] flex items-center justify-center border-2 border-[#eab308]/60 transition-all hover:scale-105 active:scale-95 shadow-md"
-          >
-            <ChevronRight className="w-5 h-5 text-[#eab308]" />
-          </button>
         </div>
       </div>
 
