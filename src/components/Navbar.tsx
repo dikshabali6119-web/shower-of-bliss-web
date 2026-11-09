@@ -1,17 +1,21 @@
+
 'use client';
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { 
-  Sun, 
-  Moon, 
-  Menu, 
-  X, 
-  Volume2, 
-  VolumeX, 
+import {
+  Sun,
+  Moon,
+  Menu,
+  X,
+  Volume2,
+  VolumeX,
   Wind,
+  Sparkles,
+  ChevronDown,
 } from 'lucide-react';
+
 import { YoutubeIcon } from '@/components/SocialIcons';
 import { soundSynth } from '@/utils/soundSynth';
 
@@ -27,212 +31,356 @@ export default function Navbar({ onOpenBreathing }: NavbarProps) {
 
   useEffect(() => {
     const savedTheme = localStorage.getItem('bliss-sky-theme');
-    if (savedTheme === 'dark') {
-      setIsDark(true);
-      document.documentElement.classList.add('dark');
-    } else {
-      setIsDark(false);
-      document.documentElement.classList.remove('dark');
-    }
+
+    const dark = savedTheme === 'dark';
+    setIsDark(dark);
+    document.documentElement.classList.toggle('dark', dark);
 
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+      setScrolled(window.scrollY > 25);
     };
+
+    handleScroll();
     window.addEventListener('scroll', handleScroll);
+
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const toggleTheme = () => {
-    if (isDark) {
-      document.documentElement.classList.remove('dark');
-      localStorage.setItem('bliss-sky-theme', 'light');
-      setIsDark(false);
-    } else {
-      document.documentElement.classList.add('dark');
-      localStorage.setItem('bliss-sky-theme', 'dark');
-      setIsDark(true);
-    }
+    const nextTheme = !isDark;
+
+    setIsDark(nextTheme);
+    document.documentElement.classList.toggle('dark', nextTheme);
+
+    localStorage.setItem(
+      'bliss-sky-theme',
+      nextTheme ? 'dark' : 'light'
+    );
   };
 
   const toggleAmbientSound = () => {
-    const state = soundSynth.toggleAmbient((playing) => setIsAmbientPlaying(playing));
+    const state = soundSynth.toggleAmbient((playing) => {
+      setIsAmbientPlaying(playing);
+    });
+
     setIsAmbientPlaying(state);
   };
 
-  // Nav Items in Clean English as requested by user
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
+  };
+
   const navLinks = [
     { name: 'Home', href: '/#hero' },
     { name: 'About Swami Ji', href: '/#about-swamiji' },
-    { name: 'Video Carousel', href: '/#featured-slider' },
+    { name: 'Videos', href: '/#featured-slider' },
     { name: 'Discourses', href: '/#discourses' },
-    { name: 'Pillars of Wisdom', href: '/#pillars' },
+    { name: 'Wisdom', href: '/#pillars' },
     { name: 'Live Satsangs', href: '/#events' },
     { name: 'Articles', href: '/#articles' },
   ];
 
   return (
-    <header 
-      className={`sticky top-0 z-50 transition-all duration-300 ${
-        scrolled 
-          ? 'glass-nav shadow-lg py-2.5 bg-white/95 dark:bg-[#0c1524]/95 border-b-2 border-[#eab308]/40' 
-          : 'bg-transparent py-4 border-b border-transparent'
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between">
-          
-          {/* Logo & Channel Branding (Header has NO Ik Onkar icon as user requested) */}
-          <Link href="/#hero" className="flex items-center gap-3 group">
-            
-            {/* Official Channel Lotus Emblem */}
-            <div className="relative w-11 h-11 rounded-2xl overflow-hidden border-2 border-[#eab308] shadow-[0_0_15px_rgba(234,179,8,0.35)] transition-transform duration-300 group-hover:scale-105 bg-slate-900 shrink-0">
-              <Image
-                src="/logo.jpg"
-                alt="Shower of Bliss Channel Emblem"
-                fill
-                className="object-cover"
-                priority
-              />
-            </div>
+    <>
+      <header
+        className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
+          scrolled
+            ? 'bg-white/90 dark:bg-[#091426]/95 backdrop-blur-2xl shadow-[0_8px_35px_rgba(15,23,42,0.10)] border-b border-amber-400/30 py-2'
+            : 'bg-white/65 dark:bg-[#091426]/65 backdrop-blur-lg border-b border-white/20 py-4'
+        }`}
+      >
+        <div className="max-w-[1450px] mx-auto px-4 sm:px-6 xl:px-8">
 
-            <div className="flex flex-col">
-              <div className="flex items-center gap-2">
-                <span className="font-serif-bliss text-xl md:text-2xl font-bold tracking-tight text-[#0284c7] dark:text-[#38bdf8] transition-colors group-hover:text-[#0369a1] dark:group-hover:text-[#facc15]">
-                  Shower of Bliss
-                </span>
-                <span className="hidden sm:inline-flex text-[10px] font-bold px-2 py-0.5 rounded-full bg-[#fef08a] dark:bg-[#1e293b] text-[#854d0e] dark:text-[#fde047] border border-[#eab308]/50">
-                  Nirmala Lineage
+          <div className="flex items-center justify-between gap-4">
+
+            {/* BRAND LOGO */}
+            <Link
+              href="/#hero"
+              onClick={closeMobileMenu}
+              className="flex items-center gap-3 shrink-0 group"
+            >
+              <div className="logo-orbit relative w-12 h-12 md:w-14 md:h-14 rounded-full p-[3px] shrink-0">
+
+                <div className="relative w-full h-full rounded-full overflow-hidden bg-slate-900 border-2 border-white dark:border-slate-800 shadow-xl">
+                  <Image
+                    src="/logo.jpg"
+                    alt="Shower of Bliss"
+                    fill
+                    priority
+                    sizes="56px"
+                    className="object-cover logo-image"
+                  />
+                </div>
+
+                <span className="absolute -top-1 -right-1 text-amber-400 animate-pulse">
+                  <Sparkles size={15} fill="currentColor" />
                 </span>
               </div>
-              <span className="text-[11px] font-medium tracking-wide text-slate-600 dark:text-slate-300">
-                Swami Amarjit Singh <span className="text-[#0284c7] dark:text-[#38bdf8] font-bold">@amarjit311</span>
-              </span>
-            </div>
-          </Link>
 
-          {/* Desktop Navigation Links in Clean English */}
-          <nav className="hidden lg:flex items-center gap-1.5 xl:gap-2">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="px-3.5 py-1.5 rounded-full text-xs xl:text-sm font-bold text-slate-800 dark:text-white hover:text-[#0284c7] dark:hover:text-[#facc15] hover:bg-[#e0f2fe] dark:hover:bg-[#162540] transition-all border border-transparent hover:border-[#0284c7]/30 dark:hover:border-[#facc15]/40"
-              >
-                {link.name}
-              </a>
-            ))}
-          </nav>
+              <div className="flex flex-col gap-0.5">
 
-          {/* Action Tools & Buttons (Sky Blue & Golden Yellow Theme) */}
-          <div className="flex items-center gap-2 sm:gap-2.5">
-            
-            {/* Ambient Sound Drone Toggle */}
-            <button
-              onClick={toggleAmbientSound}
-              title={isAmbientPlaying ? 'Mute 432Hz ambient soundscape' : 'Play 432Hz ambient soundscape'}
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold border transition-all ${
-                isAmbientPlaying
-                  ? 'bg-[#eab308] text-[#0f172a] border-[#eab308] shadow-[0_0_15px_rgba(234,179,8,0.6)] font-bold animate-pulse'
-                  : 'bg-white/90 dark:bg-[#1e293b]/90 border-[#0284c7]/30 text-[#0284c7] dark:text-[#38bdf8] hover:border-[#eab308]'
-              }`}
-            >
-              {isAmbientPlaying ? (
-                <>
-                  <Volume2 className="w-3.5 h-3.5 text-[#0f172a]" />
-                  <span className="hidden sm:inline">432Hz On</span>
-                </>
-              ) : (
-                <>
-                  <VolumeX className="w-3.5 h-3.5 text-slate-400" />
-                  <span className="hidden sm:inline">432Hz Drone</span>
-                </>
-              )}
-            </button>
+                <div className="flex items-center gap-2">
+                  <span className="brand-name text-xl md:text-2xl font-bold tracking-tight">
+                    Shower of Bliss
+                  </span>
+                </div>
 
-            {/* Simran Breath Reset Trigger */}
-            <button
-              onClick={onOpenBreathing}
-              className="hidden sm:flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-bold bg-gradient-to-r from-[#0284c7] to-[#0ea5e9] text-white border border-[#eab308]/60 hover:border-[#eab308] shadow-sm hover:shadow-md transition-all hover:scale-105 active:scale-95"
-              title="Practice 1-Minute Guided Breathwork"
-            >
-              <Wind className="w-3.5 h-3.5 text-[#fef08a]" />
-              <span>Simran Breath</span>
-            </button>
+                <span className="text-[9px] md:text-[10px] tracking-[2px] uppercase font-semibold text-slate-500 dark:text-slate-400">
+                  Nirmala Lineage
+                </span>
 
-            {/* Theme Toggle (Gentle Dusk Mode / Clear Sky Mode) */}
-            <button
-              onClick={toggleTheme}
-              aria-label="Toggle theme mode"
-              title={isDark ? "Switch to Day Mode" : "Switch to Evening Mode"}
-              className={`p-2 rounded-full border transition-all ${
-                isDark 
-                  ? "bg-[#162540] text-[#facc15] border-[#facc15]/80 shadow-[0_0_15px_rgba(250,204,21,0.5)]" 
-                  : "bg-white/90 text-[#0284c7] border-[#0284c7]/30 hover:border-[#eab308]"
-              }`}
-            >
-              {isDark ? <Sun className="w-4 h-4 text-[#facc15]" /> : <Moon className="w-4 h-4 text-[#0284c7]" />}
-            </button>
+                <span className="text-[10px] md:text-[11px] font-medium text-slate-600 dark:text-slate-300">
+                  Swami Amarjit Singh
+                  <span className="text-sky-600 dark:text-sky-400 font-bold">
+                    {' '}@amarjit311
+                  </span>
+                </span>
 
-            {/* YouTube Channel Button */}
-            <a
-              href="https://www.youtube.com/@amarjit311"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hidden sm:inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-red-600 hover:bg-red-700 text-white text-xs font-bold shadow-md transition-all hover:scale-105 active:scale-95"
-            >
-              <YoutubeIcon className="w-3.5 h-3.5" />
-              <span>Subscribe</span>
-            </a>
+              </div>
+            </Link>
 
-            {/* Mobile Hamburger Toggle */}
-            <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="lg:hidden p-2 rounded-lg text-[#0284c7] dark:text-[#facc15] hover:bg-[#e0f2fe] dark:hover:bg-[#1e293b]"
-              aria-label="Toggle navigation menu"
-            >
-              {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-            </button>
-          </div>
-        </div>
+            {/* DESKTOP NAVIGATION */}
+            <nav className="hidden xl:flex items-center gap-0.5">
+              {navLinks.map((link, index) => (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  className="nav-link relative px-2.5 py-2 text-[12px] font-semibold text-slate-700 dark:text-slate-200 whitespace-nowrap transition-all duration-300 rounded-lg hover:text-sky-600 dark:hover:text-amber-400 hover:bg-sky-50 dark:hover:bg-slate-800/70"
+                >
+                  {link.name}
+                  <span className="nav-underline" />
+                </a>
+              ))}
+            </nav>
 
-        {/* Mobile Dropdown Menu */}
-        {isMobileMenuOpen && (
-          <div className="lg:hidden mt-3 pt-3 pb-4 border-t-2 border-[#eab308]/30 flex flex-col gap-2 animate-in fade-in slide-in-from-top-2 duration-200 bg-white/95 dark:bg-[#0f172a]/95 rounded-2xl p-4 shadow-2xl">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="px-4 py-2 rounded-lg text-sm font-semibold text-slate-800 dark:text-slate-200 hover:bg-[#e0f2fe] dark:hover:bg-[#1e293b] hover:text-[#0284c7]"
-              >
-                {link.name}
-              </a>
-            ))}
-            <div className="pt-2 flex flex-col gap-2">
+            {/* ACTION BUTTONS */}
+            <div className="flex items-center gap-2 shrink-0">
+
+              {/* AMBIENT SOUND */}
               <button
-                onClick={() => {
-                  onOpenBreathing();
-                  setIsMobileMenuOpen(false);
-                }}
-                className="flex items-center justify-center gap-2 w-full px-4 py-2.5 rounded-xl text-sm font-bold bg-[#0284c7] text-white border border-[#eab308]/40 shadow-sm"
+                onClick={toggleAmbientSound}
+                aria-label="Toggle ambient sound"
+                title="432Hz Ambient Sound"
+                className={`flex items-center gap-2 px-3 py-2 rounded-full text-xs font-bold border transition-all duration-300 ${
+                  isAmbientPlaying
+                    ? 'bg-amber-400 text-slate-900 border-amber-400 shadow-[0_0_20px_rgba(251,191,36,0.4)]'
+                    : 'bg-white/80 dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:border-amber-400'
+                }`}
               >
-                <Wind className="w-4 h-4 text-[#fef08a]" />
-                <span>Simran Breathing Reset</span>
+                {isAmbientPlaying ? (
+                  <Volume2 size={16} className="animate-pulse" />
+                ) : (
+                  <VolumeX size={16} />
+                )}
+                <span className="hidden 2xl:inline">
+                  {isAmbientPlaying ? '432Hz ON' : '432Hz'}
+                </span>
               </button>
-              
+
+              {/* BREATHING */}
+              <button
+                onClick={onOpenBreathing}
+                className="hidden sm:flex items-center gap-2 px-3.5 py-2 rounded-full bg-gradient-to-r from-sky-600 to-blue-500 hover:from-sky-700 hover:to-blue-600 text-white text-xs font-bold shadow-md hover:shadow-sky-500/30 transition-all duration-300 hover:-translate-y-0.5"
+              >
+                <Wind size={16} className="text-amber-200" />
+                <span className="hidden 2xl:inline">
+                  Simran Breath
+                </span>
+              </button>
+
+              {/* THEME */}
+              <button
+                onClick={toggleTheme}
+                aria-label="Toggle theme"
+                title={isDark ? 'Day Mode' : 'Night Mode'}
+                className="w-9 h-9 flex items-center justify-center rounded-full border border-slate-200 dark:border-slate-700 bg-white/80 dark:bg-slate-800 text-sky-600 dark:text-amber-400 hover:rotate-12 hover:border-amber-400 transition-all duration-300"
+              >
+                {isDark ? <Sun size={17} /> : <Moon size={17} />}
+              </button>
+
+              {/* YOUTUBE */}
               <a
                 href="https://www.youtube.com/@amarjit311"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 w-full px-4 py-2.5 rounded-xl bg-red-600 text-white text-sm font-bold shadow-sm"
+                className="hidden lg:flex items-center gap-2 px-4 py-2 rounded-full bg-red-600 hover:bg-red-700 text-white text-xs font-bold shadow-md transition-all duration-300 hover:-translate-y-0.5"
               >
                 <YoutubeIcon className="w-4 h-4" />
-                <span>Visit YouTube Channel (@amarjit311)</span>
+                <span>Subscribe</span>
               </a>
+
+              {/* MOBILE MENU */}
+              <button
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                aria-label="Toggle navigation menu"
+                aria-expanded={isMobileMenuOpen}
+                className="xl:hidden w-10 h-10 flex items-center justify-center rounded-xl bg-sky-50 dark:bg-slate-800 text-sky-700 dark:text-amber-400 hover:bg-sky-100 dark:hover:bg-slate-700 transition-all"
+              >
+                {isMobileMenuOpen ? (
+                  <X size={22} />
+                ) : (
+                  <Menu size={22} />
+                )}
+              </button>
+
             </div>
           </div>
-        )}
-      </div>
-    </header>
+
+          {/* MOBILE NAVIGATION */}
+          {isMobileMenuOpen && (
+            <div className="mobile-dropdown xl:hidden mt-4 mb-2 p-4 rounded-2xl bg-white/95 dark:bg-[#101d32]/95 backdrop-blur-2xl border border-amber-400/20 shadow-2xl">
+
+              <div className="flex items-center justify-between mb-3 pb-3 border-b border-slate-200 dark:border-slate-700">
+                <span className="text-xs font-bold tracking-widest uppercase text-sky-700 dark:text-amber-400">
+                  Explore Shower of Bliss
+                </span>
+                <ChevronDown size={16} className="text-amber-500" />
+              </div>
+
+              <nav className="flex flex-col gap-1">
+                {navLinks.map((link) => (
+                  <a
+                    key={link.name}
+                    href={link.href}
+                    onClick={closeMobileMenu}
+                    className="px-4 py-3 rounded-xl text-sm font-semibold text-slate-700 dark:text-slate-200 hover:bg-sky-50 dark:hover:bg-slate-800 hover:text-sky-600 dark:hover:text-amber-400 transition-all duration-200"
+                  >
+                    {link.name}
+                  </a>
+                ))}
+              </nav>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-4 pt-4 border-t border-slate-200 dark:border-slate-700">
+
+                <button
+                  onClick={() => {
+                    onOpenBreathing();
+                    closeMobileMenu();
+                  }}
+                  className="flex items-center justify-center gap-2 py-3 rounded-xl bg-gradient-to-r from-sky-600 to-blue-500 text-white text-sm font-bold"
+                >
+                  <Wind size={17} />
+                  Simran Breath
+                </button>
+
+                <a
+                  href="https://www.youtube.com/@amarjit311"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-2 py-3 rounded-xl bg-red-600 text-white text-sm font-bold"
+                >
+                  <YoutubeIcon className="w-4 h-4" />
+                  Subscribe on YouTube
+                </a>
+
+              </div>
+            </div>
+          )}
+
+        </div>
+      </header>
+
+      {/* LOGO ANIMATION & NAVBAR EFFECTS */}
+      <style jsx>{`
+        .logo-orbit {
+          background: conic-gradient(
+            from 0deg,
+            #fbbf24,
+            #ffffff,
+            #38bdf8,
+            #f59e0b,
+            #fbbf24
+          );
+          animation: orbitRotate 7s linear infinite,
+                     logoFloat 4s ease-in-out infinite;
+          box-shadow: 0 0 15px rgba(245, 158, 11, 0.25);
+        }
+
+        .logo-image {
+          transition: transform 0.6s ease;
+        }
+
+        .group:hover .logo-image {
+          transform: scale(1.13);
+        }
+
+        .brand-name {
+          background: linear-gradient(
+            100deg,
+            #0369a1 0%,
+            #0ea5e9 35%,
+            #d97706 65%,
+            #0369a1 100%
+          );
+          background-size: 200% auto;
+          background-clip: text;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          animation: brandShimmer 6s ease-in-out infinite;
+        }
+
+        .nav-underline {
+          position: absolute;
+          bottom: 2px;
+          left: 50%;
+          width: 0;
+          height: 2px;
+          border-radius: 10px;
+          background: linear-gradient(90deg, #0284c7, #eab308);
+          transition: all 0.3s ease;
+          transform: translateX(-50%);
+        }
+
+        .nav-link:hover .nav-underline {
+          width: 65%;
+        }
+
+        .mobile-dropdown {
+          animation: dropdownIn 0.3s ease-out;
+        }
+
+        @keyframes orbitRotate {
+          to {
+            transform: rotate(360deg);
+          }
+        }
+
+        @keyframes logoFloat {
+          0%, 100% {
+            translate: 0 0;
+          }
+          50% {
+            translate: 0 -4px;
+          }
+        }
+
+        @keyframes brandShimmer {
+          0%, 100% {
+            background-position: 0% center;
+          }
+          50% {
+            background-position: 100% center;
+          }
+        }
+
+        @keyframes dropdownIn {
+          from {
+            opacity: 0;
+            transform: translateY(-10px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          .logo-orbit,
+          .brand-name {
+            animation: none;
+          }
+        }
+      `}</style>
+    </>
   );
 }

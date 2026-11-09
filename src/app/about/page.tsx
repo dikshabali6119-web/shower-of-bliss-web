@@ -52,7 +52,8 @@ export default function AboutPage() {
                   src="/swami-amarjit.jpg"
                   alt="Swami Amarjit Singh"
                   fill
-                  className="object-cover"
+                  className="object-cover object-top"
+                  priority
                 />
               </div>
               <h3 className="font-serif-bliss text-2xl font-bold text-slate-900 dark:text-white">

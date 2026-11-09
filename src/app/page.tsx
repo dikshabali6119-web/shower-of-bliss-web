@@ -14,11 +14,13 @@ import VideoModal from '@/components/VideoModal';
 import BreathingModal from '@/components/BreathingModal';
 import EventModal from '@/components/EventModal';
 import ArticleModal from '@/components/ArticleModal';
+import GuruBioModal, { GuruBioData } from '@/components/GuruBioModal';
 import { VideoItem, LiveEvent, Article } from '@/types';
 
 export default function Home() {
   const [activeCategory, setActiveCategory] = useState<string>('all');
   const [selectedVideo, setSelectedVideo] = useState<VideoItem | null>(null);
+  const [selectedGuru, setSelectedGuru] = useState<GuruBioData | null>(null);
   const [selectedEvent, setSelectedEvent] = useState<LiveEvent | null>(null);
   const [selectedArticle, setSelectedArticle] = useState<Article | null>(null);
   const [isBreathingOpen, setIsBreathingOpen] = useState<boolean>(false);
@@ -40,6 +42,9 @@ export default function Home() {
   return (
     <div className="min-h-screen flex flex-col relative selection:bg-[#facc15]/30 selection:text-[#0284c7] bg-[var(--bg-primary)] text-[var(--text-primary)] transition-colors duration-300">
       
+      {/* Sacred Celestial Sky Blue Grid Layout (User Requested) */}
+      <div className="fixed inset-0 pointer-events-none -z-10 bg-grid-blue [mask-image:radial-gradient(ellipse_at_center,black_50%,transparent_95%)] opacity-85" />
+
       {/* Glassmorphic Top Navbar with English Links */}
       <Navbar onOpenBreathing={() => setIsBreathingOpen(true)} />
 
@@ -52,8 +57,8 @@ export default function Home() {
           onExploreClick={handleExploreClick}
         />
 
-        {/* Sikh Gurus & Sant Nikka Singh Ji 2-Second Automatic Carousel */}
-        <SikhGurusAutoCarousel onSelectVideo={(video) => setSelectedVideo(video)} />
+        {/* Sikh Gurus & Sant Nikka Singh Ji 2-Second Automatic Carousel (Tap to Read Bio) */}
+        <SikhGurusAutoCarousel onOpenBio={(guru) => setSelectedGuru(guru)} />
 
         {/* Featured Video Slider / Carousel (User Requested) */}
         <div id="featured-slider" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -126,6 +131,12 @@ export default function Home() {
       <ArticleModal
         article={selectedArticle}
         onClose={() => setSelectedArticle(null)}
+      />
+
+      {/* Sikh Gurus & Sant Nikka Singh Ji Sacred Biography Reader Modal */}
+      <GuruBioModal
+        guru={selectedGuru}
+        onClose={() => setSelectedGuru(null)}
       />
 
     </div>

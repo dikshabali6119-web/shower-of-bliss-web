@@ -55,7 +55,7 @@ export const SIKH_DHARMIK_VIDEOS: VideoItem[] = [
     views: '3.1K',
     category: 'sikh-heritage',
     categoryLabel: 'संत निक्का सिंह जी • पूर्ण ब्रह्मज्ञानी',
-    thumbnailUrl: '/swami-amarjit.jpg',
+    thumbnailUrl: '/gurus/sant-nikka-singh.jpg',
     instructor: 'Swami Amarjit Singh',
     frequency: '432Hz Ambient',
     tags: ['Sant Nikka Singh Ji', 'Nirmala Master', 'Guruvani']
@@ -97,7 +97,7 @@ export const SIKH_DHARMIK_VIDEOS: VideoItem[] = [
     views: '2.9K',
     category: 'sikh-heritage',
     categoryLabel: 'स्वामी अमरजीत सिंह • @amarjit311',
-    thumbnailUrl: '/thumbnails/sultan-bahu.jpg',
+    thumbnailUrl: '/swami-amarjit.jpg',
     instructor: 'Swami Amarjit Singh',
     frequency: '528Hz Transformation',
     tags: ['Swami Amarjit Singh', 'Meditation', 'Simran']
