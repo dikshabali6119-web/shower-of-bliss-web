@@ -48,13 +48,20 @@ export default function DynamicFooter() {
   };
 
   return (
-    <footer className="relative mt-20 pt-16 pb-12 border-t-2 border-[#eab308]/40 dark:border-[#eab308]/30 bg-gradient-to-b from-[#e0f2fe]/90 via-[#f0f7ff] to-white dark:from-[#0c1524] dark:via-[#111d33] dark:to-[#080d1a] text-slate-800 dark:text-white transition-colors duration-300 overflow-hidden">
+    <footer 
+      className="relative mt-20 pt-16 pb-12 w-full max-w-full border-t-2 border-[#eab308]/40 dark:border-[#eab308]/30 bg-gradient-to-b from-[#e0f2fe]/90 via-[#f0f7ff] to-white dark:from-[#0c1524] dark:via-[#111d33] dark:to-[#080d1a] text-slate-800 dark:text-white transition-colors duration-300 overflow-hidden"
+      style={{ contain: 'paint', isolation: 'isolate' }}
+    >
       
       {/* SIKH DHARMA ANIMATED BACKGROUND: Sacred Khanda Mandalas, Shower of Bliss Animated Logo & Bubbles */}
-      <div className="absolute inset-0 pointer-events-none -z-10 overflow-hidden">
-        {/* Sacred Animated Shower of Bliss Logo Floating in Background (User Requested) */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 md:left-auto md:right-16 md:translate-x-0 opacity-20 dark:opacity-25 pointer-events-none select-none">
-          <div className="relative w-52 h-52 sm:w-64 sm:h-64 rounded-full overflow-hidden border-4 border-[#eab308]/70 shadow-[0_0_80px_rgba(250,204,21,0.5),0_0_120px_rgba(56,189,248,0.4)] animate-bliss-logo">
+      <div 
+        className="absolute inset-0 pointer-events-none overflow-hidden z-0"
+        style={{ contain: 'strict' }}
+      >
+        
+        {/* Prominent Sacred Animated Shower of Bliss Emblem (User Requested: shower of bliss ki pic animation hoti ayegi) */}
+        <div className="absolute top-28 sm:top-20 right-4 sm:right-12 md:right-16 lg:right-24 pointer-events-none select-none">
+          <div className="relative w-48 h-48 sm:w-60 sm:h-60 md:w-72 md:h-72 rounded-full overflow-hidden border-4 border-[#eab308] shadow-[0_0_60px_rgba(250,204,21,0.55),0_0_100px_rgba(56,189,248,0.45)] animate-bliss-logo opacity-40 dark:opacity-50">
             <Image
               src="/logo.jpg"
               alt="Shower of Bliss background emblem"
@@ -64,24 +71,38 @@ export default function DynamicFooter() {
           </div>
         </div>
 
-        {/* Luminous Rising Bliss Bubbles (User Requested: bublesss b lgaooooo) */}
-        <span className="bubble-bliss w-6 h-6 left-[6%] bottom-10 animate-bubble-1" />
-        <span className="bubble-bliss w-10 h-10 left-[18%] bottom-16 animate-bubble-2" />
-        <span className="bubble-bliss w-5 h-5 left-[32%] bottom-8 animate-bubble-3" />
-        <span className="bubble-bliss w-8 h-8 left-[46%] bottom-12 animate-bubble-4" />
-        <span className="bubble-bliss w-4 h-4 left-[60%] bottom-6 animate-bubble-5" />
-        <span className="bubble-bliss w-9 h-9 left-[74%] bottom-14 animate-bubble-6" />
-        <span className="bubble-bliss w-11 h-11 left-[88%] bottom-10 animate-bubble-7" />
-        <span className="bubble-bliss w-5 h-5 left-[25%] bottom-20 animate-bubble-5" />
-        <span className="bubble-bliss w-7 h-7 left-[82%] bottom-24 animate-bubble-3" />
+        {/* Mini Floating Shower of Bliss Emblems Rising With Bubbles */}
+        <div className="absolute bottom-6 left-[14%] animate-bubble-4 pointer-events-none">
+          <div className="relative w-10 h-10 sm:w-12 sm:h-12 rounded-full overflow-hidden border-2 border-[#eab308] shadow-[0_0_20px_rgba(250,204,21,0.7)] bg-white/30 backdrop-blur-xs">
+            <Image src="/logo.jpg" alt="Mini bliss logo" fill className="object-cover" />
+          </div>
+        </div>
 
-        {/* Right Sacred Rotating Khanda Mandala */}
-        <div className="absolute -bottom-16 -right-12 md:right-6 lg:right-16 opacity-20 dark:opacity-25 transition-opacity">
+        <div className="absolute bottom-12 right-[20%] animate-bubble-6 pointer-events-none">
+          <div className="relative w-9 h-9 sm:w-11 sm:h-11 rounded-full overflow-hidden border-2 border-[#38bdf8] shadow-[0_0_20px_rgba(56,189,248,0.7)] bg-white/30 backdrop-blur-xs">
+            <Image src="/logo.jpg" alt="Mini bliss logo" fill className="object-cover" />
+          </div>
+        </div>
+
+        {/* Luminous Rising Bliss Bubbles (User Requested: bublesss b lgaooooo) */}
+        <span className="bubble-bliss w-6 h-6 left-[7%] bottom-6 animate-bubble-1" />
+        <span className="bubble-bliss w-11 h-11 left-[18%] bottom-12 animate-bubble-2" />
+        <span className="bubble-bliss w-5 h-5 left-[28%] bottom-4 animate-bubble-3" />
+        <span className="bubble-bliss w-9 h-9 left-[39%] bottom-10 animate-bubble-4" />
+        <span className="bubble-bliss w-4 h-4 left-[50%] bottom-5 animate-bubble-5" />
+        <span className="bubble-bliss w-10 h-10 left-[62%] bottom-14 animate-bubble-6" />
+        <span className="bubble-bliss w-12 h-12 left-[73%] bottom-8 animate-bubble-7" />
+        <span className="bubble-bliss w-7 h-7 left-[84%] bottom-16 animate-bubble-8" />
+        <span className="bubble-bliss w-6 h-6 left-[90%] bottom-6 animate-bubble-9" />
+        <span className="bubble-bliss w-8 h-8 left-[33%] bottom-20 animate-bubble-2" />
+
+        {/* Right Sacred Rotating Khanda Mandala (Strictly contained) */}
+        <div className="absolute -bottom-16 -right-10 md:right-4 lg:right-12 opacity-20 dark:opacity-25 transition-opacity overflow-hidden pointer-events-none">
           <SacredKhandaMandala className="w-80 h-80 sm:w-96 sm:h-96" />
         </div>
 
-        {/* Left Ethereal Counter-Rotating Sacred Mandala */}
-        <div className="absolute -top-16 -left-16 md:left-4 opacity-15 dark:opacity-20 transition-opacity">
+        {/* Left Ethereal Counter-Rotating Sacred Mandala (Strictly contained) */}
+        <div className="absolute -top-16 -left-12 md:left-2 opacity-15 dark:opacity-20 transition-opacity overflow-hidden pointer-events-none">
           <SacredKhandaMandala className="w-64 h-64 sm:w-80 sm:h-80" />
         </div>
 
@@ -96,7 +117,7 @@ export default function DynamicFooter() {
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-3/4 h-72 bg-gradient-to-t from-[#38bdf8]/15 via-[#facc15]/10 to-transparent blur-3xl" />
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* TOP SECTION: Daily Quote from Sages & Gurus Card (Watermark removed as requested) */}
         <div className="max-w-4xl mx-auto mb-16">

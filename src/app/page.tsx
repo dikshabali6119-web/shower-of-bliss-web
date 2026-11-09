@@ -11,6 +11,7 @@ import VideoGallery from '@/components/VideoGallery';
 import LiveSatsangsSection from '@/components/LiveSatsangsSection';
 import ArticlesSection from '@/components/ArticlesSection';
 import DynamicFooter from '@/components/DynamicFooter';
+import SlotReveal from '@/components/SlotReveal';
 import VideoModal from '@/components/VideoModal';
 import BreathingModal from '@/components/BreathingModal';
 import EventModal from '@/components/EventModal';
@@ -58,58 +59,72 @@ export default function Home() {
           onExploreClick={handleExploreClick}
         />
 
-        {/* Sikh Gurus & Sant Nikka Singh Ji 2-Second Automatic Carousel (Tap to Read Bio) */}
-        <SikhGurusAutoCarousel onOpenBio={(guru) => setSelectedGuru(guru)} />
+        {/* Sikh Gurus & Sant Nikka Singh Ji 2-Second Automatic Carousel (Slot Animated on Scroll) */}
+        <SlotReveal direction="up" delay={50}>
+          <SikhGurusAutoCarousel onOpenBio={(guru) => setSelectedGuru(guru)} />
+        </SlotReveal>
 
-        {/* Featured Video Slider / Carousel (User Requested) */}
-        <div id="featured-slider" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <VideoSlider onSelectVideo={(video) => setSelectedVideo(video)} />
-        </div>
-
-        {/* The Guru-Shishya Tradition & Nirmala Heritage Section with Sikh Video Slider */}
-        <NirmalaHeritageSection onSelectVideo={(video) => setSelectedVideo(video)} />
-
-        {/* Discourses & Topic Explorer Section */}
-        <section id="discourses" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-16">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-            
-            {/* Left Floating Topic Explorer (4 cols on lg screens, sticky) */}
-            <div id="topics" className="lg:col-span-4 xl:col-span-3">
-              <FloatingSidebar
-                activeCategory={activeCategory}
-                onSelectCategory={(cat) => {
-                  setActiveCategory(cat);
-                  const medElement = document.getElementById('meditations');
-                  if (medElement && window.innerWidth < 1024) {
-                    medElement.scrollIntoView({ behavior: 'smooth' });
-                  }
-                }}
-                onSelectEvents={handleSelectEvents}
-              />
-            </div>
-
-            {/* Interactive Video Gallery Grid (8 cols on lg, 9 on xl) */}
-            <div className="lg:col-span-8 xl:col-span-9">
-              <VideoGallery
-                activeCategory={activeCategory}
-                onSelectVideo={(video) => setSelectedVideo(video)}
-                onCategoryChange={(cat) => setActiveCategory(cat)}
-              />
-            </div>
-
+        {/* Featured Video Slider / Carousel (Slot Animated on Scroll) */}
+        <SlotReveal direction="scale" delay={75}>
+          <div id="featured-slider" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <VideoSlider onSelectVideo={(video) => setSelectedVideo(video)} />
           </div>
-        </section>
+        </SlotReveal>
 
-        {/* Dedicated Section 1: Live Global Satsangs (4 Events - User Requested Separate Section) */}
-        <LiveSatsangsSection onSelectEvent={(event) => setSelectedEvent(event)} />
+        {/* The Guru-Shishya Tradition & Nirmala Heritage Section with Sikh Video Slider (Slot Animated) */}
+        <SlotReveal direction="up" delay={50}>
+          <NirmalaHeritageSection onSelectVideo={(video) => setSelectedVideo(video)} />
+        </SlotReveal>
 
-        {/* Dedicated Section 2: Sacred Articles & Spiritual Essays (4 Articles - User Requested Separate Section) */}
-        <ArticlesSection onSelectArticle={(article) => setSelectedArticle(article)} />
+        {/* Discourses & Topic Explorer Section (Slot Animated) */}
+        <SlotReveal direction="up" delay={50}>
+          <section id="discourses" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-16">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+              
+              {/* Left Floating Topic Explorer (4 cols on lg screens, sticky) */}
+              <div id="topics" className="lg:col-span-4 xl:col-span-3">
+                <FloatingSidebar
+                  activeCategory={activeCategory}
+                  onSelectCategory={(cat) => {
+                    setActiveCategory(cat);
+                    const medElement = document.getElementById('meditations');
+                    if (medElement && window.innerWidth < 1024) {
+                      medElement.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  }}
+                  onSelectEvents={handleSelectEvents}
+                />
+              </div>
+
+              {/* Interactive Video Gallery Grid (8 cols on lg, 9 on xl) */}
+              <div className="lg:col-span-8 xl:col-span-9">
+                <VideoGallery
+                  activeCategory={activeCategory}
+                  onSelectVideo={(video) => setSelectedVideo(video)}
+                  onCategoryChange={(cat) => setActiveCategory(cat)}
+                />
+              </div>
+
+            </div>
+          </section>
+        </SlotReveal>
+
+        {/* Dedicated Section 1: Live Global Satsangs (Slot Animated on Scroll) */}
+        <SlotReveal direction="up" delay={50}>
+          <LiveSatsangsSection onSelectEvent={(event) => setSelectedEvent(event)} />
+        </SlotReveal>
+
+        {/* Dedicated Section 2: Sacred Articles & Spiritual Essays (Slot Animated on Scroll) */}
+        <SlotReveal direction="up" delay={50}>
+          <ArticlesSection onSelectArticle={(article) => setSelectedArticle(article)} />
+        </SlotReveal>
 
       </main>
 
-      {/* Dynamic Footer with Daily Sages Quote & Social Links */}
-      <DynamicFooter />
+      {/* Dynamic Footer with Daily Sages Quote & Social Links (Slot Animated on Scroll) */}
+      <SlotReveal direction="up" delay={30}>
+        <DynamicFooter />
+      </SlotReveal>
 
       {/* Interactive Modals */}
       <VideoModal

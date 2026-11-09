@@ -114,13 +114,13 @@ export default function VideoSlider({ onSelectVideo }: VideoSliderProps) {
               </div>
 
               <h3 
-                className="font-serif-bliss text-xl sm:text-2xl font-bold text-[#0f172a] dark:text-white leading-snug mb-3 hover:text-[#0284c7] dark:hover:text-[#facc15] transition-colors cursor-pointer" 
+                className="font-serif-bliss text-xl sm:text-2xl font-bold text-[#0f172a] dark:text-white leading-snug mb-3 hover:text-[#0284c7] dark:hover:text-[#facc15] transition-colors cursor-pointer min-h-[3.5rem] line-clamp-2" 
                 onClick={() => onSelectVideo(current)}
               >
                 {current.title}
               </h3>
 
-              <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-6 line-clamp-4">
+              <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-6 line-clamp-4 min-h-[4.5rem]">
                 {current.description}
               </p>
             </div>
